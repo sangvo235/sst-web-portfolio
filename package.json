@@ -10,8 +10,8 @@
   },
   "devDependencies": {
     "@types/aws-lambda": "8.10.150",
-    "@workspace/eslint-config": "workspace:*",
-    "@workspace/typescript-config": "workspace:*",
+    "@sst-web-portfolio/eslint-config": "workspace:*",
+    "@sst-web-portfolio/typescript-config": "workspace:*",
     "prettier": "^3.5.1",
     "turbo": "^2.4.2",
     "typescript": "5.7.3"

@@ -14,7 +14,7 @@
     "components": "@/components",
     "hooks": "@/hooks",
     "lib": "@/lib",
-    "utils": "@workspace/ui/lib/utils",
-    "ui": "@workspace/ui/components"
+    "utils": "@sst-web-portfolio/ui/lib/utils",
+    "ui": "@sst-web-portfolio/ui/components"
   }
 }

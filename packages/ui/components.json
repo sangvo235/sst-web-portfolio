@@ -11,10 +11,10 @@
   },
   "iconLibrary": "lucide",
   "aliases": {
-    "components": "@workspace/ui/components",
-    "utils": "@workspace/ui/lib/utils",
-    "hooks": "@workspace/ui/hooks",
-    "lib": "@workspace/ui/lib",
-    "ui": "@workspace/ui/components"
+    "components": "@sst-web-portfolio/ui/components",
+    "utils": "@sst-web-portfolio/ui/lib/utils",
+    "hooks": "@sst-web-portfolio/ui/hooks",
+    "lib": "@sst-web-portfolio/ui/lib",
+    "ui": "@sst-web-portfolio/ui/components"
   }
 }
