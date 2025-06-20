@@ -1,4 +1,20 @@
 {
-  "extends": "@sst-web-portfolio/typescript-config/base.json"
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@sst-web-portfolio/*": ["packages/*/src"]
+    },
+    "module": "esnext",
+    "target": "es2020",
+    "lib": ["es2020"],
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "skipLibCheck": true
+  },
+  "exclude": ["node_modules"],
+  "include": [
+    "packages/*/src",
+    "apps/*/src",
+    "infra/**/*"
+  ]
 }
-
