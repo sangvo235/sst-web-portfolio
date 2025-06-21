@@ -9,5 +9,11 @@ export default $config({
       home: "aws",
     };
   },
-  async run() {},
+  async run() {
+    const next = await import("./infra/nextjs");
+
+    return {
+      url: next.nextjs.url,
+    };
+  },
 });

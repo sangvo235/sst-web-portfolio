@@ -2,7 +2,7 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@sst-web-portfolio/*": ["packages/*/src"]
+      "@sst-web-portfolio/*": ["packages/*/src"],
     },
     "module": "esnext",
     "target": "es2020",
@@ -12,9 +12,5 @@
     "skipLibCheck": true
   },
   "exclude": ["node_modules"],
-  "include": [
-    "packages/*/src",
-    "apps/*/src",
-    "infra/**/*"
-  ]
+  "include": ["packages/*/src", "apps/*/src", "infra/**/*"]
 }
