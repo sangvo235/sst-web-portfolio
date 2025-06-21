@@ -1,0 +1,24 @@
+node_modules
+
+# Keep environment variables out of version control
+.env
+.env.*
+
+/generated/prisma
+
+# Build outputs
+dist/
+build/
+.out/
+
+# SST-specific
+.sst/
+
+# Logs and debug
+npm-debug.log*
+pnpm-debug.log*
+yarn-debug.log*
+*.log
+
+# OS/system
+.DS_Store
