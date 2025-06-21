@@ -15,6 +15,6 @@
     "hooks": "@/hooks",
     "lib": "@/lib",
     "utils": "@sst-web-portfolio/ui/lib/utils",
-    "ui": "@sst-web-portfolio/ui/components"
+    "ui/*": ["apps/web/app/components/general/*"]
   }
 }
