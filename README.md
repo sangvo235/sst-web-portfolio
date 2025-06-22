@@ -19,6 +19,7 @@ Access the application here:
   - [sso](#sso)
   - [sst Configuration](#sst-configuration)
   - [sst Deployment](#sst-deployment)
+  - [prisma](#prisma)
 
 # Short Demo
 
@@ -126,4 +127,33 @@ AWS_PROFILE = test npx sst deploy --stage develop
 - Remove from AWS:
 ```
 AWS_PROFILE = test npx sst remove --stage develop
+```
+
+## prisma
+- Installs Prisma CLI for migrations/etc.
+```
+pnpm add -D prisma
+```
+- Installs the Prisma Client for runtime use.
+```
+pnpm add @prisma/client    
+```
+- Creates initial schema + .env.
+```
+pnpm dlx prisma init   
+```
+
+- After this you should set up a db (I will be using Neon due to cost constraints otherwise you can choose to have it set up and deployed to AWS via sst).
+- Eg. AppSync, AWS RDS, etc...
+- Connect the db to prisma by updating the URL in .env.
+
+- Reads schema.prisma, connects to the DB (based on DATABASE_URL) and creates/updates tables to match current models.
+- NOTE: It does overwrite history so recommended to use `prisma migrate` in production later.
+```
+pnpm dlx prisma db push
+```
+- Launches a GUI tool to explore and edit data in your database via Prisma.
+- Will use this to add some data in easily.
+```
+pnpm dlx prisma studio
 ```
