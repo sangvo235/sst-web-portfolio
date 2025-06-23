@@ -48,19 +48,19 @@ export const Bio = () => {
             <div className='text-5xl flex justify-center gap-8 text-gray-600 dark:text-gray-300 md:justify-start md:order-first md:gap-12'>
                 <Link
                     href="/projects"
-                    className={`${buttonVariants()} text-white text-xl font-semibold px-6 py-6 bg-blue-500 rounded shadow hover:bg-blue-700 cursor-pointer`}
+                    className={`${buttonVariants({ variant : "project"})} `}
                     >
                     Projects
                 </Link>
 
                 <Link href="https://www.linkedin.com/in/sangvo235/" target="_blank" title="linkedin">
-                    <AiFillLinkedin className="hover:text-sky-700 hover:-translate-y-1 transition-transform cursor-pointer"/>
+                    <AiFillLinkedin className="hover:text-blue-500 hover:-translate-y-1 transition-transform cursor-pointer"/>
                 </Link>
                 <Link href="https://github.com/sangvo235">
-                    <AiFillGithub className="hover:text-sky-700 hover:-translate-y-1 transition-transform cursor-pointer" target="_blank" title="github"/>
+                    <AiFillGithub className="hover:text-blue-500 hover:-translate-y-1 transition-transform cursor-pointer" target="_blank" title="github"/>
                 </Link>
                 <Link href="mailto:sangvo235@gmail.com" target="_blank" title="email">
-                    <AiFillMail className="hover:text-sky-700 hover:-translate-y-1 transition-transform cursor-pointer"/>
+                    <AiFillMail className="hover:text-blue-500 hover:-translate-y-1 transition-transform cursor-pointer"/>
                 </Link>
             </div>
         </div>
