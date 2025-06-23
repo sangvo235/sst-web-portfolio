@@ -12,6 +12,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
+    "@kinde-oss/kinde-auth-nextjs": "^2.8.0",
     "@prisma/client": "^6.10.1",
     "@radix-ui/react-navigation-menu": "^1.2.13",
     "@radix-ui/react-slot": "^1.1.2",
