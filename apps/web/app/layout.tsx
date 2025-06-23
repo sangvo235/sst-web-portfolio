@@ -24,7 +24,7 @@ export default function RootLayout({
     <AuthProvider>
       <html lang="en" suppressHydrationWarning>
         <body
-          className={`${fontSans.variable} ${fontMono.variable} font-sans antialiased max-w-7xl mx-auto px-4 sm:px-6 lg:px-8`}
+          className={`${fontSans.variable} ${fontMono.variable} font-sans antialiased max-w-7xl mx-auto py-4 pt-20`}
         >
           <Providers>
             <Navbar />
