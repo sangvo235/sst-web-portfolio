@@ -14,10 +14,12 @@
   "dependencies": {
     "@kinde-oss/kinde-auth-nextjs": "^2.8.0",
     "@prisma/client": "^6.10.1",
+    "@radix-ui/react-label": "^2.1.7",
     "@radix-ui/react-navigation-menu": "^1.2.13",
-    "@radix-ui/react-slot": "^1.1.2",
+    "@radix-ui/react-slot": "^1.2.3",
     "@sst-web-portfolio/ui": "workspace:*",
     "class-variance-authority": "^0.7.1",
+    "embla-carousel-react": "^8.6.0",
     "lucide-react": "^0.475.0",
     "next": "^15.2.3",
     "next-themes": "^0.4.4",
