@@ -22,10 +22,10 @@ export async function Navbar() {
                         Home
                     </Link>
                     <Link 
-                        href="/dashboard"
+                        href="/blogs"
                         className="text-sm font-medium hover:text-blue-500 transition-colors"
                     >
-                        Dashboard
+                        Blogs
                     </Link>
                 </div>
 
