@@ -7,17 +7,18 @@ import { redirect } from "next/navigation";
 export async function handleSubmission(formData: FormData) {
     const { getUser } = getKindeServerSession();
     const user = await getUser();
+    
     if (!user) {
-        throw new Error("User not found");
+        return redirect("/api/auth/register");
     }
 
     const title = formData.get('title');
     const content = formData.get('content');
     const imageUrl = formData.get('imageUrl');
 
-    const data = await prisma.blogPost.create({
+    await prisma.blogPost.create({
         data: {
-            // TO COMPLETE: SS VALIDATION
+            // TO COMPLETE: ERROR HANDLING & SS VALIDATION
             title: title as string,
             content: content as string,
             imageUrl: imageUrl as string,
