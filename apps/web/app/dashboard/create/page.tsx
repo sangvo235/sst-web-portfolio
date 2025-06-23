@@ -2,8 +2,8 @@ import { Card, CardDescription, CardHeader, CardTitle, CardContent } from "@/com
 import { Label } from "@/components/ui/label"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
-import { Button } from "@/components/ui/button"
 import { handleSubmission } from "@/app/action"
+import { SubmitButton } from "@/components/general/SubmitButton"
 
 export default async function CreateBlogRoute() {
     return (
@@ -31,7 +31,7 @@ export default async function CreateBlogRoute() {
                             <Input name="imageUrl" required type="url" placeholder="Image URL"/>
                         </div>
 
-                        <Button>Create Post</Button>
+                        <SubmitButton />
                     </form>
                 </CardContent>
             </Card>
