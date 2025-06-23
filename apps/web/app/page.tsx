@@ -1,4 +1,5 @@
 import { prisma } from "./utils/db";
+import { Bio } from '@/components/general/Bio';
 
 async function getData() {
   const data = await prisma.blogPost.findMany({
@@ -20,6 +21,7 @@ export default async function Home() {
   const data = await getData();
   return (
     <div className="py-6"> 
+      <Bio />
       <h1 className="text-3xl font-bold tracking-tight mb-8">Latest Post</h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg: grid-cols-3 gap-4"> 
         {data.map((item) => (
