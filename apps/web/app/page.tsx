@@ -16,6 +16,9 @@ async function getData() {
       createdAt: true,
     },
     take: 6,
+    orderBy: {
+      createdAt: 'desc',
+    },
   });
 
   return data;
