@@ -116,17 +116,17 @@ vi ~/.aws/config
 ## sst Deployment
 - Run sst locally.
 ```
-AWS_PROFILE = test npx sst dev
+AWS_PROFILE=test npx sst dev
 ```
 - To check via local need to download [Dev Console sst link](https://console.sst.dev/) and link up your AWS account and creating a stack.
 
 - Deploy to AWS:
 ```
-AWS_PROFILE = test npx sst deploy --stage develop
+AWS_PROFILE=test npx sst deploy --stage develop
 ```
 - Remove from AWS:
 ```
-AWS_PROFILE = test npx sst remove --stage develop
+AWS_PROFILE=test npx sst remove --stage develop
 ```
 
 ## prisma
