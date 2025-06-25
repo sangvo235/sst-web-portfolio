@@ -6,8 +6,7 @@
     "build": "turbo build",
     "dev": "turbo dev",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
-    "lint": "turbo lint",
-    "postinstall": "prisma generate"
+    "lint": "turbo lint"
   },
   "devDependencies": {
     "@sst-web-portfolio/eslint-config": "workspace:*",
