@@ -21,7 +21,8 @@ async function getData(userId: string) {
 }
 
 export default async function BlogsRoute() {
-    const { getUser } = getKindeServerSession();
+    const { getUser, getPermission } = getKindeServerSession();
+    
     const user = await getUser();
 
     if (!user) {
@@ -30,12 +31,18 @@ export default async function BlogsRoute() {
 
     const data = await getData(user.id);
 
+    const requiredPermission = await getPermission('add:blog');
+
     return (
         <div>
             <div className="flex items-center justify-between mb-4">
                 <h2 className="text-xl font-medium">Sang's Blog Articles</h2>
 
-                <Link className={buttonVariants()}href="/blogs/create">Create Post</Link>
+                {requiredPermission?.isGranted && (
+                    <Link className={buttonVariants()} href="/blogs/create">
+                    Create Post
+                    </Link>
+                )}
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
