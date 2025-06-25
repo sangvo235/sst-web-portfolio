@@ -39,15 +39,14 @@ export default async function Home() {
         <Carousel className="w-full max-w-screen-lg center-item">
           <CarouselContent className="flex">
             {data.map((item, index) => (
-              <CarouselItem key={index} className="pl-1 md:basis-1/2 lg:basis-1/3">
-                <div className="p-1">
-                  <Card>
-                    <div className="relative h-48 w-full overflow-hidden">
+              <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
+                  <Card className="group">
+                    <div className="relative h-48 w-full">
                         <Image 
                             src={item.imageUrl} 
                             alt="Image for blog"
                             fill
-                            // className="object-cover transition-transform duration-300 group-hover:scale-105"
+                            className="object-cover transition-transform duration-300 group-hover:scale-105"
                         />
                     </div>
                     <CardTitle className="px-4">{item.title}</CardTitle>
@@ -69,7 +68,6 @@ export default async function Home() {
                         </div>
                     </div>
                   </Card>
-                </div>
               </CarouselItem>
             ))}
           </CarouselContent>
