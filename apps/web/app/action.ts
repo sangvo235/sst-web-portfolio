@@ -28,5 +28,5 @@ export async function handleSubmission(formData: FormData) {
         }
     })
 
-    return redirect("/dashboard");
+    return redirect("/blogs");
 }
