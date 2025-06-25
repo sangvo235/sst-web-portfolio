@@ -4,6 +4,8 @@ import { prisma } from "@/app/utils/db";
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 import { BlogPostCard } from "@/components/general/BlogPostCard";
 import { redirect } from "next/navigation";
+import { Suspense } from "react";
+import { Skeleton } from "@/components/ui/skeleton";
 
 async function getData(userId: string) {
     const data = await prisma.blogPost.findMany({
@@ -37,9 +39,28 @@ export default async function BlogsRoute() {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                {data.map((item) => (
-                    <BlogPostCard data={item} key={item.id}/>
-                ))}
+                <Suspense
+                    fallback={
+                    <div className="flex justify-center w-full">
+                        {[...Array(6)].map((_, i) => (
+                            <div
+                            key={i}
+                            className="rounded-xl border shadow-sm overflow-hidden"
+                            >
+                            <Skeleton className="h-48 w-full" />
+                            <div className="p-4 space-y-2">
+                                <Skeleton className="h-5 w-3/4" />
+                                <Skeleton className="h-4 w-full" />
+                            </div>
+                            </div>
+                        ))}
+                    </div>
+                    }
+                >
+                    {data.map((item) => (
+                        <BlogPostCard data={item} key={item.id}/>
+                    ))}
+                </Suspense>
             </div>
         </div>
     )
