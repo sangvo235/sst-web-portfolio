@@ -6,7 +6,8 @@
     "build": "turbo build",
     "dev": "turbo dev",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
-    "lint": "turbo lint"
+    "lint": "turbo lint",
+    "postinstall": "prisma generate"
   },
   "devDependencies": {
     "@types/aws-lambda": "8.10.150",
