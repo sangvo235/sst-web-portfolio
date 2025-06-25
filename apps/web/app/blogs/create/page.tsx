@@ -16,7 +16,7 @@ export default async function CreateBlogRoute() {
 
     const requiredPermission = await getPermission('add:blog');
     if (!requiredPermission?.isGranted) {
-        return redirect('/');
+        return redirect("/api/auth/register");
     }
 
     return (

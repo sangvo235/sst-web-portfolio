@@ -1,8 +1,14 @@
 import { withAuth } from '@kinde-oss/kinde-auth-nextjs/middleware';
 
 export default withAuth({
-    // add public routes later for portofolio aspect
-    publicPaths: ["/"]
+    publicPaths: [
+    "/",
+    "/blogs",
+    "/post/",
+    "/experience",
+    "/education",
+    "/projects",
+    ],
 });
 
 export const config = {
