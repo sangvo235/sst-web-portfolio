@@ -7,11 +7,8 @@ import { redirect } from "next/navigation";
 import { Suspense } from "react";
 import { Skeleton } from "@/components/ui/skeleton";
 
-async function getData(userId: string) {
+async function getData() {
     const data = await prisma.blogPost.findMany({
-        where: {
-            authorId: userId,
-        },
         orderBy: {
             createdAt: 'desc',
         },
@@ -21,21 +18,22 @@ async function getData(userId: string) {
 }
 
 export default async function BlogsRoute() {
-    const { getUser } = getKindeServerSession();
-    const user = await getUser();
+    const { getPermission } = getKindeServerSession();
+    
+    const data = await getData();
 
-    if (!user) {
-        return redirect("api/auth/register");
-    }
-
-    const data = await getData(user.id);
+    const requiredPermission = await getPermission('add:blog');
 
     return (
         <div>
             <div className="flex items-center justify-between mb-4">
                 <h2 className="text-xl font-medium">Sang's Blog Articles</h2>
 
-                <Link className={buttonVariants()}href="/blogs/create">Create Post</Link>
+                {requiredPermission?.isGranted && (
+                    <Link className={buttonVariants()} href="/blogs/create">
+                    Create Post
+                    </Link>
+                )}
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">

@@ -1,15 +1,28 @@
-import { Card, CardDescription, CardHeader, CardTitle, CardContent } from "@/components/ui/card"
+import { Card, CardDescription, CardHeader, CardTitle, CardContent, CardFooter } from "@/components/ui/card"
 import { Label } from "@/components/ui/label"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { handleSubmission } from "@/app/action"
 import { SubmitButton } from "@/components/general/SubmitButton"
+import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server"
+import { redirect } from "next/navigation";
 
 export default async function CreateBlogRoute() {
+    const { isAuthenticated, getPermission } = getKindeServerSession();
+
+    if (!isAuthenticated) {
+        return redirect("/api/auth/register");
+    }
+
+    const requiredPermission = await getPermission('add:blog');
+    if (!requiredPermission?.isGranted) {
+        return redirect("/api/auth/register");
+    }
+
     return (
-        <div>
-            <Card className="max-w-lg mx-auto">
-                <CardHeader>
+        <div className="pt-4">
+            <Card className="max-w-lg mx-auto p-6">
+                <CardHeader className="pt-4">
                     <CardTitle>Create Post</CardTitle>
                     <CardDescription>Create a new post to share with ppl</CardDescription>
                 </CardHeader>
@@ -34,6 +47,7 @@ export default async function CreateBlogRoute() {
                         <SubmitButton />
                     </form>
                 </CardContent>
+                <CardFooter />
             </Card>
         </div>
     )
