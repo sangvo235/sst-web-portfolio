@@ -35,7 +35,7 @@ export async function LatestBlogPosts() {
                     <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3 px-2">
                         <Link href={`/post/${item.id}`} className="block h-full">
                             <Card className="group overflow-hidden transition-all hover:shadow-lg">
-                                <div className="relative h-48 w-full overflow-hidden rounded-t-xl">
+                                <div className="relative h-48 w-full overflow-hidden">
                                     <Image
                                         src={item.imageUrl}
                                         alt="Image for blog"
