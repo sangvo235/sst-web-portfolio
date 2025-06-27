@@ -6,7 +6,7 @@ CREATE TABLE "BlogPost" (
     "authorLastName" TEXT NOT NULL,
     "authorImage" TEXT NOT NULL,
     "title" TEXT NOT NULL,
-    "readTime" INTEGER NOT NULL,
+    "readTime" TEXT NOT NULL,
     "imageUrl" TEXT NOT NULL,
     "content" TEXT NOT NULL,
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,

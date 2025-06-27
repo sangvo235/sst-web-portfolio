@@ -36,9 +36,6 @@ importers:
       '@kinde-oss/kinde-auth-nextjs':
         specifier: ^2.8.0
         version: 2.8.0(eslint@9.20.1(jiti@2.4.2))(next@15.2.3(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(typescript@5.7.3)
-      '@prisma/client':
-        specifier: ^6.10.1
-        version: 6.10.1(prisma@6.10.1(typescript@5.7.3))(typescript@5.7.3)
       '@radix-ui/react-label':
         specifier: ^2.1.7
         version: 2.1.7(@types/react-dom@19.0.4(@types/react@19.0.10))(@types/react@19.0.10)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
@@ -79,6 +76,9 @@ importers:
         specifier: ^2.22.0
         version: 2.22.0(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
     devDependencies:
+      '@prisma/client':
+        specifier: ^6.10.1
+        version: 6.10.1(prisma@6.10.1(typescript@5.7.3))(typescript@5.7.3)
       '@sst-web-portfolio/eslint-config':
         specifier: workspace:^
         version: link:../../packages/eslint-config

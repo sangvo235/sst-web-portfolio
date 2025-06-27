@@ -8,8 +8,8 @@ async function getData() {
   const data = await prisma.blogPost.findMany({
     select: {
       title: true,
-      content: true,
       imageUrl: true,
+      content: true,
       authorImage: true,
       authorFirstName: true,
       authorLastName: true,
