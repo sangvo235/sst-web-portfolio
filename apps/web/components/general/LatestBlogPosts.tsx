@@ -29,7 +29,7 @@ export async function LatestBlogPosts() {
     const data = await getData();
 
     return (
-        <div className="flex justify-center w-full">
+        <div className="flex justify-center w-full px-12">
             <Carousel className="w-full max-w-screen-lg">
                 <CarouselContent className="flex">
                     {data.map((item, index) => (
