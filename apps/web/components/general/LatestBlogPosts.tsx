@@ -34,7 +34,7 @@ export async function LatestBlogPosts() {
                 <CarouselContent className="flex">
                     {data.map((item, index) => (
                     <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
-                        <Link href={`/post/${item.id}`} className="block h-full">
+                        <Link href={`/blogs/${item.id}`} className="block h-full">
                             <Card className="group overflow-hidden transition-all hover:shadow-lg">
                                 <div className="relative h-48 w-full overflow-hidden">
                                     <Image

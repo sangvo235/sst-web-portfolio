@@ -20,7 +20,7 @@ interface IappProps {
 export function BlogPostCard({ data }: IappProps) {
   return (
     <Card className="group overflow-hidden transition-all hover:shadow-lg">
-      <Link href={`/post/${data.id}`} className="block w-full h-full">
+      <Link href={`/blogs/${data.id}`} className="block w-full h-full">
         <div className="relative h-48 w-full overflow-hidden">
           <Image
             src={data.imageUrl}
