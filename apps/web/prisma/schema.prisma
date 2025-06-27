@@ -17,13 +17,14 @@ datasource db {
 
 model BlogPost {
   id               String @id @default(uuid())
-  title            String 
-  content          String
-  imageUrl         String
   authorId         String
   authorFirstName  String
   authorLastName   String
   authorImage      String
+  title            String 
+  readTime         Int
+  imageUrl         String
+  content          String
   createdAt        DateTime @default(now())
   updatedAt        DateTime @updatedAt
 
@@ -32,11 +33,11 @@ model BlogPost {
 
 model Comment {
   id               String     @id @default(uuid())
-  content          String
   authorId         String
   authorFirstName  String
   authorLastName   String
   authorImage      String
+  content          String
   createdAt        DateTime   @default(now())
   updatedAt        DateTime   @updatedAt
 

@@ -14,6 +14,7 @@ export async function handleSubmission(formData: FormData) {
 
     const title = formData.get('title');
     const content = formData.get('content');
+    const readTime = formData.get('readTime');
     const imageUrl = formData.get('imageUrl');
 
     await prisma.blogPost.create({
@@ -21,6 +22,7 @@ export async function handleSubmission(formData: FormData) {
             // TO COMPLETE: ERROR HANDLING & SS VALIDATION
             title: title as string,
             content: content as string,
+            readTime: readTime as number,
             imageUrl: imageUrl as string,
             authorId: user.id,
             authorImage: user.picture as string,
