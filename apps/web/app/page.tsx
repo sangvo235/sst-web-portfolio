@@ -5,7 +5,7 @@ import { Skeleton } from '@/components/ui/skeleton';
 
 export default async function Home() {
   return (
-    <div className="py-6"> 
+    <div className="py-6 px-8"> 
       <Suspense fallback={<Skeleton className="w-full h-[400px]" />}>
         <Bio />
       </Suspense>
