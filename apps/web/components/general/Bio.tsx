@@ -11,7 +11,7 @@ export const Bio = () => {
     
   return (
     <div className='flex flex-col text-center items-center justify-center my-4 md:flex-row-reverse md:space-x-4 md:text-left'>
-        <div className='relative mx-auto w-80 h-60 md:w-3/5 md:mt-4'>
+        <div className='relative mx-auto w-80 h-60 md:w-1/2 md:mt-4'>
             <Image 
                 className='object-cover rounded-full'
                 src="https://media.myswitzerland.com/image/fetch/w_2160,h_800,c_limit,f_auto,q_auto,e_sharpen:50/https%3A%2F%2Fwww.myswitzerland.com%2F-%2Fmedia%2Fcelum%20connect%2F2022%2F03%2F09%2F06%2F56%2F24%2Fzermatt-peak-matterhorn-glacier-paradise.jpg"
@@ -29,7 +29,7 @@ export const Bio = () => {
                 <Typewriter
                     options={{
                         strings: [
-                            'Graduate Software Engineer',
+                            'Grad Software Engineer',
                             'Master of IT Graduate',
                             'Coffee Addict ☕',
                             'Sci-fi Book Reader',
