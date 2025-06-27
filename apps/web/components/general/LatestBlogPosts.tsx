@@ -11,7 +11,8 @@ async function getData() {
       content: true,
       imageUrl: true,
       authorImage: true,
-      authorName: true,
+      authorFirstName: true,
+      authorLastName: true,
       id: true,
       createdAt: true,
     },
@@ -57,14 +58,14 @@ export async function LatestBlogPosts() {
                                         <div className="relative size-8 overflow-hidden rounded-full">
                                             <Image
                                             src={item.authorImage}
-                                            alt={item.authorName}
+                                            alt={`${item.authorFirstName} ${item.authorLastName}`}
                                             fill
                                             className="object-cover"
                                             />
                                         </div>
 
                                         <p className="text-sm font-medium text-gray-700">
-                                            {item.authorName}
+                                            {item.authorFirstName} {item.authorLastName}
                                         </p>
                                         </div>
 

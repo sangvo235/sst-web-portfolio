@@ -24,7 +24,8 @@ export async function handleSubmission(formData: FormData) {
             imageUrl: imageUrl as string,
             authorId: user.id,
             authorImage: user.picture as string,
-            authorName: user.given_name as string,
+            authorFirstName: user.given_name as string,
+            authorLastName: user.family_name as string,
         }
     })
 

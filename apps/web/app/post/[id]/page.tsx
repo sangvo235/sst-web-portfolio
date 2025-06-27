@@ -29,7 +29,8 @@ export default async function IdPage({ params }: { params: Params }) {
     // TODO: CURRENTLY MOCK DATA - ADD COMMENT MODEL TO DB
     const comment = {
         authorImage: "https://media.myswitzerland.com/image/fetch/w_2160,h_800,c_limit,f_auto,q_auto,e_sharpen:50/https%3A%2F%2Fwww.myswitzerland.com%2F-%2Fmedia%2Fcelum%20connect%2F2023%2F07%2F13%2F13%2F44%2F45%2Fzermatt-grindjisee.jpg",
-        authorName: "Jane Doe",
+        authorFirstName: "Jane",
+        authorLastName: "Doe",
         createdAt: "2030-01-01T13:00:00Z",
         text: "Wow Sang!! This is amazing you should be promoted to intern!",
     };
@@ -55,14 +56,14 @@ export default async function IdPage({ params }: { params: Params }) {
                   <div className="relative size-8 overflow-hidden rounded-full">
                       <Image
                       src={data.authorImage}
-                      alt={data.authorName}
+                      alt={`${data.authorFirstName} ${data.authorLastName}`}
                       fill
                       className="object-cover"
                       />
                   </div>
 
                   <p className="text-md font-medium text-gray-700">
-                      {data.authorName}
+                      {data.authorFirstName} {data.authorLastName}
                   </p>
 
                   <p className="text-md text-gray-500 flex items-center">
@@ -110,13 +111,13 @@ export default async function IdPage({ params }: { params: Params }) {
                               <div className="relative size-8 overflow-hidden rounded-full">
                               <Image
                                   src={comment.authorImage}
-                                  alt={comment.authorName}
+                                  alt={`${comment.authorFirstName} ${comment.authorLastName}`}
                                   fill
                                   className="object-cover"
                               />
                               </div>
                               <p className="text-sm font-medium text-gray-700">
-                              {comment.authorName}
+                                  {comment.authorFirstName} {comment.authorLastName}
                               </p>
                           </div>
 
