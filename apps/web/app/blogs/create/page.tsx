@@ -35,13 +35,18 @@ export default async function CreateBlogRoute() {
                         </div>
 
                         <div className="flex flex-col gap-2">
-                            <Label>Content</Label>
-                            <Textarea name="content" required placeholder="Content"/>
+                            <Label>Read Time</Label>
+                            <Input name="readTime" required placeholder="Read Time"/>
                         </div>
 
                         <div className="flex flex-col gap-2">
                             <Label>Image URL</Label>
                             <Input name="imageUrl" required type="url" placeholder="Image URL"/>
+                        </div>
+
+                        <div className="flex flex-col gap-2">
+                            <Label>Content</Label>
+                            <Textarea name="content" required placeholder="Content"/>
                         </div>
 
                         <SubmitButton />

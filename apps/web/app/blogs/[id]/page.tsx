@@ -78,7 +78,7 @@ export default async function IdPage({ params }: { params: Params }) {
 
                   <p className="text-md text-gray-500 flex items-center">
                       {/* TODO: minute suggestion add to db */}
-                      <span>2 min read</span>
+                      <span>{data.readTime} min read</span>
                       <span className="mx-2">&bull;</span>
                       <span>
                           {new Intl.DateTimeFormat("en-AU", {
