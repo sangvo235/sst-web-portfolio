@@ -16,7 +16,12 @@ import { Input } from "@/components/ui/input"
 async function getData(id: string) {
     const data = await prisma.blogPost.findUnique({
         where: { id: id },
-        include: { comments: true },
+        include: {
+            comments: true,
+            _count: {
+                select: { comments: true },
+            },
+        },
     });
 
     if(!data) {
@@ -82,11 +87,17 @@ export default async function IdPage({ params }: { params: Params }) {
                           day: "numeric",
                           }).format(new Date(data.createdAt))}
                       </span>
-                      {/* TODO: SEARCH comments # and link to comment section below */}
+
                       <span className="mx-2">&bull;</span>
-                      <Link href="/blogs" className="flex items-center gap-2" aria-label="View comments">
-                          2 <BiComment className="text-md"/>
-                      </Link>
+                
+                    <Link
+                        href="#comments"
+                        className="flex items-center gap-1 px-2 py-1 rounded hover:text-blue-500"
+                        aria-label="View comments"
+                    >
+                        {data._count.comments}
+                    <BiComment className="text-md" />
+                    </Link>
                   </p>
               </div>
           </div>
@@ -103,6 +114,8 @@ export default async function IdPage({ params }: { params: Params }) {
           <p className="col-start-2 col-span-4 text-md text-gray-600 py-4">
               {data.content}
           </p>
+          
+          <span id="comments" />
 
           <p className="col-start-2 col-span-4 text-xl font-semibold">
               Comments
