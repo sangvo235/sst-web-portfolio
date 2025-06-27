@@ -4,8 +4,6 @@ import Link from "next/link";
 import { buttonVariants } from "../ui/button";
 import { LoginLink, RegisterLink, LogoutLink } from '@kinde-oss/kinde-auth-nextjs/components';
 import { useState } from "react";
-import { useTheme } from "next-themes";
-import { RiMoonFill, RiSunLine } from "react-icons/ri";
 import { IoMdMenu, IoMdClose } from "react-icons/io";
 import Image from "next/image";
 import ThemeToggle from '@/components/general/ThemeToggle';
@@ -23,7 +21,6 @@ interface NavbarProps {
     picture: string;
   };
 }
-
 
 export default function Navbar({ user }: NavbarProps)  {
   const [navbar, setNavbar] = useState(false);
@@ -52,12 +49,12 @@ export default function Navbar({ user }: NavbarProps)  {
               navbar ? 'block' : 'hidden'
             }`}
           >
-            <div className='items-center justify-center space-y-8 md:flex md:space-x-4 md:space-y-0 md:text-md lg:space-x-12'>
+            <div className='flex flex-col items-start gap-4 md:flex-row md:items-center space-x-4 lg:space-x-12'>
               {NAV_ITEMS.map((item, idx) => (
                 <Link
                   key={idx}
                   href={`/${item.page}`}
-                  className="block lg:inline-block text-md font-medium hover:text-blue-500 transition-colors"
+                  className="text-md font-medium hover:text-blue-500 transition-colors"
                   onClick={() => setNavbar(false)}
                 >
                   {item.label}

@@ -10,7 +10,7 @@ import { buttonVariants } from "@/components/ui/button";
 export const Bio = () => {
     
   return (
-    <div className='flex flex-col text-center items-center justify-center my-4 md:flex-row-reverse md:space-x-4 md:text-left'>
+    <div className='flex flex-col text-center items-center justify-center md:flex-row-reverse md:space-x-4 md:text-left'>
         <div className='relative mx-auto w-80 h-60 md:w-1/2 md:mt-4'>
             <Image 
                 className='object-cover rounded-full'

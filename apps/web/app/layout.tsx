@@ -26,8 +26,10 @@ export default async function Layout({ children }: { children: React.ReactNode }
         <body className={`${fontSans.variable} ${fontMono.variable} font-sans antialiased`}>
           <Providers>
             <Navbar user={user} />
-            <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 pt-20">
-              {children}
+            <main className="pt-4">
+              <div className="max-w-7xl mx-auto mt-8 pt-20 px-4 sm:px-6 lg:px-8">
+                {children}
+              </div>
             </main>
           </Providers>
         </body>
