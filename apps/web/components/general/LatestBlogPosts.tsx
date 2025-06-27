@@ -11,7 +11,8 @@ async function getData() {
       content: true,
       imageUrl: true,
       authorImage: true,
-      authorName: true,
+      authorFirstName: true,
+      authorLastName: true,
       id: true,
       createdAt: true,
     },
@@ -33,7 +34,7 @@ export async function LatestBlogPosts() {
                 <CarouselContent className="flex">
                     {data.map((item, index) => (
                     <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
-                        <Link href={`/post/${item.id}`} className="block h-full">
+                        <Link href={`/blogs/${item.id}`} className="block h-full">
                             <Card className="group overflow-hidden transition-all hover:shadow-lg">
                                 <div className="relative h-48 w-full overflow-hidden">
                                     <Image
@@ -57,14 +58,14 @@ export async function LatestBlogPosts() {
                                         <div className="relative size-8 overflow-hidden rounded-full">
                                             <Image
                                             src={item.authorImage}
-                                            alt={item.authorName}
+                                            alt={`${item.authorFirstName} ${item.authorLastName}`}
                                             fill
                                             className="object-cover"
                                             />
                                         </div>
 
                                         <p className="text-sm font-medium text-gray-700">
-                                            {item.authorName}
+                                            {item.authorFirstName} {item.authorLastName}
                                         </p>
                                         </div>
 

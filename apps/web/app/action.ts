@@ -24,9 +24,37 @@ export async function handleSubmission(formData: FormData) {
             imageUrl: imageUrl as string,
             authorId: user.id,
             authorImage: user.picture as string,
-            authorName: user.given_name as string,
+            authorFirstName: user.given_name as string,
+            authorLastName: user.family_name as string,
         }
     })
 
     return redirect("/blogs");
+}
+
+export async function handleCommentSubmission(formData: FormData) {
+    const { getUser } = getKindeServerSession();
+    const user = await getUser();
+    
+    if (!user) {
+        return redirect("/api/auth/register");
+    }
+
+    const content = formData.get('content');
+    const postId = formData.get('postId');
+
+    await prisma.comment.create({
+        data: {
+            // TO COMPLETE: ERROR HANDLING & SS VALIDATION
+            content: content as string,
+            postId: postId as string,
+            authorId: user.id,
+            authorImage: user.picture as string,
+            authorFirstName: user.given_name as string,
+            authorLastName: user.family_name as string,
+        }
+    })
+
+    // TO COMPLETE: no redirect and have it manifest on the current page
+    return redirect(`/blogs/${postId}`);
 }

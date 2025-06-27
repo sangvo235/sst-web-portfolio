@@ -5,12 +5,23 @@ import { buttonVariants } from "@/components/ui/button";
 import Image from "next/image";
 import { Card, CardContent, CardHeader, CardFooter } from "@/components/ui/card";
 import { BiComment } from "react-icons/bi";
+import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
+import { redirect } from "next/navigation";
+import { Textarea } from "@/components/ui/textarea"
+import { SubmitButton } from "@/components/general/SubmitButton"
+import { handleCommentSubmission } from "@/app/action"
+import { Label } from "@/components/ui/label"
+import { Input } from "@/components/ui/input"
 
 async function getData(id: string) {
     const data = await prisma.blogPost.findUnique({
-        where: {
-            id: id,
-        }
+        where: { id: id },
+        include: {
+            comments: true,
+            _count: {
+                select: { comments: true },
+            },
+        },
     });
 
     if(!data) {
@@ -23,16 +34,16 @@ async function getData(id: string) {
 type Params = Promise<{id: string}>;
 
 export default async function IdPage({ params }: { params: Params }) {
-    const { id } = await params; 
-    const data = await getData(id);
+    const { isAuthenticated, getPermission } = getKindeServerSession();
 
-    // TODO: CURRENTLY MOCK DATA - ADD COMMENT MODEL TO DB
-    const comment = {
-        authorImage: "https://media.myswitzerland.com/image/fetch/w_2160,h_800,c_limit,f_auto,q_auto,e_sharpen:50/https%3A%2F%2Fwww.myswitzerland.com%2F-%2Fmedia%2Fcelum%20connect%2F2023%2F07%2F13%2F13%2F44%2F45%2Fzermatt-grindjisee.jpg",
-        authorName: "Jane Doe",
-        createdAt: "2030-01-01T13:00:00Z",
-        text: "Wow Sang!! This is amazing you should be promoted to intern!",
-    };
+    if (!isAuthenticated ) {
+        return redirect("/api/auth/register");
+    }
+
+    const requiredPermission = await getPermission('comment:blog');
+
+    const { id } = await params;
+    const data = await getData(id);
 
     return (
       <div className="grid grid-cols-6 gap-4">
@@ -55,14 +66,14 @@ export default async function IdPage({ params }: { params: Params }) {
                   <div className="relative size-8 overflow-hidden rounded-full">
                       <Image
                       src={data.authorImage}
-                      alt={data.authorName}
+                      alt={`${data.authorFirstName} ${data.authorLastName}`}
                       fill
                       className="object-cover"
                       />
                   </div>
 
                   <p className="text-md font-medium text-gray-700">
-                      {data.authorName}
+                      {data.authorFirstName} {data.authorLastName}
                   </p>
 
                   <p className="text-md text-gray-500 flex items-center">
@@ -76,11 +87,17 @@ export default async function IdPage({ params }: { params: Params }) {
                           day: "numeric",
                           }).format(new Date(data.createdAt))}
                       </span>
-                      {/* TODO: SEARCH comments # and link to comment section below */}
+
                       <span className="mx-2">&bull;</span>
-                      <Link href="/blogs" className="flex items-center gap-2" aria-label="View comments">
-                          2 <BiComment className="text-md"/>
-                      </Link>
+                
+                    <Link
+                        href="#comments"
+                        className="flex items-center gap-1 px-2 py-1 rounded hover:text-blue-500"
+                        aria-label="View comments"
+                    >
+                        {data._count.comments}
+                    <BiComment className="text-md" />
+                    </Link>
                   </p>
               </div>
           </div>
@@ -97,26 +114,28 @@ export default async function IdPage({ params }: { params: Params }) {
           <p className="col-start-2 col-span-4 text-md text-gray-600 py-4">
               {data.content}
           </p>
+          
+          <span id="comments" />
 
-          <p className="col-start-2 col-span-4 text-xl font-semibold py-2">
+          <p className="col-start-2 col-span-4 text-xl font-semibold">
               Comments
           </p>
 
-          <div className="col-start-2 col-span-4 py-4 px-6">
-              <Card className="p-4">
-                  <CardHeader className="pb-2">
+            {data.comments.map((comment) => (
+              <Card className="col-start-2 col-span-4 p-4" key={comment.id}>
+                  <CardHeader className="p-2">
                       <div className="flex items-center justify-between">
                           <div className="flex items-center gap-2">
                               <div className="relative size-8 overflow-hidden rounded-full">
                               <Image
                                   src={comment.authorImage}
-                                  alt={comment.authorName}
+                                  alt={`${comment.authorFirstName} ${comment.authorLastName}`}
                                   fill
                                   className="object-cover"
                               />
                               </div>
                               <p className="text-sm font-medium text-gray-700">
-                              {comment.authorName}
+                                  {comment.authorFirstName} {comment.authorLastName}
                               </p>
                           </div>
 
@@ -133,11 +152,29 @@ export default async function IdPage({ params }: { params: Params }) {
                   </CardHeader>
 
                   <CardContent>
-                      <p className="text-sm text-gray-800 pl-8">{comment.text}</p>
+                      <p className="text-sm text-gray-800 pl-8">{comment.content}</p>
                   </CardContent>
                   <CardFooter />
               </Card>
-          </div>
+            ))}
+        
+            <div className="col-start-2 col-span-4 px-6">
+                <Label className="py-2">Add your comment</Label>
+
+                {requiredPermission?.isGranted && (
+                    <div>
+                        <form className="flex flex-col gap-4 mb-4" action={handleCommentSubmission}>
+                            <Input type="hidden" name="postId" value={id} />
+
+                            <div className="flex flex-col gap-2">
+                                <Textarea name="content" required placeholder="Content"/>
+                            </div>
+
+                            <SubmitButton />
+                        </form>
+                    </div>
+                )}
+            </div>
       </div>
     )
 }

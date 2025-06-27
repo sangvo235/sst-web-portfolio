@@ -4,7 +4,7 @@ export default withAuth({
     publicPaths: [
     "/",
     "/blogs",
-    "/post/",
+    "/blogs/",
     "/experience",
     "/education",
     "/projects",
