@@ -26,7 +26,7 @@ export default async function BlogsRoute() {
     return (
         <div>
             <div className="flex items-center justify-between mb-4">
-                <h2 className="text-xl font-medium">Sang's Blog Articles</h2>
+                <h1 className="text-3xl font-bold tracking-tight my-4">Sang's Blog Articles</h1>
 
                 {requiredPermission?.isGranted && (
                     <Link className={buttonVariants()} href="/blogs/create">
