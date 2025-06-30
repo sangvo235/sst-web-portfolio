@@ -44,3 +44,14 @@ model Comment {
   post             BlogPost   @relation(fields: [postId], references: [id])
   postId           String
 }
+
+model Experience {
+  id               String   @id @default(cuid())
+  imageUrl         String
+  title            String
+  company          String
+  dateStart        DateTime
+  dateEnd          DateTime?
+  description      String
+  skills           String[]
+}

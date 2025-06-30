@@ -22,6 +22,11 @@ const nextConfig = {
         hostname: 'news.mit.edu',
         protocol: 'https',
         port: '',
+      },
+      {
+        hostname: 'media.licdn.com',
+        protocol: 'https',
+        port: '',
       }
     ],
   },
