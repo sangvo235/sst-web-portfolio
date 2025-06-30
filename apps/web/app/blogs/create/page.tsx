@@ -7,7 +7,7 @@ import { SubmitButton } from "@/components/general/SubmitButton"
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server"
 import { redirect } from "next/navigation";
 
-export default async function CreateBlogRoute() {
+export default async function CreateBlogPage() {
     const { isAuthenticated, getPermission } = getKindeServerSession();
 
     if (!isAuthenticated) {
