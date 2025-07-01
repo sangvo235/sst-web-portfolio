@@ -65,3 +65,13 @@ model Education {
   dateEnd          DateTime?
   description      String
 }
+
+model Projects {
+  id               String   @id @default(cuid())
+  title            String
+  description      String
+  imageUrl         String
+  githubUrl        String
+  demoUrl          String
+  skills           String[]
+}
