@@ -55,3 +55,13 @@ model Experience {
   description      String
   skills           String[]
 }
+
+model Education {
+  id               String   @id @default(cuid())
+  imageUrl         String
+  title            String
+  name             String
+  dateStart        DateTime
+  dateEnd          DateTime?
+  description      String
+}
