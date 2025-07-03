@@ -134,3 +134,38 @@ export async function handleEducationSubmission(formData: FormData) {
     // TO COMPLETE: no redirect and have it manifest on the current page
     return redirect("/education");
 }
+
+export async function handleProjectSubmission(formData: FormData) {
+    const { getUser } = getKindeServerSession();
+    const user = await getUser();
+    
+    if (!user) {
+        return redirect("/api/auth/register");
+    }
+
+    const title = formData.get('title');
+    const imageUrl = formData.get('imageUrl');
+    const description = formData.get('description');
+    const githubUrl = formData.get('githubUrl');
+    const demoUrl = formData.get('demoUrl');
+    const techIconUrl = formData.get('techIconUrl');
+
+    const techIconUrls = typeof techIconUrl === 'string'
+    ? techIconUrl.split(',').map(s => s.trim()).filter(Boolean)
+    : [];
+
+    await prisma.projects.create({
+        data: {
+            // TO COMPLETE: ERROR HANDLING & SS VALIDATION
+            title: title as string,
+            description: description as string,
+            imageUrl: imageUrl as string,
+            githubUrl: githubUrl as string,
+            demoUrl: demoUrl as string,
+            techIconUrls: techIconUrls as string[],
+        }
+    })
+
+    // TO COMPLETE: no redirect and have it manifest on the current page
+    return redirect(`/projects`);
+}
