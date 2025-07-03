@@ -73,5 +73,5 @@ model Projects {
   imageUrl         String
   githubUrl        String
   demoUrl          String
-  skills           String[]
+  techIconUrl      String[]
 }
