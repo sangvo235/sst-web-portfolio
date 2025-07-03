@@ -24,7 +24,7 @@ export default async function CreateBlogPage() {
             <Card className="max-w-lg mx-auto p-6">
                 <CardHeader className="pt-4">
                     <CardTitle>Create Post</CardTitle>
-                    <CardDescription>Create a new post to share with ppl</CardDescription>
+                    <CardDescription>Create a new post to share with everyone.</CardDescription>
                 </CardHeader>
 
                 <CardContent>
