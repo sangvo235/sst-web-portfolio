@@ -4,7 +4,7 @@ import { prisma } from "@/app/utils/db";
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 import { redirect } from "next/navigation";
 
-export async function handleSubmission(formData: FormData) {
+export async function handleBlogSubmission(formData: FormData) {
     const { getUser } = getKindeServerSession();
     const user = await getUser();
     

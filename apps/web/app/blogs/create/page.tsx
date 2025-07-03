@@ -2,7 +2,7 @@ import { Card, CardDescription, CardHeader, CardTitle, CardContent, CardFooter }
 import { Label } from "@/components/ui/label"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
-import { handleSubmission } from "@/app/action"
+import { handleBlogSubmission } from "@/app/action"
 import { SubmitButton } from "@/components/general/SubmitButton"
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server"
 import { redirect } from "next/navigation";
@@ -28,7 +28,7 @@ export default async function CreateBlogPage() {
                 </CardHeader>
 
                 <CardContent>
-                    <form className="flex flex-col gap-4" action={handleSubmission}>
+                    <form className="flex flex-col gap-4" action={handleBlogSubmission}>
                         <div className="flex flex-col gap-2">
                             <Label>Title</Label>
                             <Input name="title" required type="text" placeholder="Title"/>

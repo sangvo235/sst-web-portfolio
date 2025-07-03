@@ -2,7 +2,7 @@ import { Card, CardDescription, CardHeader, CardTitle, CardContent, CardFooter }
 import { Label } from "@/components/ui/label"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
-import { handleProjectSubmission, handleSubmission } from "@/app/action"
+import { handleProjectSubmission } from "@/app/action"
 import { SubmitButton } from "@/components/general/SubmitButton"
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server"
 import { redirect } from "next/navigation";
