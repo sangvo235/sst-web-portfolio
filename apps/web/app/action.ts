@@ -162,6 +162,10 @@ export async function handleProjectSubmission(formData: FormData) {
             imageUrl: imageUrl as string,
             githubUrl: githubUrl as string,
             demoUrl: demoUrl as string,
+            authorId: user.id,
+            authorImage: user.picture as string,
+            authorFirstName: user.given_name as string,
+            authorLastName: user.family_name as string,
             techIconUrls: techIconUrls as string[],
         }
     })
