@@ -24,7 +24,7 @@ export default async function ProjectPage() {
     const requiredPermission = await getPermission('add:project');
 
     return (
-        <div>
+        <>
             <div className="flex items-center justify-between mb-4">
                 <h1 className="text-3xl font-bold tracking-tight my-4">Sang's Projects</h1>
 
@@ -59,6 +59,6 @@ export default async function ProjectPage() {
                     ))}
                 </Suspense>
             </div>
-        </div>
+        </>
     )
 }

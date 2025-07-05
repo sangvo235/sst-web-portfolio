@@ -35,6 +35,11 @@ export default async function CreateProjectPage() {
                         </div>
 
                         <div className="flex flex-col gap-2">
+                            <Label>Read Time</Label>
+                            <Input name="readTime" required type="text" placeholder="Read Time"/>
+                        </div>
+
+                        <div className="flex flex-col gap-2">
                             <Label>Image URL</Label>
                             <Input name="imageUrl" required type="url" placeholder="Image URL"/>
                         </div>

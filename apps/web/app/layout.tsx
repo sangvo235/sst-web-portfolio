@@ -27,7 +27,7 @@ export default async function Layout({ children }: { children: React.ReactNode }
           <Providers>
             <Navbar user={user} />
             <main className="pt-4">
-              <div className="max-w-7xl mx-auto mt-8 pt-20 px-4 sm:px-6 lg:px-8">
+              <div className="max-w-7xl mx-auto mt-8 pt-20 pb-20 px-4 sm:px-6 lg:px-8">
                 {children}
               </div>
             </main>

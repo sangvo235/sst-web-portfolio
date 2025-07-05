@@ -24,7 +24,7 @@ export default async function BlogsRoute() {
     const requiredPermission = await getPermission('add:blog');
 
     return (
-        <div>
+        <>
             <div className="flex items-center justify-between mb-4">
                 <h1 className="text-3xl font-bold tracking-tight my-4">Sang's Blog Articles</h1>
 
@@ -59,6 +59,6 @@ export default async function BlogsRoute() {
                     ))}
                 </Suspense>
             </div>
-        </div>
+        </>
     )
 }
