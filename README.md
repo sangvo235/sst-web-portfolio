@@ -157,3 +157,22 @@ pnpm dlx prisma db push
 ```
 pnpm dlx prisma studio
 ```
+
+UPDATED - COMMANDS!!
+- Generate initial migration
+```
+pnpm dlx prisma migrate dev --name init
+```
+
+- Creates a migration file with just the difference (the new column).
+- Applies the change to the database without dropping existing data.
+- Keeps full migration history (good for long-term projects).
+- Generate subsequent migrations
+```
+pnpm dlx prisma migrate dev --name ""
+```
+
+- Full reset of db if there are severe issues.
+```
+pnpm dlx prisma migrate reset
+```
