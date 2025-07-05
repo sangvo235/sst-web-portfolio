@@ -52,7 +52,7 @@ export default async function IdPage({ params }: { params: Params }) {
           <div className="col-span-6 pt-4 pl-8">
               <Link
               className={buttonVariants({ variant: "secondary" })}
-              href="/blogs"
+              href="/projects"
               >
               Back to projects
               </Link>
@@ -191,7 +191,7 @@ export default async function IdPage({ params }: { params: Params }) {
             <div className="col-start-2 col-span-4 px-6">
                 <Label className="py-2">Add your comment</Label>
 
-                {/* TODO: ADD comment suggestion */}
+                {/* TODO: ADD comment placeholder if no one commented*/}
 
                 {requiredPermission?.isGranted && (
                     <div>
