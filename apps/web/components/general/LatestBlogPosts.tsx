@@ -44,7 +44,7 @@ export async function LatestBlogPosts() {
                                         className="object-cover transition-transform duration-300 group-hover:scale-105"
                                     />
                                 </div>
-                                <CardContent className="px-4 pt-4 pb-6">                
+                                <CardContent className="px-4 pb-6">                
                                     <CardTitle className="text-lg font-semibold text-gray-900 mb-2">
                                         {item.title}
                                     </CardTitle>

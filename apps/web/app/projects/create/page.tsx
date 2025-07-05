@@ -2,19 +2,19 @@ import { Card, CardDescription, CardHeader, CardTitle, CardContent, CardFooter }
 import { Label } from "@/components/ui/label"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
-import { handleBlogSubmission } from "@/app/action"
+import { handleProjectSubmission } from "@/app/action"
 import { SubmitButton } from "@/components/general/SubmitButton"
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server"
 import { redirect } from "next/navigation";
 
-export default async function CreateBlogPage() {
+export default async function CreateProjectPage() {
     const { isAuthenticated, getPermission } = getKindeServerSession();
 
     if (!isAuthenticated) {
         return redirect("/api/auth/register");
     }
 
-    const requiredPermission = await getPermission('add:blog');
+    const requiredPermission = await getPermission('add:project');
     if (!requiredPermission?.isGranted) {
         return redirect("/api/auth/register");
     }
@@ -23,12 +23,12 @@ export default async function CreateBlogPage() {
         <div className="pt-4">
             <Card className="max-w-lg mx-auto p-6">
                 <CardHeader className="pt-4">
-                    <CardTitle>Create Post</CardTitle>
-                    <CardDescription>Create a new post to share with everyone.</CardDescription>
+                    <CardTitle>Create Project</CardTitle>
+                    <CardDescription>Create a new project to share with everyone.</CardDescription>
                 </CardHeader>
 
                 <CardContent>
-                    <form className="flex flex-col gap-4" action={handleBlogSubmission}>
+                    <form className="flex flex-col gap-4" action={handleProjectSubmission}>
                         <div className="flex flex-col gap-2">
                             <Label>Title</Label>
                             <Input name="title" required type="text" placeholder="Title"/>
@@ -36,7 +36,7 @@ export default async function CreateBlogPage() {
 
                         <div className="flex flex-col gap-2">
                             <Label>Read Time</Label>
-                            <Input name="readTime" required placeholder="Read Time"/>
+                            <Input name="readTime" required type="text" placeholder="Read Time"/>
                         </div>
 
                         <div className="flex flex-col gap-2">
@@ -45,8 +45,23 @@ export default async function CreateBlogPage() {
                         </div>
 
                         <div className="flex flex-col gap-2">
-                            <Label>Content</Label>
-                            <Textarea name="content" required placeholder="Content"/>
+                            <Label>GitHub URL</Label>
+                            <Input name="githubUrl" required type="url" placeholder="GitHub URL"/>
+                        </div>
+
+                        <div className="flex flex-col gap-2">
+                            <Label>Demo URL</Label>
+                            <Input name="demoUrl" required type="url" placeholder="Demo URL"/>
+                        </div>
+
+                        <div className="flex flex-col gap-2">
+                            <Label>Description</Label>
+                            <Textarea name="description" required placeholder="Description"/>
+                        </div>
+
+                        <div className="flex flex-col gap-2">
+                            <Label>Tech Icon URLs</Label>
+                            <Textarea name="techIconUrl" required placeholder="Tech Icon Urls"/>
                         </div>
 
                         <SubmitButton />

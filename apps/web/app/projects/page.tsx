@@ -2,12 +2,12 @@ import Link from "next/link";
 import { buttonVariants } from "@/components/ui/button";
 import { prisma } from "@/app/utils/db";
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
-import { BlogPostCard } from "@/components/general/BlogPostCard";
+import { ProjectCard } from "@/components/general/ProjectCard";
 import { Suspense } from "react";
 import { Skeleton } from "@/components/ui/skeleton";
 
 async function getData() {
-    const data = await prisma.blogPost.findMany({
+    const data = await prisma.projects.findMany({
         orderBy: {
             createdAt: 'desc',
         },
@@ -16,21 +16,21 @@ async function getData() {
     return data;
 }
 
-export default async function BlogsRoute() {
+export default async function ProjectPage() {
     const { getPermission } = getKindeServerSession();
     
     const data = await getData();
 
-    const requiredPermission = await getPermission('add:blog');
+    const requiredPermission = await getPermission('add:project');
 
     return (
         <>
             <div className="flex items-center justify-between mb-4">
-                <h1 className="text-3xl font-bold tracking-tight my-4">Sang's Blog Articles</h1>
+                <h1 className="text-3xl font-bold tracking-tight my-4">Sang's Projects</h1>
 
                 {requiredPermission?.isGranted && (
-                    <Link className={buttonVariants()} href="/blogs/create">
-                    Create Post
+                    <Link className={buttonVariants()} href="/projects/create">
+                    Create Project
                     </Link>
                 )}
             </div>
@@ -55,7 +55,7 @@ export default async function BlogsRoute() {
                     }
                 >
                     {data.map((item) => (
-                        <BlogPostCard data={item} key={item.id}/>
+                        <ProjectCard data={item} key={item.id}/>
                     ))}
                 </Suspense>
             </div>

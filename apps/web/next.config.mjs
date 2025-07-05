@@ -27,6 +27,16 @@ const nextConfig = {
         hostname: 'media.licdn.com',
         protocol: 'https',
         port: '',
+      },
+      {
+        hostname: 'github.com',
+        protocol: 'https',
+        port: '',
+      },
+      {
+        hostname: 'svgrepo.com',
+        protocol: 'https',
+        port: '',
       }
     ],
   },
