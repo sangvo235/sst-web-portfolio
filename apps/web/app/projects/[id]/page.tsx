@@ -78,7 +78,6 @@ export default async function IdPage({ params }: { params: Params }) {
                   </p>
 
                   <p className="text-md text-gray-500 flex items-center">
-                      {/* TODO: minute suggestion add to db */}
                       <span>{data.readTime} min read</span>
                       <span className="mx-2">&bull;</span>
                       <span>
@@ -151,7 +150,12 @@ export default async function IdPage({ params }: { params: Params }) {
               Comments
           </p>
 
-            {data.comments.map((comment) => (
+          {data.comments.length === 0 ? (
+            <p className="col-start-2 col-span-4 text-sm text-gray-500 italic">
+                No comments yet.
+            </p>
+            ) : (
+            data.comments.map((comment) => (
               <Card className="col-start-2 col-span-4 p-4" key={comment.id}>
                   <CardHeader className="p-2">
                       <div className="flex items-center justify-between">
@@ -180,13 +184,14 @@ export default async function IdPage({ params }: { params: Params }) {
                           </div>
                       </div>
                   </CardHeader>
-
+                
                   <CardContent>
                       <p className="text-sm text-gray-800 pl-8">{comment.content}</p>
                   </CardContent>
                   <CardFooter />
               </Card>
-            ))}
+                ))
+            )}
         
             <div className="col-start-2 col-span-4 px-6">
                 <Label className="py-2">Add your comment</Label>

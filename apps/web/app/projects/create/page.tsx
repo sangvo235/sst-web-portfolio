@@ -61,27 +61,27 @@ export default async function CreateProjectPage() {
 
                         <div className="flex flex-col gap-2">
                             <Label>Image URL</Label>
-                            <Input name="imageUrl" required type="url" placeholder="Image URL"/>
+                            <Input name="imageUrl" type="url" placeholder="Image URL" required/>
                         </div>
 
                         <div className="flex flex-col gap-2">
                             <Label>GitHub URL</Label>
-                            <Input name="githubUrl" required type="url" placeholder="GitHub URL"/>
+                            <Input name="githubUrl" type="url" placeholder="GitHub URL" required/>
                         </div>
 
                         <div className="flex flex-col gap-2">
                             <Label>Demo URL</Label>
-                            <Input name="demoUrl" required type="url" placeholder="Demo URL"/>
+                            <Input name="demoUrl" type="url" placeholder="Demo URL" required/>
                         </div>
 
                         <div className="flex flex-col gap-2">
                             <Label>Description</Label>
-                            <Textarea name="description" required placeholder="Description"/>
+                            <Textarea name="description" placeholder="Description" required/>
                         </div>
 
                         <div className="flex flex-col gap-2">
                             <Label>Tech Icon URLs</Label>
-                            <Textarea name="techIconUrl" required placeholder="Tech Icon Urls"/>
+                            <Textarea name="techIconUrl" placeholder="Tech Icon Urls" required/>
                         </div>
 
                         <SubmitButton />

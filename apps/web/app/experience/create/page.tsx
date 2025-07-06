@@ -34,36 +34,36 @@ export default async function CreateExperiencePage() {
                     <form className="flex flex-col gap-4" action={handleExperienceSubmission}>
                         <div className="flex flex-col gap-2">
                             <Label>Title</Label>
-                            <Input name="title" required type="text" placeholder="Title"/>
+                            <Input name="title" type="text" placeholder="Title" required/>
                         </div>
 
                         <div className="flex flex-col gap-2">
                             <Label>Company</Label>
-                            <Input name="company" required placeholder="Company"/>
+                            <Input name="company" placeholder="Company" required/>
                         </div>
                         
                         <div className="flex flex-col gap-2">
                             <Label>Start Date</Label>
-                            <Input name="startDate" required placeholder="Start Date" disabled/>
+                            <Input name="startDate" placeholder="Start Date" required disabled/>
                             {/* TODO: FIGURE OUT FIX TO DATEPICKER PASSING PROPS for server side. */}
                             {/* <DatePicker name="startDate" required placeholder="Start Date"/> */}
                         </div>
 
                         <div className="flex flex-col gap-2">
                             <Label>Start Date</Label>
-                            <Input name="endDate" required placeholder="End Date" disabled/>
+                            <Input name="endDate" placeholder="End Date" required disabled/>
                             {/* TODO: FIGURE OUT FIX TO DATEPICKER PASSING PROPS for server side. */}
                             {/* <DatePicker name="startDate" required placeholder="Start Date"/> */}
                         </div>
 
                         <div className="flex flex-col gap-2">
                             <Label>Image URL</Label>
-                            <Input name="imageUrl" required type="url" placeholder="Image URL"/>
+                            <Input name="imageUrl" type="url" placeholder="Image URL" required/>
                         </div>
 
                         <div className="flex flex-col gap-2">
                             <Label>Description</Label>
-                            <Textarea name="description" required placeholder="Description"/>
+                            <Textarea name="description" placeholder="Description" required/>
                         </div>
                         
                         <div className="flex flex-col gap-2">

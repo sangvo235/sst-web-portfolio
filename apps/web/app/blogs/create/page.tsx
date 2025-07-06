@@ -38,7 +38,7 @@ export default async function CreateBlogPage() {
                     <form className="flex flex-col gap-4" action={handleBlogSubmission}>
                         <div className="flex flex-col gap-2">
                             <Label>Title</Label>
-                            <Input name="title" required type="text" placeholder="Title"/>
+                            <Input name="title" type="text" placeholder="Title" required/>
                         </div>
 
                         <div className="flex flex-col gap-2">
@@ -77,12 +77,18 @@ export default async function CreateBlogPage() {
 
                         <div className="flex flex-col gap-2">
                             <Label>Image URL</Label>
-                            <Input name="imageUrl" required type="url" placeholder="Image URL"/>
+                            <Input name="imageUrl" type="url" placeholder="Image URL" required/>
                         </div>
+
+                        {/* TODO: S3 Bucket to store images and point as Prisma doesn't accept file types 
+                        <div className="grid w-full max-w-sm items-center gap-3">
+                            <Label htmlFor="picture">Picture</Label>
+                            <Input id="picture" type="file" />
+                        </div> */}
 
                         <div className="flex flex-col gap-2">
                             <Label>Content</Label>
-                            <Textarea name="content" required placeholder="Content"/>
+                            <Textarea name="content" placeholder="Content" required/>
                         </div>
 
                         <SubmitButton />
