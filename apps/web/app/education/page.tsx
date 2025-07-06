@@ -82,7 +82,7 @@ export default async function EducationPage() {
                                     </AccordionTrigger>
 
                                     <AccordionContent className="px-4 py-3 text-gray-700">
-                                        <p className="mb-4 text-sm text-gray-600">{item.description}</p>
+                                        <p className="mb-4 text-sm text-gray-600">{item.content}</p>
                                     </AccordionContent>
                                 </AccordionItem>
                             </Accordion>

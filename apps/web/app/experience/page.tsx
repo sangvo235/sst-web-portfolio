@@ -86,7 +86,7 @@ export default async function ExperiencePage() {
                                     </AccordionTrigger>
 
                                     <AccordionContent className="px-4 py-3 text-gray-700">
-                                        <p className="mb-4 text-sm text-gray-600">{item.description}</p>
+                                        <p className="mb-4 text-sm text-gray-600">{item.content}</p>
 
                                         <div className="flex flex-col items-center mb-4">
                                             <Label className="mb-2">Skills</Label>

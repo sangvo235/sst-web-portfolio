@@ -25,8 +25,8 @@ export default async function CreateEducationPage() {
         <div className="pt-4">
             <Card className="max-w-lg mx-auto p-6">
                 <CardHeader className="pt-4">
-                    <CardTitle>Create Education</CardTitle>
-                    <CardDescription>Create a new education to share with everyone.</CardDescription>
+                    <CardTitle>Create Education Post</CardTitle>
+                    <CardDescription>Create a new education post to share with everyone.</CardDescription>
                 </CardHeader>
 
                 <CardContent>
@@ -50,8 +50,8 @@ export default async function CreateEducationPage() {
                         </div>
 
                         <div className="flex flex-col gap-2">
-                            <Label>Description</Label>
-                            <Textarea name="description" placeholder="Description" required/>
+                            <Label>Content</Label>
+                            <Textarea name="content" placeholder="Content" required/>
                         </div>
 
                         <SubmitButton />

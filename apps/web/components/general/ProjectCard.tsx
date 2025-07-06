@@ -6,7 +6,7 @@ interface ProjectCardProps {
     data: {
         id: string;
         title: string;
-        description: string;
+        content: string;
         imageUrl: string;
         githubUrl: string;
         demoUrl: string;
@@ -39,7 +39,7 @@ export function ProjectCard({ data }: ProjectCardProps) {
           </h3>
 
           <p className="text-sm text-gray-600 line-clamp-3 h-[4.5rem] leading-[1.5rem]">
-          {data.description}
+          {data.content}
           </p>
 
           <div className="w-full overflow-hidden">

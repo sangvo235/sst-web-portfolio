@@ -30,8 +30,8 @@ export default async function CreateBlogPage() {
         <div className="pt-4">
             <Card className="max-w-lg mx-auto p-6">
                 <CardHeader className="pt-4">
-                    <CardTitle>Create Post</CardTitle>
-                    <CardDescription>Create a new post to share with everyone.</CardDescription>
+                    <CardTitle>Create Blog Post</CardTitle>
+                    <CardDescription>Create a new blog post to share with everyone.</CardDescription>
                 </CardHeader>
 
                 <CardContent>

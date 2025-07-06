@@ -2,7 +2,6 @@
 
 import { prisma } from "@/app/utils/db";
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
-import { read } from "fs";
 import { redirect } from "next/navigation";
 
 export async function handleBlogSubmission(formData: FormData) {
@@ -84,7 +83,7 @@ export async function handleExperienceSubmission(formData: FormData) {
     const company = formData.get('company');
     const dateStart = formData.get('dateStart');
     const dateEnd = formData.get('dateEnd');
-    const description = formData.get('description');
+    const content = formData.get('content');
     const skill = formData.get('skill');
 
     const skills = typeof skill === 'string'
@@ -99,7 +98,7 @@ export async function handleExperienceSubmission(formData: FormData) {
             company: company as string,
             dateStart: new Date(dateStart as string),
             dateEnd: dateEnd ? new Date(dateEnd as string) : null,
-            description: description as string,
+            content: content as string,
             skills: skills as string[],
         }
     })
@@ -121,7 +120,7 @@ export async function handleEducationSubmission(formData: FormData) {
     const name = formData.get('name');
     const dateStart = formData.get('dateStart');
     const dateEnd = formData.get('dateEnd');
-    const description = formData.get('description');
+    const content = formData.get('content');
 
     await prisma.education.create({
         data: {
@@ -131,7 +130,7 @@ export async function handleEducationSubmission(formData: FormData) {
             name: name as string,
             dateStart: new Date(dateStart as string),
             dateEnd: dateEnd ? new Date(dateEnd as string) : null,
-            description: description as string,
+            content: content as string,
         }
     })
     
@@ -149,7 +148,7 @@ export async function handleProjectSubmission(formData: FormData) {
 
     const title = formData.get('title');
     const imageUrl = formData.get('imageUrl');
-    const description = formData.get('description');
+    const content = formData.get('content');
     const readTime = formData.get('readTime');
     const githubUrl = formData.get('githubUrl');
     const demoUrl = formData.get('demoUrl');
@@ -163,7 +162,7 @@ export async function handleProjectSubmission(formData: FormData) {
         data: {
             // TO COMPLETE: ERROR HANDLING & SS VALIDATION
             title: title as string,
-            description: description as string,
+            content: content as string,
             imageUrl: imageUrl as string,
             readTime: readTime as string,
             githubUrl: githubUrl as string,

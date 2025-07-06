@@ -22,7 +22,7 @@ model Experience {
   company          String
   dateStart        DateTime
   dateEnd          DateTime?
-  description      String
+  content          String
   skills           String[]
 }
 
@@ -33,7 +33,7 @@ model Education {
   name             String
   dateStart        DateTime
   dateEnd          DateTime?
-  description      String
+  content          String
 }
 
 model Projects {
@@ -43,7 +43,7 @@ model Projects {
   authorLastName   String
   authorImage      String
   title            String
-  description      String
+  content          String
   readTime         String
   imageUrl         String
   githubUrl        String

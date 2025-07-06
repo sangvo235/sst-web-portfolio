@@ -30,8 +30,8 @@ export default async function CreateProjectPage() {
         <div className="pt-4">
             <Card className="max-w-lg mx-auto p-6">
                 <CardHeader className="pt-4">
-                    <CardTitle>Create Project</CardTitle>
-                    <CardDescription>Create a new project to share with everyone.</CardDescription>
+                    <CardTitle>Create Project Post</CardTitle>
+                    <CardDescription>Create a new project post to share with everyone.</CardDescription>
                 </CardHeader>
 
                 <CardContent>
@@ -75,8 +75,8 @@ export default async function CreateProjectPage() {
                         </div>
 
                         <div className="flex flex-col gap-2">
-                            <Label>Description</Label>
-                            <Textarea name="description" placeholder="Description" required/>
+                            <Label>Content</Label>
+                            <Textarea name="content" placeholder="content" required/>
                         </div>
 
                         <div className="flex flex-col gap-2">

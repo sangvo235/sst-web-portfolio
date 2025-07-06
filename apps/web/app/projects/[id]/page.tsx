@@ -141,7 +141,7 @@ export default async function IdPage({ params }: { params: Params }) {
           </div>
   
           <p className="col-start-2 col-span-4 text-md text-gray-600 py-2">
-              {data.description}
+              {data.content}
           </p>
           
           <span id="comments" />

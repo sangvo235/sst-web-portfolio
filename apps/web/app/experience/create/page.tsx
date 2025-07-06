@@ -25,8 +25,8 @@ export default async function CreateExperiencePage() {
         <div className="pt-4">
             <Card className="max-w-lg mx-auto p-6">
                 <CardHeader className="pt-4">
-                    <CardTitle>Create Experience</CardTitle>
-                    <CardDescription>Create a new work experience to share with everyone.</CardDescription>
+                    <CardTitle>Create Experience Post</CardTitle>
+                    <CardDescription>Create a new experience post to share with everyone.</CardDescription>
                 </CardHeader>
 
                 <CardContent>
@@ -50,8 +50,8 @@ export default async function CreateExperiencePage() {
                         </div>
 
                         <div className="flex flex-col gap-2">
-                            <Label>Description</Label>
-                            <Textarea name="description" placeholder="Description" required/>
+                            <Label>Content</Label>
+                            <Textarea name="content" placeholder="content" required/>
                         </div>
                         
                         <div className="flex flex-col gap-2">
