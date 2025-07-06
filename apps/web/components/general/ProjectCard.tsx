@@ -38,7 +38,7 @@ export function ProjectCard({ data }: ProjectCardProps) {
           {data.title}
           </h3>
 
-          <p className="text-sm text-gray-600 line-clamp-3 h-[5rem] leading-[1.5rem]">
+          <p className="text-sm text-gray-600 line-clamp-3 h-[4rem] leading-[1.5rem]">
           {data.description}
           </p>
 
