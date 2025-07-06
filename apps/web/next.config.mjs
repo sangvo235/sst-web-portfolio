@@ -29,6 +29,11 @@ const nextConfig = {
         port: '',
       },
       {
+        hostname: 'linkedin.com',
+        protocol: 'https',
+        port: '',
+      },
+      {
         hostname: 'github.com',
         protocol: 'https',
         port: '',
