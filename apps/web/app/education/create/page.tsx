@@ -6,6 +6,7 @@ import { handleEducationSubmission } from "@/app/action"
 import { SubmitButton } from "@/components/general/SubmitButton"
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server"
 import { redirect } from "next/navigation";
+import { DatePicker } from "@/components/general/DatePicker"
 
 export default async function CreateEducationPage() {
 
@@ -24,8 +25,8 @@ export default async function CreateEducationPage() {
         <div className="pt-4">
             <Card className="max-w-lg mx-auto p-6">
                 <CardHeader className="pt-4">
-                    <CardTitle>Create Education</CardTitle>
-                    <CardDescription>Create a new education to share with everyone.</CardDescription>
+                    <CardTitle>Create Education Post</CardTitle>
+                    <CardDescription>Create a new education post to share with everyone.</CardDescription>
                 </CardHeader>
 
                 <CardContent>
@@ -40,19 +41,8 @@ export default async function CreateEducationPage() {
                             <Input name="name" type="text" placeholder="Name eg. University" required/>
                         </div>
                         
-                        <div className="flex flex-col gap-2">
-                            <Label>Start Date</Label>
-                            <Input name="startDate" type="text" placeholder="Start Date" required disabled/>
-                            {/* TODO: FIGURE OUT FIX TO DATEPICKER PASSING PROPS for server side. */}
-                            {/* <DatePicker name="startDate" required placeholder="Start Date"/> */}
-                        </div>
-
-                        <div className="flex flex-col gap-2">
-                            <Label>Start Date</Label>
-                            <Input name="endDate" type="text" placeholder="End Date" required disabled/>
-                            {/* TODO: FIGURE OUT FIX TO DATEPICKER PASSING PROPS for server side. */}
-                            {/* <DatePicker name="startDate" required placeholder="Start Date"/> */}
-                        </div>
+                        <DatePicker name="dateStart" label="Start Date"/>
+                        <DatePicker name="dateEnd" label="End Date"/>
 
                         <div className="flex flex-col gap-2">
                             <Label>Image URL</Label>
@@ -60,8 +50,8 @@ export default async function CreateEducationPage() {
                         </div>
 
                         <div className="flex flex-col gap-2">
-                            <Label>Description</Label>
-                            <Textarea name="description" placeholder="Description" required/>
+                            <Label>Content</Label>
+                            <Textarea name="content" placeholder="Content" required/>
                         </div>
 
                         <SubmitButton />

@@ -4,7 +4,7 @@ import Link from "next/link";
 import { buttonVariants } from "@/components/ui/button";
 import Image from "next/image";
 import { Card, CardContent, CardHeader, CardFooter } from "@/components/ui/card";
-import { BiComment } from "react-icons/bi";
+import { BiComment, BiSolidPurchaseTag } from "react-icons/bi";
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 import { redirect } from "next/navigation";
 import { Textarea } from "@/components/ui/textarea"
@@ -12,9 +12,10 @@ import { SubmitButton } from "@/components/general/SubmitButton"
 import { handleCommentSubmission } from "@/app/action"
 import { Label } from "@/components/ui/label"
 import { Input } from "@/components/ui/input"
+import { Badge } from "@/components/ui/badge"
 
 async function getData(id: string) {
-    const data = await prisma.blogPost.findUnique({
+    const data = await prisma.blogs.findUnique({
         where: { id: id },
         include: {
             comments: true,
@@ -77,7 +78,6 @@ export default async function IdPage({ params }: { params: Params }) {
                   </p>
 
                   <p className="text-md text-gray-500 flex items-center">
-                      {/* TODO: minute suggestion add to db */}
                       <span>{data.readTime} min read</span>
                       <span className="mx-2">&bull;</span>
                       <span>
@@ -100,6 +100,16 @@ export default async function IdPage({ params }: { params: Params }) {
                     </Link>
                   </p>
               </div>
+
+              <div>
+                <Badge
+                    variant="secondary"
+                    className="bg-blue-500 text-white dark:bg-blue-600"
+                >
+                    <BiSolidPurchaseTag />
+                    {data.topic}
+                </Badge>
+              </div>
           </div>
 
           <div className="col-start-2 col-span-4 relative h-96 w-full overflow-hidden">
@@ -121,7 +131,12 @@ export default async function IdPage({ params }: { params: Params }) {
               Comments
           </p>
 
-            {data.comments.map((comment) => (
+          {data.comments.length === 0 ? (
+            <p className="col-start-2 col-span-4 text-sm text-gray-500 italic">
+                No comments yet.
+            </p>
+            ) : (
+            data.comments.map((comment) => (
               <Card className="col-start-2 col-span-4 p-4" key={comment.id}>
                   <CardHeader className="p-2">
                       <div className="flex items-center justify-between">
@@ -156,7 +171,8 @@ export default async function IdPage({ params }: { params: Params }) {
                   </CardContent>
                   <CardFooter />
               </Card>
-            ))}
+            ))
+            )}
         
             <div className="col-start-2 col-span-4 px-6">
                 <Label className="py-2">Add your comment</Label>

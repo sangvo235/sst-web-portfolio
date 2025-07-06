@@ -6,8 +6,7 @@ import { handleExperienceSubmission } from "@/app/action"
 import { SubmitButton } from "@/components/general/SubmitButton"
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server"
 import { redirect } from "next/navigation";
-// import { DatePicker } from "@/components/general/DatePicker"
-// import * as React from "react"
+import { DatePicker } from "@/components/general/DatePicker"
 
 export default async function CreateExperiencePage() {
 
@@ -26,49 +25,38 @@ export default async function CreateExperiencePage() {
         <div className="pt-4">
             <Card className="max-w-lg mx-auto p-6">
                 <CardHeader className="pt-4">
-                    <CardTitle>Create Experience</CardTitle>
-                    <CardDescription>Create a new work experience to share with everyone.</CardDescription>
+                    <CardTitle>Create Experience Post</CardTitle>
+                    <CardDescription>Create a new experience post to share with everyone.</CardDescription>
                 </CardHeader>
 
                 <CardContent>
                     <form className="flex flex-col gap-4" action={handleExperienceSubmission}>
                         <div className="flex flex-col gap-2">
                             <Label>Title</Label>
-                            <Input name="title" required type="text" placeholder="Title"/>
+                            <Input name="title" type="text" placeholder="Title" required/>
                         </div>
 
                         <div className="flex flex-col gap-2">
                             <Label>Company</Label>
-                            <Input name="company" required placeholder="Company"/>
+                            <Input name="company" placeholder="Company" required/>
                         </div>
-                        
-                        <div className="flex flex-col gap-2">
-                            <Label>Start Date</Label>
-                            <Input name="startDate" required placeholder="Start Date" disabled/>
-                            {/* TODO: FIGURE OUT FIX TO DATEPICKER PASSING PROPS for server side. */}
-                            {/* <DatePicker name="startDate" required placeholder="Start Date"/> */}
-                        </div>
-
-                        <div className="flex flex-col gap-2">
-                            <Label>Start Date</Label>
-                            <Input name="endDate" required placeholder="End Date" disabled/>
-                            {/* TODO: FIGURE OUT FIX TO DATEPICKER PASSING PROPS for server side. */}
-                            {/* <DatePicker name="startDate" required placeholder="Start Date"/> */}
-                        </div>
+                            
+                        <DatePicker name="dateStart" label="Start Date"/>
+                        <DatePicker name="dateEnd" label="End Date"/>
 
                         <div className="flex flex-col gap-2">
                             <Label>Image URL</Label>
-                            <Input name="imageUrl" required type="url" placeholder="Image URL"/>
+                            <Input name="imageUrl" type="url" placeholder="Image URL" required/>
                         </div>
 
                         <div className="flex flex-col gap-2">
-                            <Label>Description</Label>
-                            <Textarea name="description" required placeholder="Description"/>
+                            <Label>Content</Label>
+                            <Textarea name="content" placeholder="content" required/>
                         </div>
                         
                         <div className="flex flex-col gap-2">
                             <Label>Skills</Label>
-                            <Textarea name="skill" required placeholder="Skills"/>
+                            <Textarea name="skill" placeholder="Skills"/>
                         </div>
 
                         <SubmitButton />

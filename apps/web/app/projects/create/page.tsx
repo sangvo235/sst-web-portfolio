@@ -6,6 +6,13 @@ import { handleProjectSubmission } from "@/app/action"
 import { SubmitButton } from "@/components/general/SubmitButton"
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server"
 import { redirect } from "next/navigation";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select"
 
 export default async function CreateProjectPage() {
     const { isAuthenticated, getPermission } = getKindeServerSession();
@@ -23,8 +30,8 @@ export default async function CreateProjectPage() {
         <div className="pt-4">
             <Card className="max-w-lg mx-auto p-6">
                 <CardHeader className="pt-4">
-                    <CardTitle>Create Project</CardTitle>
-                    <CardDescription>Create a new project to share with everyone.</CardDescription>
+                    <CardTitle>Create Project Post</CardTitle>
+                    <CardDescription>Create a new project post to share with everyone.</CardDescription>
                 </CardHeader>
 
                 <CardContent>
@@ -36,32 +43,45 @@ export default async function CreateProjectPage() {
 
                         <div className="flex flex-col gap-2">
                             <Label>Read Time</Label>
-                            <Input name="readTime" required type="text" placeholder="Read Time"/>
+                            <Select name="readTime" required>
+                            <SelectTrigger>
+                                <SelectValue placeholder="Select" />
+                            </SelectTrigger>
+                            <SelectContent>
+                                <SelectItem value="2">2 mins</SelectItem>
+                                <SelectItem value="5">5 mins</SelectItem>
+                                <SelectItem value="10">10 mins</SelectItem>
+                                <SelectItem value="15">15 mins</SelectItem>
+                                <SelectItem value="20">20 mins</SelectItem>
+                                <SelectItem value="25">25 mins</SelectItem>
+                                <SelectItem value="> 30">Over 30 mins</SelectItem>
+                            </SelectContent>
+                            </Select>
                         </div>
 
                         <div className="flex flex-col gap-2">
                             <Label>Image URL</Label>
-                            <Input name="imageUrl" required type="url" placeholder="Image URL"/>
+                            <Input name="imageUrl" type="url" placeholder="Image URL" required/>
                         </div>
 
                         <div className="flex flex-col gap-2">
                             <Label>GitHub URL</Label>
-                            <Input name="githubUrl" required type="url" placeholder="GitHub URL"/>
+                            <Input name="githubUrl" type="url" placeholder="GitHub URL" required/>
                         </div>
 
                         <div className="flex flex-col gap-2">
                             <Label>Demo URL</Label>
-                            <Input name="demoUrl" required type="url" placeholder="Demo URL"/>
+                            <Input name="demoUrl" type="url" placeholder="Demo URL" required/>
                         </div>
 
                         <div className="flex flex-col gap-2">
-                            <Label>Description</Label>
-                            <Textarea name="description" required placeholder="Description"/>
+                            <Label>Content</Label>
+                            <Textarea name="content" placeholder="content" required/>
                         </div>
 
                         <div className="flex flex-col gap-2">
                             <Label>Tech Icon URLs</Label>
-                            <Textarea name="techIconUrl" required placeholder="Tech Icon Urls"/>
+                            <Textarea name="techIconUrl" placeholder="Tech Icon Urls" required/>
                         </div>
 
                         <SubmitButton />

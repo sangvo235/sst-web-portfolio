@@ -22,7 +22,7 @@ model Experience {
   company          String
   dateStart        DateTime
   dateEnd          DateTime?
-  description      String
+  content          String
   skills           String[]
 }
 
@@ -33,7 +33,7 @@ model Education {
   name             String
   dateStart        DateTime
   dateEnd          DateTime?
-  description      String
+  content          String
 }
 
 model Projects {
@@ -43,7 +43,7 @@ model Projects {
   authorLastName   String
   authorImage      String
   title            String
-  description      String
+  content          String
   readTime         String
   imageUrl         String
   githubUrl        String
@@ -54,13 +54,14 @@ model Projects {
   comments         Comment[]
 }
 
-model BlogPost {
+model Blogs {
   id               String     @id @default(uuid())
   authorId         String
   authorFirstName  String
   authorLastName   String
   authorImage      String
-  title            String 
+  title            String
+  topic            String?
   readTime         String
   imageUrl         String
   content          String
@@ -78,7 +79,7 @@ model Comment {
   content          String
   createdAt        DateTime   @default(now())
   updatedAt        DateTime   @updatedAt
-  post             BlogPost?   @relation(fields: [postId], references: [id])
+  post             Blogs?   @relation(fields: [postId], references: [id])
   postId           String?
   project          Projects?   @relation(fields: [projectId], references: [id])
   projectId        String?
