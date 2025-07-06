@@ -6,6 +6,13 @@ import { handleProjectSubmission } from "@/app/action"
 import { SubmitButton } from "@/components/general/SubmitButton"
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server"
 import { redirect } from "next/navigation";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select"
 
 export default async function CreateProjectPage() {
     const { isAuthenticated, getPermission } = getKindeServerSession();
@@ -36,7 +43,20 @@ export default async function CreateProjectPage() {
 
                         <div className="flex flex-col gap-2">
                             <Label>Read Time</Label>
-                            <Input name="readTime" required type="text" placeholder="Read Time"/>
+                            <Select name="readTime" required>
+                            <SelectTrigger>
+                                <SelectValue placeholder="Select" />
+                            </SelectTrigger>
+                            <SelectContent>
+                                <SelectItem value="2">2 mins</SelectItem>
+                                <SelectItem value="5">5 mins</SelectItem>
+                                <SelectItem value="10">10 mins</SelectItem>
+                                <SelectItem value="15">15 mins</SelectItem>
+                                <SelectItem value="20">20 mins</SelectItem>
+                                <SelectItem value="25">25 mins</SelectItem>
+                                <SelectItem value="> 30">Over 30 mins</SelectItem>
+                            </SelectContent>
+                            </Select>
                         </div>
 
                         <div className="flex flex-col gap-2">

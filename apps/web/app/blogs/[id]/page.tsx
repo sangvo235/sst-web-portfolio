@@ -4,7 +4,7 @@ import Link from "next/link";
 import { buttonVariants } from "@/components/ui/button";
 import Image from "next/image";
 import { Card, CardContent, CardHeader, CardFooter } from "@/components/ui/card";
-import { BiComment } from "react-icons/bi";
+import { BiComment, BiSolidPurchaseTag } from "react-icons/bi";
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 import { redirect } from "next/navigation";
 import { Textarea } from "@/components/ui/textarea"
@@ -12,6 +12,7 @@ import { SubmitButton } from "@/components/general/SubmitButton"
 import { handleCommentSubmission } from "@/app/action"
 import { Label } from "@/components/ui/label"
 import { Input } from "@/components/ui/input"
+import { Badge } from "@/components/ui/badge"
 
 async function getData(id: string) {
     const data = await prisma.blogs.findUnique({
@@ -99,6 +100,16 @@ export default async function IdPage({ params }: { params: Params }) {
                     <BiComment className="text-md" />
                     </Link>
                   </p>
+              </div>
+
+              <div>
+                <Badge
+                    variant="secondary"
+                    className="bg-blue-500 text-white dark:bg-blue-600"
+                >
+                    <BiSolidPurchaseTag />
+                    {data.topic}
+                </Badge>
               </div>
           </div>
 

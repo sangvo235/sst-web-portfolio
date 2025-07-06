@@ -5,6 +5,10 @@ import { prisma } from "@/app/utils/db";
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 // import { Suspense } from "react";
 // import { Skeleton } from "@/components/ui/skeleton";
+import { Badge } from "@/components/ui/badge"
+import { Label } from "@/components/ui/label";
+
+
 import {
   Accordion,
   AccordionContent,
@@ -84,12 +88,26 @@ export default async function ExperiencePage() {
                                     <AccordionContent className="px-4 py-3 text-gray-700">
                                         <p className="mb-4 text-sm text-gray-600">{item.description}</p>
 
-                                        {/* TODO: MAKE THIS INTO BADGES */}
-                                        {item.skills && item.skills.length > 0 && (
-                                        <p className="mb-4 text-sm text-gray-600">
-                                            Skills: {item.skills.join(", ")}
-                                        </p>
-                                        )}
+                                        <div className="flex flex-col items-center mb-4">
+                                            <Label className="mb-2">Skills</Label>
+
+                                            {item.skills && item.skills.length > 0 ? (
+                                                <div className="flex flex-wrap justify-center gap-2">
+                                                    {item.skills.map((skill, idx) => (
+                                                        <Badge
+                                                        key={idx}
+                                                        variant="secondary"
+                                                        className="bg-blue-500 text-white dark:bg-blue-600"
+                                                        >
+                                                        {skill}
+                                                        </Badge>
+                                                    ))}
+                                                </div>
+                                            ) : (
+                                                <p className="text-sm text-gray-500 italic">No skills listed</p>
+                                            )
+                                            }
+                                        </div>
                                     </AccordionContent>
                                 </AccordionItem>
                             </Accordion>

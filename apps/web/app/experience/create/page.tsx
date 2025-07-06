@@ -68,7 +68,7 @@ export default async function CreateExperiencePage() {
                         
                         <div className="flex flex-col gap-2">
                             <Label>Skills</Label>
-                            <Textarea name="skill" required placeholder="Skills"/>
+                            <Textarea name="skill" placeholder="Skills"/>
                         </div>
 
                         <SubmitButton />

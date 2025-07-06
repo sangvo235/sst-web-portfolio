@@ -1,12 +1,16 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge"
+import { BiSolidPurchaseTag } from "react-icons/bi";
 
 interface IappProps {
     data: {
         id: string;
         title: string;
         content: string;
+        readTime: string;
+        topic: string | null;
         imageUrl: string;
         authorId: string;
         authorFirstName: string;
@@ -34,6 +38,21 @@ export function BlogPostCard({ data }: IappProps) {
           <h3 className="mb-2 text-lg font-semibold text-gray-900">
             {data.title}
           </h3>
+
+          <div className="flex mb-2">
+              <p className="text-sm text-gray-500">
+                <span>{data.readTime} min read</span>
+                <span className="mx-2">&bull;</span>
+              </p>
+              
+              <Badge
+                variant="secondary"
+                className="bg-blue-500 text-white dark:bg-blue-600"
+              >
+                <BiSolidPurchaseTag />
+                {data.topic}
+              </Badge>
+          </div>
 
           <p className="mb-4 text-sm text-gray-600 line-clamp-2 h-[3rem] leading-[1.5rem]">
             {data.content}
