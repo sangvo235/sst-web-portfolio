@@ -18,6 +18,8 @@ export async function handleBlogSubmission(formData: FormData) {
     const topic = formData.get('topic');
     const imageUrl = formData.get('imageUrl');
     const content = formData.get('content');
+    
+    // TODO: content make dotpoints
 
     await prisma.blogs.create({
         data: {
@@ -80,9 +82,7 @@ export async function handleExperienceSubmission(formData: FormData) {
     const imageUrl = formData.get('imageUrl');
     const title = formData.get('title');
     const company = formData.get('company');
-    // TODO: NEED TO FIX DATE FORM DATA
-    // const dateStart = formData.get('dateStart');
-    const dateStart = "2050-01-01";
+    const dateStart = formData.get('dateStart');
     const dateEnd = formData.get('dateEnd');
     const description = formData.get('description');
     const skill = formData.get('skill');
@@ -116,14 +116,10 @@ export async function handleEducationSubmission(formData: FormData) {
         return redirect("/api/auth/register");
     }
 
-    // description make dotpoints
-
     const imageUrl = formData.get('imageUrl');
     const title = formData.get('title');
     const name = formData.get('name');
-    // TODO: NEED TO FIX DATE FORM DATA
-    // const dateStart = formData.get('dateStart');
-    const dateStart = "2050-01-01";
+    const dateStart = formData.get('dateStart');
     const dateEnd = formData.get('dateEnd');
     const description = formData.get('description');
 

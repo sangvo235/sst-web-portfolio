@@ -6,8 +6,7 @@ import { handleExperienceSubmission } from "@/app/action"
 import { SubmitButton } from "@/components/general/SubmitButton"
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server"
 import { redirect } from "next/navigation";
-// import { DatePicker } from "@/components/general/DatePicker"
-// import * as React from "react"
+import { DatePicker } from "@/components/general/DatePicker"
 
 export default async function CreateExperiencePage() {
 
@@ -41,20 +40,9 @@ export default async function CreateExperiencePage() {
                             <Label>Company</Label>
                             <Input name="company" placeholder="Company" required/>
                         </div>
-                        
-                        <div className="flex flex-col gap-2">
-                            <Label>Start Date</Label>
-                            <Input name="startDate" placeholder="Start Date" required disabled/>
-                            {/* TODO: FIGURE OUT FIX TO DATEPICKER PASSING PROPS for server side. */}
-                            {/* <DatePicker name="startDate" required placeholder="Start Date"/> */}
-                        </div>
-
-                        <div className="flex flex-col gap-2">
-                            <Label>Start Date</Label>
-                            <Input name="endDate" placeholder="End Date" required disabled/>
-                            {/* TODO: FIGURE OUT FIX TO DATEPICKER PASSING PROPS for server side. */}
-                            {/* <DatePicker name="startDate" required placeholder="Start Date"/> */}
-                        </div>
+                            
+                        <DatePicker name="dateStart" label="Start Date"/>
+                        <DatePicker name="dateEnd" label="End Date"/>
 
                         <div className="flex flex-col gap-2">
                             <Label>Image URL</Label>
