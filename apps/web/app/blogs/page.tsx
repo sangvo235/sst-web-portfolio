@@ -7,7 +7,7 @@ import { Suspense } from "react";
 import { Skeleton } from "@/components/ui/skeleton";
 
 async function getData() {
-    const data = await prisma.blogPost.findMany({
+    const data = await prisma.blogs.findMany({
         orderBy: {
             createdAt: 'desc',
         },

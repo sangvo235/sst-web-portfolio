@@ -14,7 +14,7 @@ import { Label } from "@/components/ui/label"
 import { Input } from "@/components/ui/input"
 
 async function getData(id: string) {
-    const data = await prisma.blogPost.findUnique({
+    const data = await prisma.blogs.findUnique({
         where: { id: id },
         include: {
             comments: true,

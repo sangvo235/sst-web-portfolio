@@ -40,6 +40,11 @@ export default async function CreateBlogPage() {
                         </div>
 
                         <div className="flex flex-col gap-2">
+                            <Label>Topic</Label>
+                            <Input name="topic" required placeholder="Topic"/>
+                        </div>
+
+                        <div className="flex flex-col gap-2">
                             <Label>Image URL</Label>
                             <Input name="imageUrl" required type="url" placeholder="Image URL"/>
                         </div>

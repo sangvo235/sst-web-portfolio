@@ -5,7 +5,7 @@ import { Card, CardContent, CardTitle } from '@/components/ui/card'
 import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from '@/components/ui/carousel'
 
 async function getData() {
-  const data = await prisma.blogPost.findMany({
+  const data = await prisma.blogs.findMany({
     select: {
       title: true,
       imageUrl: true,

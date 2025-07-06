@@ -15,15 +15,17 @@ export async function handleBlogSubmission(formData: FormData) {
 
     const title = formData.get('title');
     const readTime = formData.get('readTime');
+    const topic = formData.get('topic');
     const imageUrl = formData.get('imageUrl');
     const content = formData.get('content');
 
-    await prisma.blogPost.create({
+    await prisma.blogs.create({
         data: {
             // TO COMPLETE: ERROR HANDLING & SS VALIDATION
             title: title as string,
             content: content as string,
             readTime: readTime as string,
+            topic: topic as string,
             imageUrl: imageUrl as string,
             authorId: user.id,
             authorImage: user.picture as string,
