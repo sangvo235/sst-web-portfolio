@@ -1,14 +1,12 @@
-"use client"
+'use client'
 
-import React from 'react'
-import {AiFillLinkedin, AiFillGithub, AiFillMail} from 'react-icons/ai';
 import Image from 'next/image';
 import Typewriter from 'typewriter-effect';
 import Link from "next/link";
+import {AiFillLinkedin, AiFillGithub, AiFillMail} from 'react-icons/ai';
 import { buttonVariants } from "@/components/ui/button";
 
-export const Bio = () => {
-    
+export const Bio = () => {    
   return (
     <div className='flex flex-col text-center items-center justify-center md:flex-row-reverse md:space-x-4 md:text-left'>
         <div className='relative mx-auto w-80 h-60 md:w-1/2 md:mt-4'>
