@@ -3,7 +3,7 @@ import { buttonVariants } from "@/components/ui/button";
 import { prisma } from "@/app/utils/db";
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 import { BlogPostCard } from "@/components/general/BlogPostCard";
-import { BlogPostCardSkeleton } from "@/components/skeletons/BlogPostCardSkeleton";
+import { BlogPostCardSkeleton } from "@/components/skeleton/BlogPostCardSkeleton";
 import { Suspense } from "react";
 
 async function getData() {
