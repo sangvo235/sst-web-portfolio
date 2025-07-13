@@ -12,6 +12,8 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion"
 
+//TODO: MAKE INTO COMPONENT THEN ADD SKELETON & SUSPENSION!
+
 async function getData() {
     const data = await prisma.experience.findMany({
         orderBy: {
@@ -20,8 +22,6 @@ async function getData() {
     })
     return data;
 }
-
-//TODO: MAKE INTO COMPONENT THEN ADD SKELETON & SUSPENSION!
 
 export default async function ExperiencePage() {
     const { getPermission } = getKindeServerSession();

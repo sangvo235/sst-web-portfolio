@@ -14,6 +14,8 @@ import { handleCommentSubmission } from "@/app/action"
 import { Label } from "@/components/ui/label"
 import { Input } from "@/components/ui/input"
 
+//TODO: MAKE INTO COMPONENT THEN ADD SKELETON & SUSPENSION!
+
 async function getData(id: string) {
     const data = await prisma.projects.findUnique({
         where: { id: id },

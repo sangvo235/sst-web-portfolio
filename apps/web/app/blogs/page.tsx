@@ -12,15 +12,12 @@ async function getData() {
             createdAt: 'desc',
         },
     })
-
     return data;
 }
 
 export default async function BlogsRoute() {
     const { getPermission } = getKindeServerSession();
-    
     const data = await getData();
-
     const requiredPermission = await getPermission('add:blog');
 
     return (
