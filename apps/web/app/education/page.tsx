@@ -3,8 +3,6 @@ import Image from 'next/image';
 import { buttonVariants } from "@/components/ui/button";
 import { prisma } from "@/app/utils/db";
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
-// import { Suspense } from "react";
-// import { Skeleton } from "@/components/ui/skeleton";
 import {
   Accordion,
   AccordionContent,
@@ -12,21 +10,20 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion"
 
+//TODO: MAKE INTO COMPONENT THEN ADD SKELETON & SUSPENSION!
+
 async function getData() {
     const data = await prisma.education.findMany({
         orderBy: {
             dateEnd: 'desc',
         }
     })
-
     return data;
 }
 
 export default async function EducationPage() {
     const { getPermission } = getKindeServerSession();
-    
     const data = await getData();
-
     const requiredPermission = await getPermission('add:education');
 
     return (
@@ -93,5 +90,3 @@ export default async function EducationPage() {
         </div>
     )
 }
-
-//TODO: ADD SKELETON & SUSPENSION

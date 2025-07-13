@@ -14,6 +14,8 @@ import { Label } from "@/components/ui/label"
 import { Input } from "@/components/ui/input"
 import { Badge } from "@/components/ui/badge"
 
+//TODO: MAKE INTO COMPONENT THEN ADD SKELETON & SUSPENSION!
+
 async function getData(id: string) {
     const data = await prisma.blogs.findUnique({
         where: { id: id },
