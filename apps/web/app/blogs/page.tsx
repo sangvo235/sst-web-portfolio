@@ -3,8 +3,8 @@ import { buttonVariants } from "@/components/ui/button";
 import { prisma } from "@/app/utils/db";
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 import { BlogPostCard } from "@/components/general/BlogPostCard";
+import { BlogPostCardSkeleton } from "@/components/skeletons/BlogPostCardSkeleton";
 import { Suspense } from "react";
-import { Skeleton } from "@/components/ui/skeleton";
 
 async function getData() {
     const data = await prisma.blogs.findMany({
@@ -35,30 +35,21 @@ export default async function BlogsRoute() {
                 )}
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                <Suspense
-                    fallback={
-                    <div className="flex justify-center w-full">
-                        {[...Array(6)].map((_, i) => (
-                            <div
-                            key={i}
-                            className="rounded-xl border shadow-sm overflow-hidden"
-                            >
-                            <Skeleton className="h-48 w-full" />
-                            <div className="p-4 space-y-2">
-                                <Skeleton className="h-5 w-3/4" />
-                                <Skeleton className="h-4 w-full" />
-                            </div>
-                            </div>
-                        ))}
-                    </div>
-                    }
-                >
+            <Suspense
+                fallback={
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                    {[...Array(6)].map((_, i) => (
+                        <BlogPostCardSkeleton key={i} />
+                    ))}
+                </div>
+                }
+            >
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                     {data.map((item) => (
                         <BlogPostCard data={item} key={item.id}/>
                     ))}
-                </Suspense>
-            </div>
+                </div>
+            </Suspense>
         </>
     )
 }
