@@ -3,12 +3,8 @@ import Image from 'next/image';
 import { buttonVariants } from "@/components/ui/button";
 import { prisma } from "@/app/utils/db";
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
-// import { Suspense } from "react";
-// import { Skeleton } from "@/components/ui/skeleton";
 import { Badge } from "@/components/ui/badge"
 import { Label } from "@/components/ui/label";
-
-
 import {
   Accordion,
   AccordionContent,
@@ -22,15 +18,14 @@ async function getData() {
             dateEnd: 'desc',
         },
     })
-
     return data;
 }
 
+//TODO: MAKE INTO COMPONENT THEN ADD SKELETON & SUSPENSION!
+
 export default async function ExperiencePage() {
     const { getPermission } = getKindeServerSession();
-    
     const data = await getData();
-
     const requiredPermission = await getPermission('add:experience');
 
     return (
@@ -118,5 +113,3 @@ export default async function ExperiencePage() {
         </div>
     )
 }
-
-//TODO: ADD SKELETON & SUSPENSION
