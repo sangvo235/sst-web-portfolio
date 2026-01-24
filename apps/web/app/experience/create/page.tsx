@@ -37,12 +37,7 @@ export default async function CreateExperiencePage() {
                 </CardHeader>
 
                 <CardContent>
-                    <form className="flex flex-col gap-4" action={handleExperienceSubmission}>
-                        <div className="flex flex-col gap-2">
-                            <Label>Image URL</Label>
-                            <Input name="imageUrl" type="url" placeholder="Image URL" required/>
-                        </div>
-                                                
+                    <form className="flex flex-col gap-4" action={handleExperienceSubmission}>                                                
                         <div className="flex flex-col gap-2">
                             <Label>Title</Label>
                             <Input name="title" type="text" placeholder="Title" required/>
@@ -51,6 +46,11 @@ export default async function CreateExperiencePage() {
                         <div className="flex flex-col gap-2">
                             <Label>Company</Label>
                             <Input name="company" placeholder="Company" required/>
+                        </div>
+
+                        <div className="flex flex-col gap-2">
+                            <Label>Image URL</Label>
+                            <Input name="imageUrl" type="url" placeholder="Image URL" required/>
                         </div>
 
                         <div className="flex flex-col gap-2">
