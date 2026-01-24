@@ -12,6 +12,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion"
 import { formatElapsedTime } from "@/app/utils/dateCalculate";
+import { formatMonthYear } from "@/app/utils/dateFormat";
 
 //TODO: MAKE INTO COMPONENT THEN ADD SKELETON & SUSPENSION!
 
@@ -72,17 +73,7 @@ export default async function ExperiencePage() {
 
                                                 <div className="flex items-center text-md font-normal text-gray-500">
                                                     <span>
-                                                        {new Intl.DateTimeFormat("en-au", {
-                                                        year: "numeric",
-                                                        month: "short",
-                                                        }).format(new Date(item.dateStart))}
-                                                        {" - "}
-                                                        {item.dateEnd
-                                                        ? new Intl.DateTimeFormat("en-au", {
-                                                            year: "numeric",
-                                                            month: "short",
-                                                            }).format(new Date(item.dateEnd))
-                                                        : "Current"}
+                                                        {formatMonthYear(new Date(item.dateStart))} - {item.dateEnd ? formatMonthYear(new Date(item.dateEnd)) : "Present"}
                                                     </span>
                                                     <span className="mx-2">•</span>                
                                                     <span>
