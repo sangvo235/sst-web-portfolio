@@ -66,11 +66,15 @@ export default async function CreateBlogPage() {
                                 <SelectValue placeholder="Select" />
                             </SelectTrigger>
                             <SelectContent>
-                                <SelectItem value="Cooking">Cooking</SelectItem>
-                                <SelectItem value="Travel">Travel</SelectItem>
-                                <SelectItem value="Technology">Technology</SelectItem>
-                                <SelectItem value="Lifestyle">Lifestyle</SelectItem>
-                                <SelectItem value="TCG">TCG</SelectItem>
+                                <SelectItem value="all">All</SelectItem>
+                                <SelectItem value="career">Career</SelectItem>
+                                <SelectItem value="education">Education</SelectItem>
+                                <SelectItem value="food&drink">Food & Drink</SelectItem>
+                                <SelectItem value="health&wellness">Health & Wellness</SelectItem>
+                                <SelectItem value="lifestyle">Lifestyle</SelectItem>
+                                <SelectItem value="technology">Technology</SelectItem>
+                                <SelectItem value="travel">Travel</SelectItem>
+                                <SelectItem value="other">Other</SelectItem>
                             </SelectContent>
                             </Select>
                         </div>
