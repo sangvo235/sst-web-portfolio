@@ -22,10 +22,5 @@
   },
   "dependencies": {
     "sst": "3.17.6"
-  },
-  "pnpm": {
-    "ignoredBuiltDependencies": [
-      "@prisma/client"
-    ]
   }
 }
