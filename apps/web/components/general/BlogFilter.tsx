@@ -17,7 +17,7 @@ type SortOption =
   | "readTime-asc"
   | "readTime-desc";
 
-export const BlogFilter = () => {
+export function BlogFilter () {
     const { getParam, setParam, setParams } = useQueryParam();
 
     const topic = getParam("topic", "all");
@@ -70,4 +70,3 @@ export const BlogFilter = () => {
         </div>
     );
 }
-export default BlogFilter;
