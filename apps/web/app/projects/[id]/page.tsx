@@ -198,8 +198,6 @@ export default async function IdPage({ params }: { params: Params }) {
             <div className="col-start-2 col-span-4 px-6">
                 <Label className="py-2">Add your comment</Label>
 
-                {/* TODO: ADD comment placeholder if no one commented*/}
-
                 {requiredPermission?.isGranted && (
                     <div>
                         <form className="flex flex-col gap-4 mb-4" action={handleCommentSubmission}>

@@ -3,21 +3,21 @@ import Image from "next/image";
 import { Card, CardContent } from "@/components/ui/card";
 
 interface ProjectCardProps {
-    data: {
-        id: string;
-        title: string;
-        content: string;
-        imageUrl: string;
-        githubUrl: string;
-        demoUrl: string;
-        authorId: string;
-        authorFirstName: string;
-        authorLastName: string;
-        authorImage: string;
-        createdAt: Date;
-        updatedAt: Date;
-        techIconUrls: string[];
-    }
+  data: {
+      id: string;
+      title: string;
+      content: string;
+      imageUrl: string;
+      githubUrl: string;
+      demoUrl: string;
+      authorId: string;
+      authorFirstName: string;
+      authorLastName: string;
+      authorImage: string;
+      createdAt: Date;
+      updatedAt: Date;
+      techIconUrls: string[];
+  }
 }
 
 export function ProjectCard({ data }: ProjectCardProps) {
