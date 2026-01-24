@@ -17,8 +17,10 @@ model Experience {
   imageUrl  String
   title     String
   company   String
+  type      String
   dateStart DateTime
   dateEnd   DateTime?
+  location  String
   content   String
   skills    String[]
 }

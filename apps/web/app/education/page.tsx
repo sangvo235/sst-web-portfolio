@@ -9,6 +9,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion"
+import { formatYearOnly } from "@/app/utils/dateFormat";
 
 //TODO: MAKE INTO COMPONENT THEN ADD SKELETON & SUSPENSION!
 
@@ -60,26 +61,16 @@ export default async function EducationPage() {
 
                                             <div className="flex flex-col text-left">
                                                 <span className="text-lg font-semibold text-gray-900">{item.title}</span>
-                                                <span className="text-md font-semibold text-gray-700">{item.name}</span>
-                                                <div className="text-sm text-gray-500">
-                                                    {new Intl.DateTimeFormat("en-au", {
-                                                    year: "numeric",
-                                                    month: "short",
-                                                    }).format(new Date(item.dateStart))}
-                                                    {" - "}
-                                                    {item.dateEnd
-                                                    ? new Intl.DateTimeFormat("en-au", {
-                                                        year: "numeric",
-                                                        month: "short",
-                                                        }).format(new Date(item.dateEnd))
-                                                    : "Current"}
+                                                <span className="text-md font-normal text-gray-700">{item.name}</span>
+                                                <div className="text-md font-normal text-gray-500">
+                                                    {formatYearOnly(new Date(item.dateStart))} - {item.dateEnd ? formatYearOnly(new Date(item.dateEnd)) : "Present"}
                                                 </div>
                                             </div>
                                         </div>
                                     </AccordionTrigger>
 
                                     <AccordionContent className="px-4 py-3 text-gray-700">
-                                        <p className="mb-4 text-sm text-gray-600">{item.content}</p>
+                                        <p className="mb-4 text-sm">{item.content}</p>
                                     </AccordionContent>
                                 </AccordionItem>
                             </Accordion>

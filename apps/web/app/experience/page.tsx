@@ -11,6 +11,8 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion"
+import { formatElapsedTime } from "@/app/utils/dateCalculate";
+import { formatMonthYear } from "@/app/utils/dateFormat";
 
 //TODO: MAKE INTO COMPONENT THEN ADD SKELETON & SUSPENSION!
 
@@ -62,28 +64,35 @@ export default async function ExperiencePage() {
 
                                             <div className="flex flex-col text-left">
                                                 <span className="text-lg font-semibold text-gray-900">{item.title}</span>
-                                                <span className="text-md font-semibold text-gray-700">{item.company}</span>
-                                                <div className="text-sm text-gray-500">
-                                                    {new Intl.DateTimeFormat("en-au", {
-                                                    year: "numeric",
-                                                    month: "short",
-                                                    }).format(new Date(item.dateStart))}
-                                                    {" - "}
-                                                    {item.dateEnd
-                                                    ? new Intl.DateTimeFormat("en-au", {
-                                                        year: "numeric",
-                                                        month: "short",
-                                                        }).format(new Date(item.dateEnd))
-                                                    : "Current"}
+
+                                                <div className="flex items-center text-md font-normal text-gray-700">
+                                                    <span>{item.company}</span>
+                                                    <span className="mx-2">•</span>
+                                                    <span>{item.type}</span>
                                                 </div>
+
+                                                <div className="flex items-center text-md font-normal text-gray-500">
+                                                    <span>
+                                                        {formatMonthYear(new Date(item.dateStart))} - {item.dateEnd ? formatMonthYear(new Date(item.dateEnd)) : "Present"}
+                                                    </span>
+                                                    <span className="mx-2">•</span>                
+                                                    <span>
+                                                        {formatElapsedTime(
+                                                        new Date(item.dateStart),
+                                                        item.dateEnd ? new Date(item.dateEnd) : undefined
+                                                        )}
+                                                    </span>
+                                                </div>
+
+                                                <span className="text-md font-normal text-gray-500">{item.location}</span>
                                             </div>
                                         </div>
                                     </AccordionTrigger>
 
                                     <AccordionContent className="px-4 py-3 text-gray-700">
-                                        <p className="mb-4 text-sm text-gray-600">{item.content}</p>
+                                        <p className="mb-4 text-sm">{item.content}</p>
 
-                                        <div className="flex flex-col items-center mb-4">
+                                        <div className="flex flex-col items-center mb-4 text-gray-900">
                                             <Label className="mb-2">Skills</Label>
 
                                             {item.skills && item.skills.length > 0 ? (

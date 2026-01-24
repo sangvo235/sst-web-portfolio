@@ -40,14 +40,14 @@ export default async function CreateEducationPage() {
                             <Label>Name</Label>
                             <Input name="name" type="text" placeholder="Name eg. University" required/>
                         </div>
-                        
-                        <DatePicker name="dateStart" label="Start Date"/>
-                        <DatePicker name="dateEnd" label="End Date"/>
 
                         <div className="flex flex-col gap-2">
                             <Label>Image URL</Label>
                             <Input name="imageUrl" type="url" placeholder="Image URL" required/>
                         </div>
+
+                        <DatePicker name="dateStart" label="Start Date"/>
+                        <DatePicker name="dateEnd" label="End Date"/>
 
                         <div className="flex flex-col gap-2">
                             <Label>Content</Label>
