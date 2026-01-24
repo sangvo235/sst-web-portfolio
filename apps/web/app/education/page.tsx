@@ -2,7 +2,9 @@ import Link from "next/link";
 import { buttonVariants } from "@/components/ui/button";
 import { prisma } from "@/app/utils/db";
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
-import { EducationCard } from "@/components/general/EducationCard";
+import { EducationCard } from "@/components/cards/EducationCard";
+
+//TODO: ADD SKELETON & SUSPENSION!
 
 async function getData() {
   return prisma.education.findMany({

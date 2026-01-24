@@ -2,7 +2,7 @@ import Link from "next/link";
 import { buttonVariants } from "@/components/ui/button";
 import { prisma } from "@/app/utils/db";
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
-import { BlogPostCard } from "@/components/general/BlogPostCard";
+import { BlogPostCard } from "@/components/cards/BlogPostCard";
 import { BlogPostCardSkeleton } from "@/components/skeleton/BlogPostCardSkeleton";
 import { Suspense } from "react";
 import { BlogFilter } from "@/components/general/BlogFilter";
