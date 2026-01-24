@@ -5,82 +5,81 @@
 // Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
 
 generator client {
-  provider = "prisma-client-js"
-  output   = "../generated/prisma"
+  provider      = "prisma-client-js"
+  output        = "../generated/prisma"
   binaryTargets = ["native", "darwin-arm64", "rhel-openssl-3.0.x"]
 }
 
 datasource db {
   provider = "postgresql"
-  url      = env("DATABASE_URL")
 }
 
 model Experience {
-  id               String     @id @default(uuid())
-  imageUrl         String
-  title            String
-  company          String
-  dateStart        DateTime
-  dateEnd          DateTime?
-  content          String
-  skills           String[]
+  id        String    @id @default(uuid())
+  imageUrl  String
+  title     String
+  company   String
+  dateStart DateTime
+  dateEnd   DateTime?
+  content   String
+  skills    String[]
 }
 
 model Education {
-  id               String     @id @default(uuid())
-  imageUrl         String
-  title            String
-  name             String
-  dateStart        DateTime
-  dateEnd          DateTime?
-  content          String
+  id        String    @id @default(uuid())
+  imageUrl  String
+  title     String
+  name      String
+  dateStart DateTime
+  dateEnd   DateTime?
+  content   String
 }
 
 model Projects {
-  id               String     @id @default(uuid())
-  authorId         String
-  authorFirstName  String
-  authorLastName   String
-  authorImage      String
-  title            String
-  content          String
-  readTime         String
-  imageUrl         String
-  githubUrl        String
-  demoUrl          String
-  createdAt        DateTime   @default(now())
-  updatedAt        DateTime   @updatedAt
-  techIconUrls     String[]
-  comments         Comment[]
+  id              String    @id @default(uuid())
+  authorId        String
+  authorFirstName String
+  authorLastName  String
+  authorImage     String
+  title           String
+  content         String
+  readTime        String
+  imageUrl        String
+  githubUrl       String
+  demoUrl         String
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+  techIconUrls    String[]
+  comments        Comment[]
 }
 
 model Blogs {
-  id               String     @id @default(uuid())
-  authorId         String
-  authorFirstName  String
-  authorLastName   String
-  authorImage      String
-  title            String
-  topic            String?
-  readTime         String
-  imageUrl         String
-  content          String
-  createdAt        DateTime   @default(now())
-  updatedAt        DateTime   @updatedAt
-  comments         Comment[]
+  id              String    @id @default(uuid())
+  authorId        String
+  authorFirstName String
+  authorLastName  String
+  authorImage     String
+  title           String
+  topic           String?
+  readTime        String
+  imageUrl        String
+  content         String
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+  comments        Comment[]
 }
 
 model Comment {
-  id               String     @id @default(uuid())
-  authorId         String
-  authorFirstName  String
-  authorLastName   String
-  authorImage      String
-  content          String
-  createdAt        DateTime   @default(now())
-  updatedAt        DateTime   @updatedAt
-  post             Blogs?   @relation(fields: [postId], references: [id])
-  postId           String?
-  project          Projects?   @relation(fields: [projectId], references: [id])
-  projectId        String?
+  id              String    @id @default(uuid())
+  authorId        String
+  authorFirstName String
+  authorLastName  String
+  authorImage     String
+  content         String
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+  post            Blogs?    @relation(fields: [postId], references: [id])
+  postId          String?
+  project         Projects? @relation(fields: [projectId], references: [id])
+  projectId       String?
 }
