@@ -20,6 +20,7 @@ model Experience {
   type      String
   dateStart DateTime
   dateEnd   DateTime?
+  location  String
   content   String
   skills    String[]
 }
