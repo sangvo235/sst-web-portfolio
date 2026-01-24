@@ -10,8 +10,8 @@ import ThemeToggle from '@/components/general/ThemeToggle';
 
 const NAV_ITEMS = [
   { label: 'Blogs', page: 'blogs' },
-  { label: 'Experience', page: 'experience' },
   { label: 'Education', page: 'education' },
+  { label: 'Experience', page: 'experience' },
   { label: 'Projects', page: 'projects' },
 ];
 
