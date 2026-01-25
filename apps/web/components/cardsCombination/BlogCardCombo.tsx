@@ -1,7 +1,7 @@
 "use client";
 
 import { BlogCard, BlogCardData } from "@/components/cards/BlogCard";
-import { useDelayedFetch } from "@/hooks/useDelayedFetch";
+import { useFetch } from "@/hooks/useFetch";
 import { useSearchParams } from "next/navigation";
 
 export default function BlogCardCombo() {
@@ -13,7 +13,7 @@ export default function BlogCardCombo() {
 
   const url = `/api/blogs?topic=${topic}&sort=${sort}&sortBy=${sortBy}`;
 
-  const { data: blogs, loading } = useDelayedFetch<BlogCardData[]>(url, 1500);
+  const { data: blogs, loading } = useFetch<BlogCardData[]>(url);
 
   if (loading) {
     return (
