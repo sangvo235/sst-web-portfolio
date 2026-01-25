@@ -1,22 +1,10 @@
 import Link from "next/link";
 import { buttonVariants } from "@/components/ui/button";
-import { prisma } from "@/app/utils/db";
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
-import { EducationCard } from "@/components/cards/EducationCard";
-
-//TODO: ADD SKELETON & SUSPENSION!
-
-async function getData() {
-  return prisma.education.findMany({
-    orderBy: {
-      dateEnd: "desc",
-    },
-  });
-}
+import EducationCardCombo from "@/components/cardsCombination/EducationCardCombo";
 
 export default async function EducationPage() {
   const { getPermission } = getKindeServerSession();
-  const data = await getData();
   const requiredPermission = await getPermission("add:education");
 
   return (
@@ -30,12 +18,10 @@ export default async function EducationPage() {
           </Link>
         )}
       </div>
+        <div className="col-span-full">
 
-      <div className="mx-auto max-w-3xl px-6 md:max-w-5xl">
-        {data.map((item) => (
-            <EducationCard key={item.id} data={item} />
-        ))}
-      </div>
+      <EducationCardCombo />
+        </div>
     </div>
   );
 }

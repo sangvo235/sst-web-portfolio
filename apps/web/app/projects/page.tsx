@@ -14,7 +14,7 @@ export default async function ProjectPage() {
 
                 {requiredPermission?.isGranted && (
                     <Link className={buttonVariants()} href="/projects/create">
-                    Create Project
+                        Create Project
                     </Link>
                 )}
             </div>

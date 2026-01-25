@@ -27,7 +27,7 @@ export default async function ExperiencePage() {
 
                 {requiredPermission?.isGranted && (
                     <Link className={buttonVariants()} href="/experience/create">
-                    Create Experience
+                        Create Experience
                     </Link>
                 )}
             </div>
