@@ -21,3 +21,5 @@ export default function ThemeToggle() {
     </button>
   );
 }
+
+// TODO: Fix Darkmode for some components with text

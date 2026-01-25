@@ -62,20 +62,20 @@ export default async function CreateBlogPage() {
                         <div className="flex flex-col gap-2">
                             <Label>Topic</Label>
                             <Select name="topic" required>
-                            <SelectTrigger>
-                                <SelectValue placeholder="Select" />
-                            </SelectTrigger>
-                            <SelectContent>
-                                <SelectItem value="all">All</SelectItem>
-                                <SelectItem value="career">Career</SelectItem>
-                                <SelectItem value="education">Education</SelectItem>
-                                <SelectItem value="food&drink">Food & Drink</SelectItem>
-                                <SelectItem value="health&wellness">Health & Wellness</SelectItem>
-                                <SelectItem value="lifestyle">Lifestyle</SelectItem>
-                                <SelectItem value="technology">Technology</SelectItem>
-                                <SelectItem value="travel">Travel</SelectItem>
-                                <SelectItem value="other">Other</SelectItem>
-                            </SelectContent>
+                                <SelectTrigger>
+                                    <SelectValue placeholder="Select" />
+                                </SelectTrigger>
+                                <SelectContent>
+                                    <SelectItem value="all">All</SelectItem>
+                                    <SelectItem value="Career">Career</SelectItem>
+                                    <SelectItem value="Education">Education</SelectItem>
+                                    <SelectItem value="Food & Drink">Food & Drink</SelectItem>
+                                    <SelectItem value="Health & Wellness">Health & Wellness</SelectItem>
+                                    <SelectItem value="Lifestyle">Lifestyle</SelectItem>
+                                    <SelectItem value="Technology">Technology</SelectItem>
+                                    <SelectItem value="Travel">Travel</SelectItem>
+                                    <SelectItem value="Other">Other</SelectItem>
+                                </SelectContent>
                             </Select>
                         </div>
 
@@ -103,3 +103,5 @@ export default async function CreateBlogPage() {
         </div>
     )
 }
+
+// TODO: Make this into a resuable component
