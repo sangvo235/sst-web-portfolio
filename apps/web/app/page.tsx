@@ -1,8 +1,8 @@
-import { Bio } from '@/components/general/Bio';
-import { LatestBlogPosts } from '@/components/general/LatestBlogPost'; 
 import { Suspense } from 'react';
+import { Bio } from '@/components/general/Bio';
+import { LatestBlogPosts } from '@/components/general/BlogLatest'; 
 import { BioSkeleton } from '@/components/skeleton/BioSkeleton';
-import { LatestBlogPostSkeleton } from '@/components/skeleton/LatestBlogPostSkeleton';
+import { LatestBlogPostSkeleton } from '@/components/skeleton/BlogLatestSkeleton';
 
 export default async function Home() {
   return (
