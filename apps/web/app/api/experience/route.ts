@@ -1,8 +1,8 @@
 import { prisma } from "@/app/utils/db";
 
 export async function GET() {
-    const data = await prisma.projects.findMany({
-        orderBy: { createdAt: "desc" },
+    const data = await prisma.experience.findMany({
+        orderBy: { dateEnd: "desc" },
     });
 
     return new Response(JSON.stringify(data), {
