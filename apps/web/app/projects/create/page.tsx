@@ -44,18 +44,18 @@ export default async function CreateProjectPage() {
                         <div className="flex flex-col gap-2">
                             <Label>Read Time</Label>
                             <Select name="readTime" required>
-                            <SelectTrigger>
-                                <SelectValue placeholder="Select" />
-                            </SelectTrigger>
-                            <SelectContent>
-                                <SelectItem value="2">2 mins</SelectItem>
-                                <SelectItem value="5">5 mins</SelectItem>
-                                <SelectItem value="10">10 mins</SelectItem>
-                                <SelectItem value="15">15 mins</SelectItem>
-                                <SelectItem value="20">20 mins</SelectItem>
-                                <SelectItem value="25">25 mins</SelectItem>
-                                <SelectItem value="> 30">Over 30 mins</SelectItem>
-                            </SelectContent>
+                                <SelectTrigger>
+                                    <SelectValue placeholder="Select" />
+                                </SelectTrigger>
+                                <SelectContent>
+                                    <SelectItem value="2">2 mins</SelectItem>
+                                    <SelectItem value="5">5 mins</SelectItem>
+                                    <SelectItem value="10">10 mins</SelectItem>
+                                    <SelectItem value="15">15 mins</SelectItem>
+                                    <SelectItem value="20">20 mins</SelectItem>
+                                    <SelectItem value="25">25 mins</SelectItem>
+                                    <SelectItem value="> 30">Over 30 mins</SelectItem>
+                                </SelectContent>
                             </Select>
                         </div>
 
@@ -92,3 +92,6 @@ export default async function CreateProjectPage() {
         </div>
     )
 }
+
+// TODO: Select Component Issue - shifting navigation bar
+// TODO: Make this into a resuable component

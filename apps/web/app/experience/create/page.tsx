@@ -56,17 +56,17 @@ export default async function CreateExperiencePage() {
                         <div className="flex flex-col gap-2">
                             <Label>Type</Label>
                             <Select name="type" required>
-                            <SelectTrigger>
-                                <SelectValue placeholder="Select" />
-                            </SelectTrigger>
-                            <SelectContent>
-                                <SelectItem value="Full-time">Full-time</SelectItem>
-                                <SelectItem value="Part-time">Part-time</SelectItem>
-                                <SelectItem value="Self-employed">Self-employed</SelectItem>
-                                <SelectItem value="Freelance">Freelance</SelectItem>
-                                <SelectItem value="Contract">Contract</SelectItem>
-                                <SelectItem value="Internship">Internship</SelectItem>
-                            </SelectContent>
+                                <SelectTrigger>
+                                    <SelectValue placeholder="Select" />
+                                </SelectTrigger>
+                                <SelectContent>
+                                    <SelectItem value="Full-time">Full-time</SelectItem>
+                                    <SelectItem value="Part-time">Part-time</SelectItem>
+                                    <SelectItem value="Self-employed">Self-employed</SelectItem>
+                                    <SelectItem value="Freelance">Freelance</SelectItem>
+                                    <SelectItem value="Contract">Contract</SelectItem>
+                                    <SelectItem value="Internship">Internship</SelectItem>
+                                </SelectContent>
                             </Select>
                         </div>
                             
@@ -96,3 +96,6 @@ export default async function CreateExperiencePage() {
         </div>
     )
 }
+
+// TODO: Select Component Issue - shifting navigation bar
+// TODO: Make this into a resuable component
