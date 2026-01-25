@@ -1,23 +1,10 @@
 import Link from "next/link";
 import { buttonVariants } from "@/components/ui/button";
-import { prisma } from "@/app/utils/db";
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
-import { ProjectCard } from "@/components/cards/ProjectCard";
-import { Suspense } from "react";
-import { ProjectCardSkeleton } from "@/components/skeleton/ProjectCardSkeleton";
-
-async function getData() {
-    const data = await prisma.projects.findMany({
-        orderBy: {
-            createdAt: 'desc',
-        },
-    })
-    return data;
-}
+import ProjectCardCombo from "@/components/cardsCombination/ProjectCardCombo";
 
 export default async function ProjectPage() {
     const { getPermission } = getKindeServerSession();
-    const data = await getData();
     const requiredPermission = await getPermission('add:project');
 
     return (
@@ -32,13 +19,7 @@ export default async function ProjectPage() {
                 )}
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                <Suspense fallback={<ProjectCardSkeleton />}>
-                    {data.map((item) => (
-                        <ProjectCard data={item} key={item.id}/>
-                    ))}
-                </Suspense>
-            </div>
+            <ProjectCardCombo />
         </>
     )
 }
