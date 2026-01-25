@@ -5,7 +5,6 @@ import { useFetch } from "@/hooks/useFetch";
 
 export default function EducationCardCombo() {
     const { data: education, loading } = useFetch<EducationCardData[]>("/api/education");
-    console.log("Education data fetched:", education);
 
     if (loading) {
         return (
