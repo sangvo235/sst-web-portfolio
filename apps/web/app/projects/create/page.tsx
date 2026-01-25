@@ -93,5 +93,4 @@ export default async function CreateProjectPage() {
     )
 }
 
-// TODO: Select Component Issue - shifting navigation bar
 // TODO: Make this into a resuable component

@@ -104,5 +104,4 @@ export default async function CreateBlogPage() {
     )
 }
 
-// TODO: Select Component Issue - shifting navigation bar
 // TODO: Make this into a resuable component
