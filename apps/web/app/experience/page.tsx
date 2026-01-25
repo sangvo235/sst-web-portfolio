@@ -1,23 +1,10 @@
 import Link from "next/link";
 import { buttonVariants } from "@/components/ui/button";
-import { prisma } from "@/app/utils/db";
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
-import { ExperienceCard } from "@/components/cards/ExperienceCard";
-
-//TODO: ADD SKELETON & SUSPENSION!
-
-async function getData() {
-    const data = await prisma.experience.findMany({
-        orderBy: {
-            dateEnd: 'desc',
-        },
-    })
-    return data;
-}
+import ExperienceCardCombo from "@/components/cardsCombination/ExperienceCardCombo";
 
 export default async function ExperiencePage() {
     const { getPermission } = getKindeServerSession();
-    const data = await getData();
     const requiredPermission = await getPermission('add:experience');
 
     return (
@@ -32,11 +19,7 @@ export default async function ExperiencePage() {
                 )}
             </div>
 
-            <div className="mx-auto max-w-3xl px-6 md:max-w-5xl">
-                {data.map((item) => (
-                    <ExperienceCard key={item.id} data={item} />
-                ))}
-            </div>
+            <ExperienceCardCombo />
         </div>
     )
 }

@@ -18,10 +18,8 @@ export default async function EducationPage() {
           </Link>
         )}
       </div>
-        <div className="col-span-full">
 
       <EducationCardCombo />
-        </div>
     </div>
   );
 }
