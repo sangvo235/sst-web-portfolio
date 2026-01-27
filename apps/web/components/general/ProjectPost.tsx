@@ -189,4 +189,4 @@ export async function ProjectPost ({ id, canComment }: { id: string; canComment:
 }
 
 // TODO: Mobile Views
-// TODO: Image Link to Project
+// TODO: Use API Routes for GET data
