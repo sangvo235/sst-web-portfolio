@@ -39,7 +39,7 @@ export function BlogCard({ data, variant = "default" }: BlogCardProps) {
           ) : (
             data?.imageUrl && (
               <Image
-                src={data.imageUrl}
+                src={`${process.env.NEXT_PUBLIC_S3_BASE_URL}/${data.imageUrl}`}
                 alt="Image for Blog"
                 fill
                 className="object-cover transition-transform duration-300 group-hover:scale-105"

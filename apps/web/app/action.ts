@@ -4,40 +4,6 @@ import { prisma } from "@/app/utils/db";
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 import { redirect } from "next/navigation";
 
-export async function handleBlogSubmission(formData: FormData) {
-    const { getUser } = getKindeServerSession();
-    const user = await getUser();
-    
-    if (!user) {
-        return redirect("/api/auth/register");
-    }
-
-    const title = formData.get('title');
-    const readTime = formData.get('readTime');
-    const topic = formData.get('topic');
-    const imageUrl = formData.get('imageUrl');
-    const content = formData.get('content');
-    
-    // TODO: content make dotpoints
-
-    await prisma.blogs.create({
-        data: {
-            // TO COMPLETE: ERROR HANDLING & SS VALIDATION
-            title: title as string,
-            content: content as string,
-            readTime: readTime as string,
-            topic: topic as string,
-            imageUrl: imageUrl as string,
-            authorId: user.id,
-            authorImage: user.picture as string,
-            authorFirstName: user.given_name as string,
-            authorLastName: user.family_name as string,
-        }
-    })
-
-    return redirect("/blogs");
-}
-
 export async function handleCommentSubmission(formData: FormData) {
     const { getUser } = getKindeServerSession();
     const user = await getUser();

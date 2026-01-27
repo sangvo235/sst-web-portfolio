@@ -104,7 +104,7 @@ export async function BlogPost ({ id, canComment }: { id: string; canComment: bo
 
             <div className="col-start-2 col-span-4 relative h-96 w-full overflow-hidden">
                 <Image
-                    src={data.imageUrl}
+                    src={`${process.env.NEXT_PUBLIC_S3_BASE_URL}/${data.imageUrl}`}
                     alt="Image for blog"
                     fill
                     className="object-cover transition-transform duration-300 group-hover:scale-105"

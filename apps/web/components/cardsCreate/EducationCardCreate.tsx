@@ -89,7 +89,7 @@ export default function EducationCardCreate() {
                                 {imageKey && (
                                     <Image
                                         src={`${process.env.NEXT_PUBLIC_S3_BASE_URL}/${imageKey}`}
-                                        alt="Uploaded preview"
+                                        alt="Uploaded Image Preview"
                                         width={196}
                                         height={196}
                                     />
