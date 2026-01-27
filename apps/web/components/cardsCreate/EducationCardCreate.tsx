@@ -1,24 +1,20 @@
 "use client"
 
+import { useState } from "react";
+import { useS3UploadHandler } from "@/hooks/useS3Upload";
+import { useRouter } from "next/navigation";
+import Image from "next/image";
+
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { useRouter } from "next/navigation";
 import { SubmitButton } from "@/components/general/SubmitButton";
 import { DatePicker } from "@/components/general/DatePicker";
-import { useS3UploadHandler } from "@/hooks/useS3Upload";
-import { useState } from "react";
-import { Button } from "@/components/ui/button";
 
 export default function EducationCardCreate() {
     const { imageKey, isUploading, error, uploadFile } = useS3UploadHandler("education");
     const [imageFile, setImageFile] = useState<File | null>(null);
-
-    async function onUpload() {
-        if (!imageFile) return;
-        await uploadFile(imageFile);
-    }
 
     const router = useRouter();
 
@@ -39,7 +35,6 @@ export default function EducationCardCreate() {
         if (res.ok) {
             router.push("/education");
         } else {
-            // handle error
             console.error("Failed to create education post");
         }
     }
@@ -79,20 +74,34 @@ export default function EducationCardCreate() {
                                 type="file"
                                 placeholder="Image URL" 
                                 required
-                                onChange={(e) => setImageFile(e.target.files?.[0] ?? null)}
+                                onChange={async (e) => {
+                                    const file = e.target.files?.[0];
+                                    if (!file) return;
+                                    setImageFile(file);
+                                    await uploadFile(file);
+                                }}
                             />
-                            <Button
-                                type="button"
-                                onClick={onUpload}
-                                disabled={!imageFile || isUploading}
-                            >
-                                {isUploading ? "Uploading..." : "Upload Image"}
-                            </Button>
-                            
-                            {error && <p className="text-red-500">{error}</p>}
+                            <span className="pt-2">                  
+                                {isUploading && (
+                                    <p className="text-sm text-muted-foreground">Uploading image…</p>
+                                )}
+
+                                {imageKey && (
+                                    <Image
+                                        src={`${process.env.NEXT_PUBLIC_S3_BASE_URL}/${imageKey}`}
+                                        alt="Uploaded preview"
+                                        width={196}
+                                        height={196}
+                                    />
+                                )}
+
+                                {error && (
+                                    <p className="text-sm text-red-500">{error}</p>
+                                )}
+                            </span>
                         </div>                        
 
-                        <SubmitButton />
+                        <SubmitButton disabled={isUploading || !imageKey} />
                     </form>
                 </CardContent>
                 <CardFooter />
