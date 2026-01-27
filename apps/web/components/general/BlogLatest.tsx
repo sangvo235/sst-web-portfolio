@@ -38,8 +38,8 @@ export async function LatestBlogPosts() {
                             <Card className="group overflow-hidden transition-all hover:shadow-lg">
                                 <div className="relative h-48 w-full overflow-hidden">
                                     <Image
-                                        src={item.imageUrl}
-                                        alt="Image for blog"
+                                        src={`${process.env.NEXT_PUBLIC_S3_BASE_URL}/${item.imageUrl}`}
+                                        alt="Image for Blog"
                                         fill
                                         className="object-cover transition-transform duration-300 group-hover:scale-105"
                                     />
