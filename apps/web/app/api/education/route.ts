@@ -21,7 +21,7 @@ export async function POST(req: Request) {
     if (!user) {
         return redirect("/api/auth/register");
     }
-    
+
     const formData = await req.formData();
 
     const imageUrl = formData.get("imageUrl") as string;
@@ -46,3 +46,4 @@ export async function POST(req: Request) {
 }
 
 // TODO: ERROR HANDLING & SS VALIDATION
+// TODO: FIX FORM FORMAT

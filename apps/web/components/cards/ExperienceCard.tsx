@@ -48,7 +48,7 @@ export function ExperienceCard({ data, variant = "default" }: ExperienceCardProp
                                 ) : (
                                     data?.imageUrl && (
                                         <Image
-                                        src={data.imageUrl}
+                                        src={`${process.env.NEXT_PUBLIC_S3_BASE_URL}/${data.imageUrl}`}
                                         alt={`Image for ${data.company}`}
                                         width={96}
                                         height={96}
