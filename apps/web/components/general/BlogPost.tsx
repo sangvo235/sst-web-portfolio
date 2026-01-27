@@ -1,12 +1,10 @@
+import { prisma } from "@/app/utils/db";
+
 import Image from "next/image";
 import Link from "next/link";
-import { prisma } from "@/app/utils/db";
 import { notFound } from "next/navigation";
-import { handleCommentSubmission } from "@/app/action";
-import { SubmitButton } from "@/components/general/SubmitButton";
-import { Label } from "@/components/ui/label";
-import { Textarea } from "@/components/ui/textarea";
-import { Input } from "@/components/ui/input";
+
+import Comment from "@/components/general/Comment";
 import { buttonVariants } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import {
@@ -15,6 +13,7 @@ import {
   CardFooter,
   CardHeader,
 } from "@/components/ui/card";
+
 import { BiComment, BiSolidPurchaseTag } from "react-icons/bi";
 import { ArrowLeft } from "lucide-react";
 
@@ -166,22 +165,7 @@ export async function BlogPost ({ id, canComment }: { id: string; canComment: bo
                 ))
             )}
             
-            {canComment && (
-                <div className="col-start-2 col-span-4 px-6">
-                    <Label className="py-2">Add your comment</Label>
-                    <div>
-                        <form className="flex flex-col gap-4 mb-4" action={handleCommentSubmission}>
-                            <Input type="hidden" name="postId" value={id} />
-
-                            <div className="flex flex-col gap-2">
-                                <Textarea name="content" required placeholder="Content"/>
-                            </div>
-
-                            <SubmitButton />
-                        </form>
-                    </div>
-                </div>
-            )}
+            {canComment && <Comment postId={id} />}
         </div>
     );
 }
