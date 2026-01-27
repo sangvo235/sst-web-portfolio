@@ -42,11 +42,11 @@ export function EducationCard({ data, variant = "default" }: EducationCardProps)
                             ) : (
                                 data?.imageUrl && (
                                     <Image
-                                    src={data.imageUrl}
-                                    alt={`Image for ${data.name}`}
-                                    width={96}
-                                    height={96}
-                                    className="rounded-full"
+                                        src={`${process.env.NEXT_PUBLIC_S3_BASE_URL}/${data.imageUrl}`}
+                                        alt={`Image for ${data.name}`}
+                                        width={96}
+                                        height={96}
+                                        className="rounded-full"
                                     />
                                     )
                             )}

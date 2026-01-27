@@ -18,7 +18,7 @@ export default async function Page({
         redirect("/api/auth/register");
     }
 
-    const permission = await getPermission("comment:blog");
+    const permission = await getPermission("comment:project");
 
     return (
         // !! = double negation to convert to boolean and handle undefined (only true and false)

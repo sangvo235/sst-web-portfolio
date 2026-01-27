@@ -42,6 +42,11 @@ const nextConfig = {
         hostname: 'svgrepo.com',
         protocol: 'https',
         port: '',
+      },
+      {
+        hostname: 'sang-vo-sst-web-portfolio-app.s3.ap-southeast-2.amazonaws.com',
+        protocol: 'https',
+        port: '',
       }
     ],
   },

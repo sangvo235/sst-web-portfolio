@@ -1,13 +1,22 @@
-"use client"
+"use client";
+
 import { useFormStatus } from "react-dom";
-import { Button } from "../ui/button"
+import { Button } from "../ui/button";
 
-export function SubmitButton() {
-    const {pending} = useFormStatus();
+type SubmitButtonProps = {
+  disabled?: boolean;
+};
 
-    return (
-        <Button className="w-fit" type="submit" disabled={pending}>
-            {pending ? 'Submitting' : 'Submit'}
-        </Button>
-    );
+export function SubmitButton({ disabled }: SubmitButtonProps) {
+  const { pending } = useFormStatus();
+
+  return (
+    <Button
+      className="w-fit"
+      type="submit"
+      disabled={pending || disabled}
+    >
+      {pending ? "Submitting..." : "Submit"}
+    </Button>
+  );
 }
