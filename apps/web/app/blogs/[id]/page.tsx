@@ -1,16 +1,16 @@
 import { Suspense } from "react";
 import { redirect } from "next/navigation";
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
+
 import { BlogPost } from "@/components/general/BlogPost";
 import { BlogPostSkeleton } from "@/components/skeleton/BlogPostSkeleton";
 
-type Params = { id: string };
-
-export default async function Page({
+export default async function BlogPageDynamic({
     params,
 }: {
-    params: Params;
+    params: { id: string };
 }) {
+
     const { isAuthenticated, getPermission } =
         getKindeServerSession();
 
