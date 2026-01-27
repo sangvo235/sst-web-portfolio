@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-export function useS3UploadHandler() {
+export function useS3UploadHandler(folder: string) {
   const [isUploading, setIsUploading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [imageKey, setImageKey] = useState<string | null>(null);
@@ -14,7 +14,7 @@ export function useS3UploadHandler() {
     try {
       const res = await fetch("/api/s3/upload", {
         method: "POST",
-        body: JSON.stringify({ filename: file.name, filetype: file.type }),
+        body: JSON.stringify({ filename: file.name, filetype: file.type, folder }),
         headers: { "Content-Type": "application/json" },
       });
 

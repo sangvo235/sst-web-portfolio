@@ -11,9 +11,9 @@ const s3 = new S3Client({
 });
 
 export async function POST(req: Request) {
-  const { filename, filetype } = await req.json();
+  const { filename, filetype, folder } = await req.json();
 
-  const key = `uploads/${filename}`;
+  const key = `${folder}/${filename}`;
 
   const command = new PutObjectCommand({
     Bucket: process.env.AWS_BUCKET_NAME,

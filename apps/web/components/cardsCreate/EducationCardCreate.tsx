@@ -12,7 +12,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 
 export default function EducationCardCreate() {
-    const { imageKey, isUploading, error, uploadFile } = useS3UploadHandler();
+    const { imageKey, isUploading, error, uploadFile } = useS3UploadHandler("education");
     const [imageFile, setImageFile] = useState<File | null>(null);
 
     async function onUpload() {
