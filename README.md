@@ -34,6 +34,7 @@ Access the application here:
 - Image linking to GitHub (for ProjectPost).
 - Fix formatting for education route.ts
 - Seed data
+- ReadME: S3 BUCKET information
 
 # Short Demo
 
@@ -145,6 +146,8 @@ AWS_PROFILE=test npx sst remove --stage develop
 - Alternatively, you could deploy the database on AWS via SST.
 
 ## Prisma
+*Note Prisma 7 has been updated for this project and has slightly different set up to 6.
+
 - Installs Prisma packages
 ```
 pnpm add -D prisma
@@ -156,11 +159,22 @@ pnpm add @prisma/client
 pnpm dlx prisma init   
 ```
 
-- Connect the DB to prisma by updating the URL in .env.
-- Reads schema.prisma, connects to the DB (based on DATABASE_URL) and creates/updates tables to match current models.
-- NOTE: It does overwrite history so recommended to use `prisma migrate` in production later.
+- Configure the DB and edit DATABASE_URL in .env to connect.
+- Define the models in prisma.
+- Run initial migrations (create tables based on models defined).
+- NOTE: db push does overwrite history so recommended to use `prisma migrate` in production later.
 ```
 pnpm dlx prisma db push
+```
+
+- Generate initial migration.
+```
+pnpm prisma migrate dev --name init
+```
+
+- Generate Prisma Client (use when changing schema.prisma to build).
+```
+pnpm prisma generate
 ```
 
 - To access the Prisma Studio GUI run the following command:
@@ -168,20 +182,12 @@ pnpm dlx prisma db push
 pnpm dlx prisma studio
 ```
 
-- Generate initial migration.
-```
-pnpm dlx prisma migrate dev --name init
-```
-
-- Generates a migration file with only the changes.
-- Updates the database without dropping data.
-- Maintains a complete migration history.
-- Create later migrations using:
+- Generates a migration file with only the changes and is safe for prod:
 ```
 pnpm dlx prisma migrate dev --name ""
 ```
 
-- Full reset of db if there are severe issues.
+- Full DB reset (avoid in prod).
 ```
 pnpm dlx prisma migrate reset
 ```
