@@ -111,37 +111,6 @@ export async function handleExperienceSubmission(formData: FormData) {
     return redirect("/experience");
 }
 
-export async function handleEducationSubmission(formData: FormData) {
-    const { getUser } = getKindeServerSession();
-    const user = await getUser();
-    
-    if (!user) {
-        return redirect("/api/auth/register");
-    }
-
-    const imageUrl = formData.get('imageUrl');
-    const title = formData.get('title');
-    const name = formData.get('name');
-    const dateStart = formData.get('dateStart');
-    const dateEnd = formData.get('dateEnd');
-    const content = formData.get('content');
-
-    await prisma.education.create({
-        data: {
-            // TODO: ERROR HANDLING & SS VALIDATION
-            imageUrl: imageUrl as string,
-            title: title as string,
-            name: name as string,
-            dateStart: new Date(dateStart as string),
-            dateEnd: dateEnd ? new Date(dateEnd as string) : null,
-            content: content as string,
-        }
-    })
-    
-    // TO COMPLETE: no redirect and have it manifest on the current page
-    return redirect("/education");
-}
-
 export async function handleProjectSubmission(formData: FormData) {
     const { getUser } = getKindeServerSession();
     const user = await getUser();
