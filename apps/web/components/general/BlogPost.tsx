@@ -169,3 +169,5 @@ export async function BlogPost ({ id, canComment }: { id: string; canComment: bo
         </div>
     );
 }
+
+// TODO: Use API Routes for GET data
