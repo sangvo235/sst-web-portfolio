@@ -32,7 +32,6 @@ Access the application here:
 - Error Handling & SS Validation (Comment Inputs & CREATE - Blog, Project, Experience & Education).
 - Context uplift for Blog, Project, Experience & Education (eg. add dot point capability into content property).
 - getData --> GET() via next api routes instead for: BlogLatest, BlogPost & ProjectPost.
-- S3 Bucket Upload feature for technology logos for Projects.
 - Fix Darkmode (eg. content text should be white vs. dark grey).
 - Mobile responsivity.
 - Image linking to GitHub (for ProjectPost).

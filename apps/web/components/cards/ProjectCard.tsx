@@ -71,18 +71,18 @@ export function ProjectCard({ data, variant = "default" }: ProjectCardProps) {
           <div className="w-full overflow-hidden">
             <div className="mx-auto flex max-w-fit items-center justify-center gap-2 py-4">
               {isSkeleton ? (
-                Array.from({ length: 6 }).map((_, idx) => (
+                Array.from({ length: 6 }).map((_, i) => (
                   <div
-                    key={idx}
+                    key={i}
                     className="w-8 h-8 bg-gray-300 rounded-full animate-pulse"
                   />
                 ))
               ) : (
-                data?.techIconUrls?.slice(0, 9).map((iconUrl, idx) => (
-                  <div key={idx} className="flex-none w-8 h-8 relative">
+                data?.techIconUrls?.slice(0, 9).map((f, i) => (
+                  <div key={i} className="flex-none w-8 h-8 relative">
                     <Image
-                      src={iconUrl}
-                      alt={`tech icon ${idx + 1}`}
+                      src={`${process.env.NEXT_PUBLIC_S3_BASE_URL}/${f}`}
+                      alt={`tech icon: ${f}`}
                       fill
                       className="object-contain"
                     />

@@ -114,13 +114,13 @@ export async function ProjectPost ({ id, canComment }: { id: string; canComment:
 
                 {data.techIconUrls && data.techIconUrls.length > 0 && (
                     <div className="flex flex-wrap justify-center gap-2">
-                        {data.techIconUrls.map((iconUrl, idx) => (
-                            <div key={idx} className="w-8 h-8 relative">
+                        {data.techIconUrls.map((f, i) => (
+                            <div key={i} className="w-8 h-8 relative">
                                 <Image
-                                src={iconUrl}
-                                alt={`tech icon ${idx + 1} for Project`}
-                                fill
-                                className="object-contain"
+                                    src={`${process.env.NEXT_PUBLIC_S3_BASE_URL}/${f}`}
+                                    alt={`tech icon: ${f}`}
+                                    fill
+                                    className="object-contain"
                                 />
                             </div>
                         ))}
