@@ -34,7 +34,7 @@ export default function ProjectCardCreate() {
 
         const formData = new FormData(e.currentTarget);
         formData.set("imageUrl", imageKey!)
-        formData.set("techIconUrl", JSON.stringify(keysTechIcon));
+        formData.set("techIconUrls", JSON.stringify(keysTechIcon));
 
         const res = await fetch("/api/projects", {
             method: "POST",

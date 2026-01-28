@@ -30,11 +30,7 @@ export async function POST(req: Request) {
     const readTime = formData.get('readTime');
     const githubUrl = formData.get('githubUrl');
     const demoUrl = formData.get('demoUrl');
-    const techIconUrl = formData.get('techIconUrl');
-
-    const techIconUrls = typeof techIconUrl === 'string'
-    ? techIconUrl.split(',').map(s => s.trim()).filter(Boolean)
-    : [];
+    const techIconUrls = JSON.parse(formData.get("techIconUrls") as string);
 
     await prisma.projects.create({
         data: {
