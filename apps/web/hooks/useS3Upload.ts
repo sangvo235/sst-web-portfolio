@@ -14,7 +14,11 @@ export function useS3UploadHandler(folder: string) {
     try {
       const res = await fetch("/api/s3/upload", {
         method: "POST",
-        body: JSON.stringify({ filename: file.name, filetype: file.type, folder }),
+          body: JSON.stringify({
+            filename: file.name,
+            filetype: file.type,
+            folder,
+          }),
         headers: { "Content-Type": "application/json" },
       });
 

@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useS3UploadHandler } from "@/hooks/useS3Upload";
+import { useS3MultiUploadHandler } from "@/hooks/useS3MultiUpload";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 
@@ -9,6 +10,7 @@ import { Card, CardDescription, CardHeader, CardTitle, CardContent, CardFooter }
 import { Label } from "@/components/ui/label"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
+import { Badge } from "@/components/ui/badge"
 import { SubmitButton } from "@/components/general/SubmitButton"
 import {
   Select,
@@ -22,16 +24,17 @@ export default function ProjectCardCreate() {
     const { imageKey, isUploading, error, uploadFile } = useS3UploadHandler("projects");
     const [imageFile, setImageFile] = useState<File | null>(null);
 
+    const { keys: keysTechIcon, isUploading: isUploadingTechIcon, error: errorTechIcon, uploadFiles: uploadTechIcons } = useS3MultiUploadHandler("projects/icons");
+    const [files, setFiles] = useState<File[]>([]);
+
     const router = useRouter();
 
     async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
         e.preventDefault();
 
         const formData = new FormData(e.currentTarget);
-
-        if (imageKey) {
-        formData.set("imageUrl", imageKey);
-        }
+        formData.set("imageUrl", imageKey!)
+        formData.set("techIconUrl", JSON.stringify(keysTechIcon));
 
         const res = await fetch("/api/projects", {
             method: "POST",
@@ -90,7 +93,38 @@ export default function ProjectCardCreate() {
 
                         <div className="flex flex-col gap-2">
                             <Label>Tech Icon URLs</Label>
-                            <Textarea name="techIconUrl" placeholder="Tech Icon Urls" required/>
+                            <Input
+                                type="file"
+                                placeholder="Tech Icon Urls" 
+                                multiple
+                                accept="image/*"
+                                onChange={async (e) => {
+                                    const selected = Array.from(e.target.files ?? []);
+                                    if (selected.length === 0) return;
+                                    setFiles(prev => [...prev, ...selected]);
+                                    await uploadTechIcons(selected);
+                                }}
+                            />
+                            {files.length > 0 && (
+                                <div className="flex flex-wrap gap-2 text-sm">
+                                    {files.map((f, i) => (
+                                        <Badge
+                                            key={i}
+                                            variant="secondary"
+                                            className="px-2 py-1 text-muted-foreground"
+                                        >
+                                            {f.name.replace(/\.[^/.]+$/, "")}
+                                            {i < files.length - 1 && ", "}
+                                        </Badge>
+                                    ))}
+                                </div>
+                            )}                    
+                            {isUploadingTechIcon && (
+                                <p className="text-sm text-muted-foreground">Uploading technology icon...</p>
+                            )}
+                            {errorTechIcon && (
+                                <p className="text-sm text-red-500">{errorTechIcon}</p>
+                            )}
                         </div>
 
                         <div className="flex flex-col gap-2">
@@ -114,7 +148,7 @@ export default function ProjectCardCreate() {
                             />
                             <span className="pt-2">                  
                                 {isUploading && (
-                                    <p className="text-sm text-muted-foreground">Uploading image…</p>
+                                    <p className="text-sm text-muted-foreground">Uploading image...</p>
                                 )}
 
                                 {imageKey && (
