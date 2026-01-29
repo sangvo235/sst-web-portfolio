@@ -39,6 +39,8 @@ Access the application here:
 - Seed data
 - ReadME: S3 BUCKET information.
 - ReadME: add Kinde details, Middleware & next config.mjs.
+- Add sort for mappings on skills sections.
+- Elapse work duration to be round to nearest mth.
 
 # Short Demo
 
