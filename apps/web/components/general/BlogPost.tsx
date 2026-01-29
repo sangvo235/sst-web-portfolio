@@ -110,7 +110,7 @@ export async function BlogPost ({ id, canComment }: { id: string; canComment: bo
                 />
             </div>
 
-            <div className="col-start-2 col-span-4 text-md text-gray-600 py-4">
+            <div className="col-start-2 col-span-4 text-md text-gray-600 py-4 whitespace-pre-line">
                 {data.content}
             </div>
             

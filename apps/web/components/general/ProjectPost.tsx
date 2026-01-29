@@ -128,7 +128,7 @@ export async function ProjectPost ({ id, canComment }: { id: string; canComment:
                 )}
             </div>
   
-            <div className="col-start-2 col-span-4 text-md text-gray-600 py-2">
+            <div className="col-start-2 col-span-4 text-md text-gray-600 py-2 whitespace-pre-line">
                 {data.content}
             </div>
           
