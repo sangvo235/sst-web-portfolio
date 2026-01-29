@@ -129,7 +129,7 @@ export default function ProjectCardCreate() {
 
                         <div className="flex flex-col gap-2">
                             <Label>Content</Label>
-                            <Textarea name="content" placeholder="content" required/>
+                            <Textarea name="content" placeholder="Content" required/>
                         </div>
 
                         <div className="flex flex-col gap-2">
