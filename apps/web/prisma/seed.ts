@@ -17,11 +17,11 @@ async function main() {
   console.log('Loading JSON seed data...');
 
   const educationData = JSON.parse(
-    fs.readFileSync(path.join(process.cwd(), 'prisma/seed-data/education.json'), 'utf-8')
+    fs.readFileSync(path.join(process.cwd(), 'prisma/seed_data/education.json'), 'utf-8')
   )
 
   const experienceData = JSON.parse(
-    fs.readFileSync(path.join(process.cwd(), 'prisma/seed-data/experience.json'), 'utf-8')
+    fs.readFileSync(path.join(process.cwd(), 'prisma/seed_data/experience.json'), 'utf-8')
   )
 
   console.log('Seeding Education...');
@@ -58,7 +58,7 @@ async function main() {
     })
   }
 
-  console.log('Seeding complete!');
+  console.log('Seeding Complete!');
 }
 
 main()
