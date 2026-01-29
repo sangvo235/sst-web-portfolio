@@ -36,11 +36,13 @@ Access the application here:
 - Mobile responsivity.
 - Image linking to GitHub (for ProjectPost).
 - Fix formatting for education route.ts
-- Seed data
-- ReadME: S3 BUCKET information.
-- ReadME: add Kinde details, Middleware & next config.mjs.
+- Seed data (blogs, projects)
+- Test comment function
 - Add sort for mappings on skills sections.
 - Elapse work duration to be round to nearest mth.
+- README: S3 BUCKET information.
+- README: add Kinde details, Middleware & next config.mjs.
+- README:add prisma stuff: changes in confi for prisma 7 & seeding --> "db:seed": "prisma db seed".
 
 # Short Demo
 

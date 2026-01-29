@@ -1,10 +1,29 @@
 [
-  {
-    "imageUrl": "education/swinburne.jpg",
-    "title": "TEST 1",
-    "name": "TEST 1",
-    "dateStart": "2018-02-01T00:00:00Z",
-    "dateEnd": "2021-12-01T00:00:00Z",
-    "content": "Studied computer science and software engineering."
-  }
+    {
+        "id": "949f0cb4-87a8-4dec-a857-987f9813bd21",
+        "imageUrl": "education/monash.jpeg",
+        "title": "Bachelor of Commerce (Finance)",
+        "name": "Monash University",
+        "dateStart": "2017-02-01T13:00:00.000Z",
+        "dateEnd":   "2021-11-01T13:00:00.000Z",
+        "content": "- Achieved Distinction (D) average."
+    },
+    {
+        "id": "be8c5b4d-3d52-4913-bae9-f3e7b7e26660",
+        "imageUrl": "education/tum.jpeg",
+        "title": "Master of Informatics (Exchange Program)",
+        "name": "Technical University of Munich",
+        "dateStart": "2023-10-01T13:00:00.000Z",
+        "dateEnd":   "2024-03-01T13:00:00.000Z",
+        "content": "- Achieved High Distinction (HD) Grade Equivalents in IN2106 JavaScript Technology Praktikum (6–8% acceptance rate) and IN2107 Foundations and Applications of Graph Neural Networks."
+    },
+    {
+        "id": "1b9b6a0b-880e-402f-88f1-5a28463f1f5d",
+        "imageUrl": "education/swinburne.jpg",
+        "title": "Master of Information Technology (Software Development)",
+        "name": "Swinburne University of Technology",
+        "dateStart": "2022-02-01T13:00:00.000Z",
+        "dateEnd":   "2024-08-01T14:00:00.000Z",
+        "content": "- Achieved High Distinction (HD) average with perfect GPA.\r\n- GPA: 4.0/4.0.\r\n- WAM: 85.77/100."
+    }
 ]
