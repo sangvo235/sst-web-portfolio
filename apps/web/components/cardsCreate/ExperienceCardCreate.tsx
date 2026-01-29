@@ -125,8 +125,8 @@ export default function ExperienceCardCreate() {
                                     <Image
                                         src={`${process.env.NEXT_PUBLIC_S3_BASE_URL}/${imageKey}`}
                                         alt="Uploaded Image Preview"
-                                        width={196}
-                                        height={196}
+                                        width={96}
+                                        height={96}
                                     />
                                 )}
 

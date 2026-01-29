@@ -155,8 +155,8 @@ export default function ProjectCardCreate() {
                                     <Image
                                         src={`${process.env.NEXT_PUBLIC_S3_BASE_URL}/${imageKey}`}
                                         alt="Uploaded Image Preview"
-                                        width={196}
-                                        height={196}
+                                        width={164}
+                                        height={164}
                                     />
                                 )}
 
