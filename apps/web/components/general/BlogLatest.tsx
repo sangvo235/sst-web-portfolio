@@ -28,6 +28,14 @@ async function getData() {
 export async function LatestBlogPosts() {
     const data = await getData();
 
+    if (!data || data.length === 0) {
+        return (
+            <p className="text-sm text-gray-500 italic">
+                No blog posts yet. Check back soon...
+            </p>            
+        )
+    }
+
     return (
         <div className="flex justify-center w-full px-12">
             <Carousel className="w-full max-w-screen-lg">
