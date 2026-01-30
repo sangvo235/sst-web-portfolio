@@ -31,7 +31,7 @@ export function Bio () {
                             'Master of IT Graduate',
                             'Coffee Addict ☕',
                             'Sci-fi Book Reader',
-                            'Travel Lover',
+                            'Traveller',
                             'Gelato Connoisseur',
                             'Fragrance Collector',
                             'Bubble Tea Enthusiast',
