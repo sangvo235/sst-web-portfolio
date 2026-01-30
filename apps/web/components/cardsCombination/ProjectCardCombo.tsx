@@ -19,7 +19,7 @@ export default function ProjectPage() {
     if (!projects?.length) {
         return (
             <p className="col-start-2 col-span-4 text-gray-500 italic">
-                No projects found.
+                No project posts yet. Check back soon...
             </p>
         );
     }

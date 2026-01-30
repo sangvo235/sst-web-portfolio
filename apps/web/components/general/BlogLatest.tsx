@@ -30,7 +30,7 @@ export async function LatestBlogPosts() {
 
     if (!data || data.length === 0) {
         return (
-            <p className="text-sm text-gray-500 italic">
+            <p className="text-gray-500 italic">
                 No blog posts yet. Check back soon...
             </p>            
         )
