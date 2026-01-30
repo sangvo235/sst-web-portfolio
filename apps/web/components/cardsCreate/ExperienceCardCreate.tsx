@@ -48,7 +48,7 @@ export default function ExperienceCardCreate() {
 
     return (
         <div className="pt-4">
-            <Card className="max-w-lg mx-auto p-6">
+            <Card className="max-w-full mx-auto p-6">
                 <CardHeader className="pt-4">
                     <CardTitle>Create Experience Post</CardTitle>
                     <CardDescription>Create a new experience post to share with everyone.</CardDescription>

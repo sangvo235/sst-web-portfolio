@@ -50,7 +50,7 @@ export default function ProjectCardCreate() {
 
     return (
         <div className="pt-4">
-            <Card className="max-w-lg mx-auto p-6">
+            <Card className="max-w-full mx-auto p-6">
                 <CardHeader className="pt-4">
                     <CardTitle>Create Project Post</CardTitle>
                     <CardDescription>Create a new project post to share with everyone.</CardDescription>
@@ -114,7 +114,7 @@ export default function ProjectCardCreate() {
                                             className="px-2 py-1 text-muted-foreground"
                                         >
                                             {f.name.replace(/\.[^/.]+$/, "")}
-                                            {i < files.length - 1 && ", "}
+                                            {i < files.length - 1 && " "}
                                         </Badge>
                                     ))}
                                 </div>
