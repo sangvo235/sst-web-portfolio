@@ -11,10 +11,10 @@ export function Bio () {
     <div className='flex flex-col text-center items-center justify-center md:flex-row-reverse md:space-x-4 md:text-left'>
         <div className='relative mx-auto w-80 h-60 md:w-4/5 md:mt-4'>
             <Image 
-                className='object-cover rounded-full'
                 src="https://sang-vo-sst-web-portfolio-app.s3.ap-southeast-2.amazonaws.com/bio/appenzell_bio_bg.png"
-                alt='image'
+                alt="Bio background image"
                 fill
+                className="object-cover rounded-full"
             />
         </div>
 

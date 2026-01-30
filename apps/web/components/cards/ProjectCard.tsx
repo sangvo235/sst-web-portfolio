@@ -41,7 +41,7 @@ export function ProjectCard({ data, variant = "default" }: ProjectCardProps) {
                 src={`${process.env.NEXT_PUBLIC_S3_BASE_URL}/${data.imageUrl}`}
                 alt="Image for Project"
                 fill
-                className="object-cover transition-transform duration-300 group-hover:scale-105"
+                className="object-scale-down transition-transform duration-300 group-hover:scale-105"
               />
             )
           )}
