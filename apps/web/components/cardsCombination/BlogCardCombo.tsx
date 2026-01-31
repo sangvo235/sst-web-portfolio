@@ -28,7 +28,7 @@ export default function BlogCardCombo() {
   if (!blogs?.length) {
     return (
       <p className="col-start-2 col-span-4 text-gray-500 italic">
-        No blog posts yet. Check back soon...
+        No blog posts found yet. Check back soon...
       </p>
     );
   }

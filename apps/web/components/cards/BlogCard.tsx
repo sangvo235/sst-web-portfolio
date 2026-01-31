@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Card, CardContent } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge"
+import { Badge } from "@/components/ui/badge";
 import { BiSolidPurchaseTag } from "react-icons/bi";
 
 export type BlogCardData = {
@@ -42,7 +42,7 @@ export function BlogCard({ data, variant = "default" }: BlogCardProps) {
                 src={`${process.env.NEXT_PUBLIC_S3_BASE_URL}/${data.imageUrl}`}
                 alt="Image for Blog"
                 fill
-                className="object-scale-down transition-transform duration-300 group-hover:scale-105"
+                className="object-cover transition-transform duration-300 group-hover:scale-105"
               />
             )
           )}
@@ -57,14 +57,12 @@ export function BlogCard({ data, variant = "default" }: BlogCardProps) {
             )}
           </h3>
 
-          <div className="flex mb-2">
-            <div className="text-sm text-gray-500">
-              {isSkeleton ? (
-                <div className="h-4 w-20 bg-gray-300 animate-pulse" />
-              ) : (
-                <span>{data?.readTime} min read</span>
-              )}
-            </div>
+          <div className="text-sm text-gray-500 flex items-center mb-2">
+            {isSkeleton ? (
+              <div className="h-4 w-20 bg-gray-300 animate-pulse" />
+            ) : (
+              <span>{data?.readTime} min read</span>
+            )}
 
             {isSkeleton ? (
               <div className="mx-2 h-2 w-2 rounded-full bg-gray-300 animate-pulse" />
