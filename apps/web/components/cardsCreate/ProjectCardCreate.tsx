@@ -50,7 +50,7 @@ export default function ProjectCardCreate() {
 
     return (
         <div className="pt-4">
-            <Card className="max-w-lg mx-auto p-6">
+            <Card className="max-w-full mx-auto p-6">
                 <CardHeader className="pt-4">
                     <CardTitle>Create Project Post</CardTitle>
                     <CardDescription>Create a new project post to share with everyone.</CardDescription>
@@ -114,7 +114,7 @@ export default function ProjectCardCreate() {
                                             className="px-2 py-1 text-muted-foreground"
                                         >
                                             {f.name.replace(/\.[^/.]+$/, "")}
-                                            {i < files.length - 1 && ", "}
+                                            {i < files.length - 1 && " "}
                                         </Badge>
                                     ))}
                                 </div>
@@ -129,7 +129,7 @@ export default function ProjectCardCreate() {
 
                         <div className="flex flex-col gap-2">
                             <Label>Content</Label>
-                            <Textarea name="content" placeholder="content" required/>
+                            <Textarea name="content" placeholder="Content" required/>
                         </div>
 
                         <div className="flex flex-col gap-2">
@@ -155,8 +155,8 @@ export default function ProjectCardCreate() {
                                     <Image
                                         src={`${process.env.NEXT_PUBLIC_S3_BASE_URL}/${imageKey}`}
                                         alt="Uploaded Image Preview"
-                                        width={196}
-                                        height={196}
+                                        width={164}
+                                        height={164}
                                     />
                                 )}
 

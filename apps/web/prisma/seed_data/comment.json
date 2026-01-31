@@ -1,0 +1,26 @@
+[
+  {
+    "id": "214eab98-ed78-41b5-96e4-ddfb088bf983",
+    "authorId": "kp_2775b0134c41498d8c1cf8c889260d52",
+    "authorFirstName": "Sang",
+    "authorLastName": "Vo",
+    "authorImage": "https://avatars.githubusercontent.com/u/97276811?v=4",
+    "content": "The deployment on digital ocean has been taken down due to cost constraints. However, it was live for 4 months!",
+    "createdAt": "2026-01-31T11:39:43.122Z",
+    "updatedAt": "2026-01-31T11:39:43.122Z",
+    "postId": null,
+    "projectId": "f869b5f9-7264-428e-afc0-058af817f759"
+  },
+  {
+    "id": "f7820aa9-b41c-41dd-b2d7-2cee61c78e73",
+    "authorId": "kp_2775b0134c41498d8c1cf8c889260d52",
+    "authorFirstName": "Sang",
+    "authorLastName": "Vo",
+    "authorImage": "https://avatars.githubusercontent.com/u/97276811?v=4",
+    "content": "Bonjour!",
+    "createdAt": "2026-01-31T11:37:09.092Z",
+    "updatedAt": "2026-01-31T11:37:09.092Z",
+    "postId": "9ea90e1b-f55e-41c9-a1d4-3fd081b44e51",
+    "projectId": null
+  }
+]

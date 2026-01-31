@@ -1,14 +1,24 @@
 import { prisma } from "@/app/utils/db";
 import Link from "next/link";
 import Image from "next/image";
-import { Card, CardContent, CardTitle } from '@/components/ui/card'
-import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from '@/components/ui/carousel'
+import { Card, CardContent, CardTitle } from "@/components/ui/card";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselPrevious,
+  CarouselNext,
+} from "@/components/ui/carousel";
+import { Badge } from "@/components/ui/badge";
+import { BiSolidPurchaseTag } from "react-icons/bi";
 
 async function getData() {
   const data = await prisma.blogs.findMany({
     select: {
       title: true,
       imageUrl: true,
+      topic: true,
+      readTime: true,
       content: true,
       authorImage: true,
       authorFirstName: true,
@@ -18,7 +28,7 @@ async function getData() {
     },
     take: 6,
     orderBy: {
-      createdAt: 'desc',
+      createdAt: "desc",
     },
   });
 
@@ -26,68 +36,90 @@ async function getData() {
 }
 
 export async function LatestBlogPosts() {
-    const data = await getData();
+  const data = await getData();
 
+  if (!data || data.length === 0) {
     return (
-        <div className="flex justify-center w-full px-12">
-            <Carousel className="w-full max-w-screen-lg">
-                <CarouselContent className="flex">
-                    {data.map((item, index) => (
-                    <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
-                        <Link href={`/blogs/${item.id}`} className="block h-full">
-                            <Card className="group overflow-hidden transition-all hover:shadow-lg">
-                                <div className="relative h-48 w-full overflow-hidden">
-                                    <Image
-                                        src={`${process.env.NEXT_PUBLIC_S3_BASE_URL}/${item.imageUrl}`}
-                                        alt="Image for Blog"
-                                        fill
-                                        className="object-cover transition-transform duration-300 group-hover:scale-105"
-                                    />
-                                </div>
-                                <CardContent className="px-4 pb-6">                
-                                    <CardTitle className="text-lg font-semibold text-gray-900 mb-2">
-                                        {item.title}
-                                    </CardTitle>
-                                    <p className="mb-4 text-sm text-gray-600 line-clamp-2 h-[3rem] leading-[1.5rem]">
-                                        {item.content}
-                                    </p>
-
-                                    <div className="flex items-center justify-between">
-                                        <div className="flex items-center gap-2">
-                                        
-                                        <div className="relative size-8 overflow-hidden rounded-full">
-                                            <Image
-                                            src={item.authorImage}
-                                            alt={`${item.authorFirstName} ${item.authorLastName}`}
-                                            fill
-                                            className="object-cover"
-                                            />
-                                        </div>
-
-                                        <p className="text-sm font-medium text-gray-700">
-                                            {item.authorFirstName} {item.authorLastName}
-                                        </p>
-                                        </div>
-
-                                        <div className="text-sm text-gray-500">
-                                        {new Intl.DateTimeFormat("en-au", {
-                                            year: "numeric",
-                                            month: "short",
-                                            day: "numeric",
-                                        }).format(item.createdAt)}
-                                        </div>
-                                    </div>
-                                </CardContent>
-                            </Card>
-                        </Link>
-                    </CarouselItem>
-                    ))}
-                </CarouselContent>
-                <CarouselPrevious />
-                <CarouselNext />
-            </Carousel>
-        </div>
+      <p className="text-gray-500 italic">
+        No blog posts found yet. Check back soon...
+      </p>
     );
+  }
+
+  return (
+    <div className="flex justify-center w-full px-12">
+      <Carousel className="w-full max-w-screen-lg">
+        <CarouselContent className="flex">
+          {data.map((item, index) => (
+            <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
+              <Link href={`/blogs/${item.id}`} className="block h-full">
+                <Card className="group overflow-hidden transition-all hover:shadow-lg">
+                  <div className="relative h-48 w-full overflow-hidden">
+                    <Image
+                      src={`${process.env.NEXT_PUBLIC_S3_BASE_URL}/${item.imageUrl}`}
+                      alt="Image for Blog"
+                      fill
+                      className="object-cover transition-transform duration-300 group-hover:scale-105"
+                    />
+                  </div>
+                  <CardContent className="px-4 pb-6">
+                    <CardTitle className="text-lg font-semibold text-gray-900 mb-2">
+                      {item.title}
+                    </CardTitle>
+
+                    <div className="text-sm text-gray-500 flex items-center mb-2">
+                      <span>{item.readTime} min read</span>
+
+                      <span className="mx-2">&bull;</span>
+
+                      <Badge
+                        variant="secondary"
+                        className="bg-blue-500 text-white dark:bg-blue-600"
+                      >
+                        <BiSolidPurchaseTag />
+                        {item.topic}
+                      </Badge>
+                    </div>
+
+                    <div className="mb-4 text-sm text-gray-600 line-clamp-2 h-[3rem] leading-[1.5rem]">
+                      {item.content}
+                    </div>
+
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center gap-2">
+                        <div className="relative size-8 overflow-hidden rounded-full">
+                          <Image
+                            src={item.authorImage}
+                            alt={`${item.authorFirstName} ${item.authorLastName}`}
+                            fill
+                            className="object-cover"
+                          />
+                        </div>
+
+                        <p className="text-sm font-medium text-gray-700">
+                          {item.authorFirstName} {item.authorLastName}
+                        </p>
+                      </div>
+
+                      <div className="text-sm text-gray-500">
+                        {new Intl.DateTimeFormat("en-au", {
+                          year: "numeric",
+                          month: "short",
+                          day: "numeric",
+                        }).format(item.createdAt)}
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              </Link>
+            </CarouselItem>
+          ))}
+        </CarouselContent>
+        <CarouselPrevious />
+        <CarouselNext />
+      </Carousel>
+    </div>
+  );
 }
 
 // TODO: Use API Routes for GET data

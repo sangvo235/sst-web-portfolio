@@ -41,7 +41,7 @@ export default function EducationCardCreate() {
 
     return (
         <div className="pt-4">
-            <Card className="max-w-lg mx-auto p-6">
+            <Card className="max-w-full mx-auto p-6">
                 <CardHeader className="pt-4">
                     <CardTitle>Create Education Post</CardTitle>
                     <CardDescription>Create a new education post to share with everyone.</CardDescription>
@@ -90,8 +90,8 @@ export default function EducationCardCreate() {
                                     <Image
                                         src={`${process.env.NEXT_PUBLIC_S3_BASE_URL}/${imageKey}`}
                                         alt="Uploaded Image Preview"
-                                        width={196}
-                                        height={196}
+                                        width={96}
+                                        height={96}
                                     />
                                 )}
 

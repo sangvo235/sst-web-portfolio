@@ -2,6 +2,9 @@
 
 import * as React from "react"
 import { CalendarIcon, ChevronDownIcon } from "lucide-react"
+
+import { enAU } from "date-fns/locale";
+
 import { Button } from "@/components/ui/button"
 import { Calendar } from "@/components/ui/calendar"
 import { Input } from "@/components/ui/input"
@@ -22,8 +25,6 @@ export function DatePicker({ name, label }: DatePickerProps) {
   const [open, setOpen] = React.useState(false)
   const [date, setDate] = React.useState<Date | undefined>(undefined)
 
-  console.log(date ? date.toISOString() : "");
-
   return (
     <div className="flex flex-col gap-2">
       <Label>
@@ -43,7 +44,13 @@ export function DatePicker({ name, label }: DatePickerProps) {
             id="date"
             className="w-48 justify-between font-normal"
           >
-            {date ? date.toLocaleDateString() : "Select date"}
+          {date
+            ? date.toLocaleDateString("en-AU", {
+                day: "2-digit",
+                month: "2-digit",
+                year: "2-digit",
+              })
+            : "Select date"}
             <CalendarIcon className="ml-auto h-4 w-4 opacity-50" />
             <ChevronDownIcon />
           </Button>
@@ -52,6 +59,7 @@ export function DatePicker({ name, label }: DatePickerProps) {
           <Calendar
             mode="single"
             selected={date}
+            locale={enAU}
             captionLayout="dropdown"
             onSelect={(date) => {
               setDate(date)

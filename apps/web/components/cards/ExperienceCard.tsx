@@ -125,7 +125,7 @@ export function ExperienceCard({ data, variant = "default" }: ExperienceCardProp
                             </div>
                         </AccordionTrigger>
 
-                        <AccordionContent className="px-4 py-3 text-gray-700">
+                        <AccordionContent className="px-4 py-3 text-gray-700 whitespace-pre-line">
                         {isSkeleton ? (
                             <div className="space-y-4">
                                 <div className="space-y-2">

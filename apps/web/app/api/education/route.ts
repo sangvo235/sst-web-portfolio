@@ -5,7 +5,7 @@ import { NextResponse } from "next/server";
 
 export async function GET() {
     const data = await prisma.education.findMany({
-        orderBy: { id: "desc" },
+        orderBy: { dateEnd: "desc" },
     });
 
     return new Response(JSON.stringify(data), {

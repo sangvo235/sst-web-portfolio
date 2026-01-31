@@ -85,7 +85,7 @@ export function EducationCard({ data, variant = "default" }: EducationCardProps)
                             </div>
                         </AccordionTrigger>
 
-                        <AccordionContent className="px-4 py-3 text-gray-700">
+                        <AccordionContent className="px-4 py-3 text-gray-700 whitespace-pre-line">
                         {isSkeleton ? (
                             <div className="space-y-2">
                                 <div className="h-4 w-full bg-gray-300 animate-pulse rounded" />

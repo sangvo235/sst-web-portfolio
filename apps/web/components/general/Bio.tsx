@@ -9,12 +9,12 @@ import { buttonVariants } from "@/components/ui/button";
 export function Bio () {    
   return (
     <div className='flex flex-col text-center items-center justify-center md:flex-row-reverse md:space-x-4 md:text-left'>
-        <div className='relative mx-auto w-80 h-60 md:w-1/2 md:mt-4'>
+        <div className='relative mx-auto w-80 h-60 md:w-4/5 md:mt-4'>
             <Image 
-                className='object-cover rounded-full'
-                src="https://media.myswitzerland.com/image/fetch/w_2160,h_800,c_limit,f_auto,q_auto,e_sharpen:50/https%3A%2F%2Fwww.myswitzerland.com%2F-%2Fmedia%2Fcelum%20connect%2F2022%2F03%2F09%2F06%2F56%2F24%2Fzermatt-peak-matterhorn-glacier-paradise.jpg"
-                alt='image'
+                src="https://sang-vo-sst-web-portfolio-app.s3.ap-southeast-2.amazonaws.com/bio/appenzell_bio_bg.png"
+                alt="Bio background image"
                 fill
+                className="object-cover rounded-full"
             />
         </div>
 
@@ -31,7 +31,7 @@ export function Bio () {
                             'Master of IT Graduate',
                             'Coffee Addict ☕',
                             'Sci-fi Book Reader',
-                            'Travel Lover',
+                            'Traveller',
                             'Gelato Connoisseur',
                             'Fragrance Collector',
                             'Bubble Tea Enthusiast',
