@@ -149,7 +149,7 @@ export async function ProjectPost({
       </div>
 
       {data.comments.length === 0 ? (
-        <div className="col-start-2 col-span-4 text-sm text-gray-500 dark:text-gray-400 italic">
+        <div className="col-start-2 col-span-4 text-sm text-gray-500 dark:text-gray-400 italic pl-6">
           No comments yet.
         </div>
       ) : (
@@ -193,7 +193,15 @@ export async function ProjectPost({
         ))
       )}
 
-      {canComment && <Comment projectId={id} />}
+      <div className="col-start-2 col-span-4 py-4">
+        {canComment ? (
+          <Comment postId={id} />
+        ) : (
+          <p className="text-sm text-gray-500 dark:text-gray-400 italic">
+            Please login or sign up to post a comment.
+          </p>
+        )}
+      </div>
     </div>
   );
 }

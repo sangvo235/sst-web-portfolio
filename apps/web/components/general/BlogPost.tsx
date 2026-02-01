@@ -56,11 +56,9 @@ export async function BlogPost({
           Back to posts
         </Link>
       </div>
-
       <div className="col-start-2 col-span-4 py-2 text-5xl font-bold">
         {data.title}
       </div>
-
       <div className="col-start-2 col-span-4 py-4 flex items-center justify-between">
         <div className="flex items-center gap-4">
           <div className="relative size-8 overflow-hidden rounded-full">
@@ -110,7 +108,6 @@ export async function BlogPost({
           </Badge>
         </div>
       </div>
-
       <div className="col-start-2 col-span-4 relative h-96 w-full overflow-hidden">
         <Image
           src={`${process.env.NEXT_PUBLIC_S3_BASE_URL}/${data.imageUrl}`}
@@ -119,20 +116,17 @@ export async function BlogPost({
           className="object-scale-down transition-transform duration-300 group-hover:scale-105"
         />
       </div>
-
       <div className="col-start-2 col-span-4 text-md text-gray-600 dark:text-gray-300 py-4 whitespace-pre-line">
         {data.content}
       </div>
-
       <div
         className="col-start-2 col-span-4 text-xl font-semibold"
         id="comments"
       >
         Comments
       </div>
-
       {data.comments.length === 0 ? (
-        <div className="col-start-2 col-span-4 text-sm text-gray-500 dark:text-gray-400 italic">
+        <div className="col-start-2 col-span-4 text-sm text-gray-500 dark:text-gray-400 italic pl-6">
           No comments yet.
         </div>
       ) : (
@@ -176,7 +170,15 @@ export async function BlogPost({
         ))
       )}
 
-      {canComment && <Comment postId={id} />}
+      <div className="col-start-2 col-span-4 py-4">
+        {canComment ? (
+          <Comment postId={id} />
+        ) : (
+          <p className="text-sm text-gray-500 dark:text-gray-400 italic">
+            Please login or sign up to post a comment.
+          </p>
+        )}
+      </div>
     </div>
   );
 }
