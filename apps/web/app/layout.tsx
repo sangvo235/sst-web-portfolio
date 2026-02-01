@@ -1,29 +1,35 @@
-import { Geist, Geist_Mono } from "next/font/google"
+import { Geist, Geist_Mono } from "next/font/google";
 
-import "@sst-web-portfolio/ui/globals.css"
-import { Providers } from "@/components/providers"
-import Navbar from '@/components/general/Navbar';
-import { AuthProvider } from '@/components/general/AuthProvider';
-import { getKindeServerSession } from '@kinde-oss/kinde-auth-nextjs/server';
+import "@sst-web-portfolio/ui/globals.css";
+import { Providers } from "@/components/providers";
+import Navbar from "@/components/general/Navbar";
+import { AuthProvider } from "@/components/general/AuthProvider";
+import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 
 const fontSans = Geist({
   subsets: ["latin"],
   variable: "--font-sans",
-})
+});
 
 const fontMono = Geist_Mono({
   subsets: ["latin"],
   variable: "--font-mono",
-})
+});
 
-export default async function Layout({ children }: { children: React.ReactNode }) {
+export default async function Layout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   const { getUser } = getKindeServerSession();
   const user = await getUser();
 
   return (
     <AuthProvider>
       <html lang="en" suppressHydrationWarning>
-        <body className={`${fontSans.variable} ${fontMono.variable} font-sans antialiased`}>
+        <body
+          className={`${fontSans.variable} ${fontMono.variable} font-sans antialiased`}
+        >
           <Providers>
             <Navbar user={user} />
             <main className="pt-4">
@@ -35,5 +41,5 @@ export default async function Layout({ children }: { children: React.ReactNode }
         </body>
       </html>
     </AuthProvider>
-  )
+  );
 }
