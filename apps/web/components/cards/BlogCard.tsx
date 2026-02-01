@@ -50,7 +50,7 @@ export function BlogCard({ data, variant = "default" }: BlogCardProps) {
         </div>
 
         <CardContent className="px-4 pt-4 pb-6">
-          <h3 className="mb-2 text-lg font-semibold text-gray-900">
+          <h3 className="mb-2 text-lg font-semibold">
             {isSkeleton ? (
               <div className="h-6 w-3/4 bg-gray-300 animate-pulse" />
             ) : (
@@ -58,7 +58,7 @@ export function BlogCard({ data, variant = "default" }: BlogCardProps) {
             )}
           </h3>
 
-          <div className="text-sm text-gray-500 flex items-center mb-2">
+          <div className="text-sm text-gray-500 dark:text-gray-400 flex items-center mb-2">
             {isSkeleton ? (
               <div className="h-4 w-20 bg-gray-300 animate-pulse" />
             ) : (
@@ -84,7 +84,7 @@ export function BlogCard({ data, variant = "default" }: BlogCardProps) {
             )}
           </div>
 
-          <div className="mb-4 text-sm text-gray-600 line-clamp-2 h-[3rem] leading-[1.5rem]">
+          <div className="mb-4 text-sm text-gray-600 dark:text-gray-300 line-clamp-2 h-[3rem] leading-[1.5rem]">
             {isSkeleton ? (
               <div className="space-y-2">
                 <div className="h-4 w-full bg-gray-300 animate-pulse" />
@@ -114,14 +114,14 @@ export function BlogCard({ data, variant = "default" }: BlogCardProps) {
                       />
                     </div>
                   )}
-                  <p className="text-sm font-medium text-gray-700">
+                  <p className="text-sm font-medium text-gray-700 dark:text-gray-200">
                     {data?.authorFirstName} {data?.authorLastName}
                   </p>
                 </>
               )}
             </div>
 
-            <div className="text-sm text-gray-500">
+            <div className="text-sm text-gray-500 dark:text-gray-400 whitespace-nowrap">
               {isSkeleton ? (
                 <div className="h-4 w-24 bg-gray-300 animate-pulse" />
               ) : (
