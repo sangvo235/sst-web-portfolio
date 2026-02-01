@@ -40,7 +40,7 @@ export async function LatestBlogPosts() {
 
   if (!data || data.length === 0) {
     return (
-      <p className="text-gray-500 italic">
+      <p className="text-gray-500 dark:text-gray-400 italic">
         No blog posts found yet. Check back soon...
       </p>
     );
@@ -63,11 +63,11 @@ export async function LatestBlogPosts() {
                     />
                   </div>
                   <CardContent className="px-4 pb-6">
-                    <CardTitle className="text-lg font-semibold text-gray-900 mb-2">
+                    <CardTitle className="text-lg font-semibold mb-2">
                       {item.title}
                     </CardTitle>
 
-                    <div className="text-sm text-gray-500 flex items-center mb-2">
+                    <div className="text-sm text-gray-500 dark:text-gray-400 flex items-center mb-2">
                       <span>{item.readTime} min read</span>
 
                       <span className="mx-2">&bull;</span>
@@ -81,7 +81,7 @@ export async function LatestBlogPosts() {
                       </Badge>
                     </div>
 
-                    <div className="mb-4 text-sm text-gray-600 line-clamp-2 h-[3rem] leading-[1.5rem]">
+                    <div className="mb-4 text-sm text-gray-600 dark:text-gray-300 line-clamp-2 h-[3rem] leading-[1.5rem]">
                       {item.content}
                     </div>
 
@@ -96,13 +96,13 @@ export async function LatestBlogPosts() {
                           />
                         </div>
 
-                        <p className="text-sm font-medium text-gray-700">
+                        <p className="text-sm font-medium text-gray-700 dark:text-gray-200">
                           {item.authorFirstName} {item.authorLastName}
                         </p>
                       </div>
 
-                      <div className="text-sm text-gray-500">
-                        {new Intl.DateTimeFormat("en-au", {
+                      <div className="text-sm text-gray-500 dark:text-gray-400">
+                        {new Intl.DateTimeFormat("en-AU", {
                           year: "numeric",
                           month: "short",
                           day: "numeric",
@@ -121,5 +121,3 @@ export async function LatestBlogPosts() {
     </div>
   );
 }
-
-// TODO: Use API Routes for GET data

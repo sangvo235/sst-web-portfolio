@@ -22,37 +22,36 @@ export async function GET(request: Request) {
 }
 
 export async function POST(req: Request) {
-    const { getUser } = getKindeServerSession();
-    const user = await getUser();
-    
-    if (!user) {
-        return redirect("/api/auth/register");
-    }
+  const { getUser } = getKindeServerSession();
+  const user = await getUser();
 
-    const formData = await req.formData();
+  if (!user) {
+    return redirect("/api/auth/register");
+  }
 
-    const title = formData.get('title');
-    const readTime = formData.get('readTime');
-    const topic = formData.get('topic');
-    const imageUrl = formData.get('imageUrl');
-    const content = formData.get('content');
-    
-    await prisma.blogs.create({
-        data: {
-            title: title as string,
-            content: content as string,
-            readTime: readTime as string,
-            topic: topic as string,
-            imageUrl: imageUrl as string,
-            authorId: user.id,
-            authorImage: user.picture as string,
-            authorFirstName: user.given_name as string,
-            authorLastName: user.family_name as string,
-        }
-    })
+  const formData = await req.formData();
 
-    return redirect("/blogs");
+  const title = formData.get("title");
+  const readTime = Number(formData.get("readTime") ?? 0);
+  const topic = formData.get("topic");
+  const imageUrl = formData.get("imageUrl");
+  const content = formData.get("content");
+
+  await prisma.blogs.create({
+    data: {
+      title: title as string,
+      content: content as string,
+      readTime: readTime as number,
+      topic: topic as string,
+      imageUrl: imageUrl as string,
+      authorId: user.id,
+      authorImage: user.picture as string,
+      authorFirstName: user.given_name as string,
+      authorLastName: user.family_name as string,
+    },
+  });
+
+  return redirect("/blogs");
 }
 
 // TODO: ERROR HANDLING & SS VALIDATION
-// TODO: content make dotpoints

@@ -30,19 +30,11 @@ Access the application here:
 # 📋 TODO List
 
 - Error Handling & SS Validation (Comment Inputs & CREATE - Blog, Project, Experience & Education).
-- Context uplift for Blog, Project, Experience & Education (eg. add dot point capability into content property).
-- getData --> GET() via next api routes instead for: BlogLatest, BlogPost & ProjectPost.
-- Fix Darkmode (eg. content text should be white vs. dark grey).
 - Mobile responsivity.
-- Image linking to GitHub (for ProjectPost).
-- Fix formatting for education route.ts
-- Seed data (blogs, projects)
-- Test comment function
 - Add sort for mappings on skills sections.
-- Elapse work duration to be round to nearest mth.
 - README: S3 BUCKET information.
 - README: add Kinde details, Middleware & next config.mjs.
-- README:add prisma stuff: changes in confi for prisma 7 & seeding --> "db:seed": "prisma db seed".
+- README: add prisma stuff, changes in confi for prisma 7 & seeding --> "db:seed": "prisma db seed".
 
 # Short Demo
 

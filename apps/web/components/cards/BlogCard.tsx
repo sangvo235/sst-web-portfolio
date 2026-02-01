@@ -3,13 +3,14 @@ import Image from "next/image";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { BiSolidPurchaseTag } from "react-icons/bi";
+import { TOPICS, type TopicKey } from "@/constants/topics";
 
 export type BlogCardData = {
   id: string;
   title: string;
   content: string;
-  readTime: string;
-  topic: string | null;
+  readTime: number;
+  topic: TopicKey | null;
   imageUrl: string;
   authorId: string;
   authorFirstName: string;
@@ -49,7 +50,7 @@ export function BlogCard({ data, variant = "default" }: BlogCardProps) {
         </div>
 
         <CardContent className="px-4 pt-4 pb-6">
-          <h3 className="mb-2 text-lg font-semibold text-gray-900">
+          <h3 className="mb-2 text-lg font-semibold">
             {isSkeleton ? (
               <div className="h-6 w-3/4 bg-gray-300 animate-pulse" />
             ) : (
@@ -57,7 +58,7 @@ export function BlogCard({ data, variant = "default" }: BlogCardProps) {
             )}
           </h3>
 
-          <div className="text-sm text-gray-500 flex items-center mb-2">
+          <div className="text-sm text-gray-500 dark:text-gray-400 flex items-center mb-2">
             {isSkeleton ? (
               <div className="h-4 w-20 bg-gray-300 animate-pulse" />
             ) : (
@@ -78,12 +79,12 @@ export function BlogCard({ data, variant = "default" }: BlogCardProps) {
                 className="bg-blue-500 text-white dark:bg-blue-600"
               >
                 <BiSolidPurchaseTag />
-                {data?.topic}
+                {data?.topic && TOPICS[data.topic]}
               </Badge>
             )}
           </div>
 
-          <div className="mb-4 text-sm text-gray-600 line-clamp-2 h-[3rem] leading-[1.5rem]">
+          <div className="mb-4 text-sm text-gray-600 dark:text-gray-300 line-clamp-2 h-[3rem] leading-[1.5rem]">
             {isSkeleton ? (
               <div className="space-y-2">
                 <div className="h-4 w-full bg-gray-300 animate-pulse" />
@@ -113,19 +114,19 @@ export function BlogCard({ data, variant = "default" }: BlogCardProps) {
                       />
                     </div>
                   )}
-                  <p className="text-sm font-medium text-gray-700">
+                  <p className="text-sm font-medium text-gray-700 dark:text-gray-200">
                     {data?.authorFirstName} {data?.authorLastName}
                   </p>
                 </>
               )}
             </div>
 
-            <div className="text-sm text-gray-500">
+            <div className="text-sm text-gray-500 dark:text-gray-400 whitespace-nowrap">
               {isSkeleton ? (
                 <div className="h-4 w-24 bg-gray-300 animate-pulse" />
               ) : (
                 data?.createdAt &&
-                new Intl.DateTimeFormat("en-au", {
+                new Intl.DateTimeFormat("en-AU", {
                   year: "numeric",
                   month: "short",
                   day: "numeric",
