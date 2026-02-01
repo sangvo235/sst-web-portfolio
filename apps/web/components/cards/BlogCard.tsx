@@ -126,7 +126,7 @@ export function BlogCard({ data, variant = "default" }: BlogCardProps) {
                 <div className="h-4 w-24 bg-gray-300 animate-pulse" />
               ) : (
                 data?.createdAt &&
-                new Intl.DateTimeFormat("en-au", {
+                new Intl.DateTimeFormat("en-AU", {
                   year: "numeric",
                   month: "short",
                   day: "numeric",

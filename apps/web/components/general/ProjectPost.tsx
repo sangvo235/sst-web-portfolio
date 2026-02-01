@@ -172,7 +172,7 @@ export async function ProjectPost({
                 </div>
 
                 <div className="text-sm text-gray-500">
-                  {new Intl.DateTimeFormat("en-au", {
+                  {new Intl.DateTimeFormat("en-AU", {
                     minute: "2-digit",
                     hour: "numeric",
                     day: "numeric",
@@ -197,4 +197,3 @@ export async function ProjectPost({
 }
 
 // TODO: Mobile Views
-// TODO: Use API Routes for GET data

@@ -1,29 +1,28 @@
 import { Suspense } from "react";
 import { redirect } from "next/navigation";
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
-
 import { BlogPost } from "@/components/general/BlogPost";
-import { BlogPostSkeleton } from "@/components/skeleton/BlogPostSkeleton";
+import { PostSkeleton } from "@/components/skeleton/PostSkeleton";
 
 export default async function BlogPageDynamic({
-    params,
+  params,
 }: {
-    params: { id: string };
+  params: Promise<{ id: string }>;
 }) {
+  const { isAuthenticated, getPermission } = getKindeServerSession();
 
-    const { isAuthenticated, getPermission } =
-        getKindeServerSession();
+  if (!isAuthenticated()) {
+    redirect("/api/auth/register");
+  }
 
-    if (!isAuthenticated()) {
-        redirect("/api/auth/register");
-    }
+  const permission = await getPermission("comment:blog");
 
-    const permission = await getPermission("comment:blog");
+  const { id } = await params;
 
-    return (
-        // !! = double negation to convert to boolean and handle undefined (only true and false)
-        <Suspense fallback={<BlogPostSkeleton />}>
-            <BlogPost id={params.id} canComment={!!permission?.isGranted} /> 
-        </Suspense>
-    );
+  return (
+    // !! = double negation to convert to boolean and handle undefined (only true and false)
+    <Suspense fallback={<PostSkeleton />}>
+      <BlogPost id={id} canComment={!!permission?.isGranted} />
+    </Suspense>
+  );
 }

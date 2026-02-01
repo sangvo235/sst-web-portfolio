@@ -1,29 +1,27 @@
 import { Suspense } from "react";
 import { redirect } from "next/navigation";
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
-
 import { ProjectPost } from "@/components/general/ProjectPost";
-import { ProjectPostSkeleton } from "@/components/skeleton/ProjectPostSkeleton";
+import { PostSkeleton } from "@/components/skeleton/PostSkeleton";
 
 export default async function ProjectPageDynamic({
-    params,
+  params,
 }: {
-    params: { id: string };
+  params: Promise<{ id: string }>;
 }) {
+  const { isAuthenticated, getPermission } = getKindeServerSession();
 
-    const { isAuthenticated, getPermission } =
-        getKindeServerSession();
+  if (!isAuthenticated()) {
+    redirect("/api/auth/register");
+  }
 
-    if (!isAuthenticated()) {
-        redirect("/api/auth/register");
-    }
+  const permission = await getPermission("comment:project");
 
-    const permission = await getPermission("comment:project");
+  const { id } = await params;
 
-    return (
-        // !! = double negation to convert to boolean and handle undefined (only true and false)
-        <Suspense fallback={<ProjectPostSkeleton />}>
-            <ProjectPost id={params.id} canComment={!!permission?.isGranted} /> 
-        </Suspense>
-    );
+  return (
+    <Suspense fallback={<PostSkeleton />}>
+      <ProjectPost id={id} canComment={!!permission?.isGranted} />
+    </Suspense>
+  );
 }

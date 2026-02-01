@@ -102,7 +102,7 @@ export async function LatestBlogPosts() {
                       </div>
 
                       <div className="text-sm text-gray-500">
-                        {new Intl.DateTimeFormat("en-au", {
+                        {new Intl.DateTimeFormat("en-AU", {
                           year: "numeric",
                           month: "short",
                           day: "numeric",
