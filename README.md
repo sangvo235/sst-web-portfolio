@@ -34,15 +34,15 @@ Access the application here:
 - getData --> GET() via next api routes instead for: BlogLatest, BlogPost & ProjectPost.
 - Fix Darkmode (eg. content text should be white vs. dark grey).
 - Mobile responsivity.
-- Image linking to GitHub (for ProjectPost).
 - Fix formatting for education route.ts
-- Seed data (blogs, projects)
 - Test comment function
 - Add sort for mappings on skills sections.
 - Elapse work duration to be round to nearest mth.
 - README: S3 BUCKET information.
 - README: add Kinde details, Middleware & next config.mjs.
 - README:add prisma stuff: changes in confi for prisma 7 & seeding --> "db:seed": "prisma db seed".
+- Fix comment click specifically for longer blogs/projects.
+- Fix readtime filter for blog posts
 
 # Short Demo
 
