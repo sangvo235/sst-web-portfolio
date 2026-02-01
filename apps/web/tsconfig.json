@@ -4,7 +4,8 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["./*"],
-      "@sst-web-portfolio/ui/*": ["../../packages/ui/src/*"]
+      "@sst-web-portfolio/ui/*": ["../../packages/ui/src/*"],
+      "@prisma/client": ["./generated/prisma/client"]
     },
     "plugins": [
       {

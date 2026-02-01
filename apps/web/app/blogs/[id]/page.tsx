@@ -20,7 +20,6 @@ export default async function BlogPageDynamic({
   const { id } = await params;
 
   return (
-    // !! = double negation to convert to boolean and handle undefined (only true and false)
     <Suspense fallback={<PostSkeleton />}>
       <BlogPost id={id} canComment={!!permission?.isGranted} />
     </Suspense>

@@ -5,7 +5,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
-    "build": "next build",
+    "generate": "prisma generate",
+    "build": "pnpm run generate && next build",
     "start": "next start",
     "lint": "next lint",
     "lint:fix": "next lint --fix",
