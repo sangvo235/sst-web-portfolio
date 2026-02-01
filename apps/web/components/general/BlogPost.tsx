@@ -180,5 +180,3 @@ export async function BlogPost({
     </div>
   );
 }
-
-// TODO: Use API Routes for GET data

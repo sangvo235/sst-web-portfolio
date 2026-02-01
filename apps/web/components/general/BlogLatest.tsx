@@ -121,5 +121,3 @@ export async function LatestBlogPosts() {
     </div>
   );
 }
-
-// TODO: Use API Routes for GET data

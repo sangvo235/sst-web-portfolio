@@ -31,7 +31,6 @@ Access the application here:
 
 - Error Handling & SS Validation (Comment Inputs & CREATE - Blog, Project, Experience & Education).
 - Mobile responsivity.
-- Fix formatting for education route.ts
 - Add sort for mappings on skills sections.
 - Elapse work duration to be round to nearest mth.
 - README: S3 BUCKET information.

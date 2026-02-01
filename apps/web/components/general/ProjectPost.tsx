@@ -197,5 +197,3 @@ export async function ProjectPost({
     </div>
   );
 }
-
-// TODO: Mobile Views
