@@ -41,7 +41,6 @@ Access the application here:
 - README: S3 BUCKET information.
 - README: add Kinde details, Middleware & next config.mjs.
 - README:add prisma stuff: changes in confi for prisma 7 & seeding --> "db:seed": "prisma db seed".
-- Fix comment click specifically for longer blogs/projects.
 - Fix readtime filter for blog posts
 
 # Short Demo
