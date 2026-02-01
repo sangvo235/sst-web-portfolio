@@ -36,7 +36,7 @@ export default function Navbar({ user }: NavbarProps) {
           <div className="flex items-center justify-between py-3">
             <Link href="/">
               <div className="md:py-5 md:block">
-                <h1 className="text-3xl font-semibold text-blue-500">
+                <h1 className="text-3xl font-semibold text-blue-500 dark:text-blue-400">
                   Sang Vo
                 </h1>
               </div>

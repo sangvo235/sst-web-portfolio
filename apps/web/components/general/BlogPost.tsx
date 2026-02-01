@@ -72,11 +72,11 @@ export async function BlogPost({
             />
           </div>
 
-          <div className="text-md font-medium text-gray-700">
+          <div className="text-md font-medium text-gray-700 dark:text-gray-200">
             {data.authorFirstName} {data.authorLastName}
           </div>
 
-          <div className="text-md text-gray-500 flex items-center">
+          <div className="text-md text-gray-500 dark:text-gray-400 flex items-center">
             <span>{data.readTime} min read</span>
             <span className="mx-2">&bull;</span>
             <span>
@@ -120,7 +120,7 @@ export async function BlogPost({
         />
       </div>
 
-      <div className="col-start-2 col-span-4 text-md text-gray-600 py-4 whitespace-pre-line">
+      <div className="col-start-2 col-span-4 text-md text-gray-600 dark:text-gray-300 py-4 whitespace-pre-line">
         {data.content}
       </div>
 
@@ -132,7 +132,7 @@ export async function BlogPost({
       </div>
 
       {data.comments.length === 0 ? (
-        <div className="col-start-2 col-span-4 text-sm text-gray-500 italic">
+        <div className="col-start-2 col-span-4 text-sm text-gray-500 dark:text-gray-400 italic">
           No comments yet.
         </div>
       ) : (
@@ -149,12 +149,12 @@ export async function BlogPost({
                       className="object-cover"
                     />
                   </div>
-                  <div className="text-sm font-medium text-gray-700">
+                  <div className="text-sm font-medium text-gray-700 dark:text-gray-200">
                     {comment.authorFirstName} {comment.authorLastName}
                   </div>
                 </div>
 
-                <div className="text-sm text-gray-500">
+                <div className="text-sm text-gray-500 dark:text-gray-400">
                   {new Intl.DateTimeFormat("en-AU", {
                     minute: "2-digit",
                     hour: "numeric",
@@ -167,7 +167,9 @@ export async function BlogPost({
             </CardHeader>
 
             <CardContent>
-              <div className="text-sm text-gray-800 ">{comment.content}</div>
+              <div className="text-sm text-gray-800 dark:text-gray-100">
+                {comment.content}
+              </div>
             </CardContent>
             <CardFooter />
           </Card>
