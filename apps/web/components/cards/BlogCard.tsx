@@ -3,13 +3,14 @@ import Image from "next/image";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { BiSolidPurchaseTag } from "react-icons/bi";
+import { TOPICS, type TopicKey } from "@/constants/topics";
 
 export type BlogCardData = {
   id: string;
   title: string;
   content: string;
   readTime: string;
-  topic: string | null;
+  topic: TopicKey | null;
   imageUrl: string;
   authorId: string;
   authorFirstName: string;
@@ -78,7 +79,7 @@ export function BlogCard({ data, variant = "default" }: BlogCardProps) {
                 className="bg-blue-500 text-white dark:bg-blue-600"
               >
                 <BiSolidPurchaseTag />
-                {data?.topic}
+                {data?.topic && TOPICS[data.topic]}
               </Badge>
             )}
           </div>

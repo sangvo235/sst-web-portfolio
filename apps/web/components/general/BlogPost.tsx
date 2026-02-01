@@ -1,10 +1,8 @@
-import { prisma } from "@/app/utils/db";
-
 import Image from "next/image";
 import Link from "next/link";
-import { notFound } from "next/navigation";
-
 import Comment from "@/components/general/Comment";
+import { prisma } from "@/app/utils/db";
+import { notFound } from "next/navigation";
 import { buttonVariants } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import {
@@ -13,9 +11,9 @@ import {
   CardFooter,
   CardHeader,
 } from "@/components/ui/card";
-
 import { BiComment, BiSolidPurchaseTag } from "react-icons/bi";
 import { ArrowLeft } from "lucide-react";
+import { TOPICS, type TopicKey } from "@/constants/topics";
 
 async function getData(id: string) {
   const data = await prisma.blogs.findUnique({
@@ -32,7 +30,10 @@ async function getData(id: string) {
     return notFound();
   }
 
-  return data;
+  return {
+    ...data,
+    topic: data.topic as TopicKey | null,
+  };
 }
 
 export async function BlogPost({
@@ -105,7 +106,7 @@ export async function BlogPost({
             className="bg-blue-500 text-white dark:bg-blue-600"
           >
             <BiSolidPurchaseTag />
-            {data.topic}
+            {data.topic && TOPICS[data.topic]}
           </Badge>
         </div>
       </div>
