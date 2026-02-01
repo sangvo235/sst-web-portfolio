@@ -1,10 +1,15 @@
 import Link from "next/link";
+import { Suspense } from "react";
 import { buttonVariants } from "@/components/ui/button";
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 import { BlogFilter } from "@/components/general/BlogFilter";
 import BlogCardCombo from "@/components/cardsCombination/BlogCardCombo";
 
-export default async function BlogsRoute({ searchParams }: { searchParams: any }) {
+export default async function BlogsPage({
+  searchParams,
+}: {
+  searchParams: any;
+}) {
   const { getPermission } = getKindeServerSession();
   const requiredPermission = await getPermission("add:blog");
 
@@ -22,9 +27,13 @@ export default async function BlogsRoute({ searchParams }: { searchParams: any }
         )}
       </div>
 
-      <BlogFilter />
+      <Suspense fallback={<div>Loading filter...</div>}>
+        <BlogFilter />
+      </Suspense>
 
-      <BlogCardCombo />
+      <Suspense fallback={<div>Loading blogs...</div>}>
+        <BlogCardCombo />
+      </Suspense>
     </>
   );
 }
