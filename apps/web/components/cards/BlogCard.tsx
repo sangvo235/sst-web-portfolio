@@ -9,7 +9,7 @@ export type BlogCardData = {
   id: string;
   title: string;
   content: string;
-  readTime: string;
+  readTime: number;
   topic: TopicKey | null;
   imageUrl: string;
   authorId: string;
