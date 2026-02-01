@@ -83,7 +83,7 @@ export default function BlogCardCreate() {
                   <SelectItem value="15">15 mins</SelectItem>
                   <SelectItem value="20">20 mins</SelectItem>
                   <SelectItem value="25">25 mins</SelectItem>
-                  <SelectItem value="> 30">Over 30 mins</SelectItem>
+                  <SelectItem value="30">Over 30 mins</SelectItem>
                 </SelectContent>
               </Select>
             </div>

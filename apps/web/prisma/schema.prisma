@@ -44,7 +44,7 @@ model Projects {
   authorImage     String
   title           String
   content         String
-  readTime        String
+  readTime        Int
   imageUrl        String
   githubUrl       String
   demoUrl         String
@@ -62,7 +62,7 @@ model Blogs {
   authorImage     String
   title           String
   topic           String?
-  readTime        String
+  readTime        Int
   imageUrl        String
   content         String
   createdAt       DateTime  @default(now())
