@@ -32,7 +32,6 @@ Access the application here:
 - Error Handling & SS Validation (Comment Inputs & CREATE - Blog, Project, Experience & Education).
 - Mobile responsivity.
 - Add sort for mappings on skills sections.
-- Elapse work duration to be round to nearest mth.
 - README: S3 BUCKET information.
 - README: add Kinde details, Middleware & next config.mjs.
 - README: add prisma stuff, changes in confi for prisma 7 & seeding --> "db:seed": "prisma db seed".
