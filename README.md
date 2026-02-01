@@ -30,7 +30,6 @@ Access the application here:
 # 📋 TODO List
 
 - Error Handling & SS Validation (Comment Inputs & CREATE - Blog, Project, Experience & Education).
-- Fix Darkmode (eg. content text should be white vs. dark grey).
 - Mobile responsivity.
 - Fix formatting for education route.ts
 - Add sort for mappings on skills sections.

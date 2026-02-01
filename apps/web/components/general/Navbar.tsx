@@ -7,7 +7,7 @@ import {
   RegisterLink,
   LogoutLink,
 } from "@kinde-oss/kinde-auth-nextjs/components";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { IoMdMenu, IoMdClose } from "react-icons/io";
 import Image from "next/image";
 import ThemeToggle from "@/components/general/ThemeToggle";
@@ -28,6 +28,13 @@ interface NavbarProps {
 
 export default function Navbar({ user }: NavbarProps) {
   const [navbar, setNavbar] = useState(false);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) return null;
 
   return (
     <nav className="w-full mx-auto shadow fixed top-0 z-50 bg-white px-8 dark:border-stone-900 dark:border-b dark:border-stone-500 dark:bg-stone-800">
