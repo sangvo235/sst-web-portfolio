@@ -108,6 +108,7 @@ export default function Navbar({ user }: NavbarProps) {
                     >
                       Sign Up
                     </RegisterLink>
+                    <ThemeToggle />
                   </>
                 )}
               </div>
