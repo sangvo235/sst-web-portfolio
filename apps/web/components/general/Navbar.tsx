@@ -1,16 +1,16 @@
 "use client";
 
-import Link from "next/link";
-import { buttonVariants } from "../ui/button";
 import {
   LoginLink,
   RegisterLink,
   LogoutLink,
 } from "@kinde-oss/kinde-auth-nextjs/components";
+import Link from "next/link";
 import { useState, useEffect } from "react";
 import { IoMdMenu, IoMdClose } from "react-icons/io";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import ThemeToggle from "@/components/general/ThemeToggle";
+import { buttonVariants } from "../ui/button";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 const NAV_ITEMS = [
   { label: "Blogs", page: "blogs" },

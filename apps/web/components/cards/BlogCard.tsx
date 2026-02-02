@@ -1,9 +1,9 @@
 import Link from "next/link";
 import Image from "next/image";
-import { Card, CardContent } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 import { BiSolidPurchaseTag } from "react-icons/bi";
 import { TOPICS, type TopicKey } from "@/constants/topics";
+import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 export type BlogCardData = {

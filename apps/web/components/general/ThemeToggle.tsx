@@ -1,7 +1,7 @@
 "use client";
 
-import { RiSunLine, RiMoonFill } from "react-icons/ri";
 import { useTheme } from "next-themes";
+import { RiSunLine, RiMoonFill } from "react-icons/ri";
 
 export default function ThemeToggle() {
   const { theme, systemTheme, setTheme } = useTheme();

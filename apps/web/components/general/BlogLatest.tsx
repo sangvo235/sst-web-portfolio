@@ -1,6 +1,9 @@
 import { prisma } from "@/app/utils/db";
 import Link from "next/link";
 import Image from "next/image";
+import { BiSolidPurchaseTag } from "react-icons/bi";
+import { Badge } from "@/components/ui/badge";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Card, CardContent, CardTitle } from "@/components/ui/card";
 import {
   Carousel,
@@ -9,9 +12,6 @@ import {
   CarouselPrevious,
   CarouselNext,
 } from "@/components/ui/carousel";
-import { Badge } from "@/components/ui/badge";
-import { BiSolidPurchaseTag } from "react-icons/bi";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 async function getData() {
   const data = await prisma.blogs.findMany({

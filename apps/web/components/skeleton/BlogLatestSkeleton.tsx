@@ -1,10 +1,10 @@
+import { Skeleton } from "@/components/ui/skeleton";
 import { Card, CardContent } from "@/components/ui/card";
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
 } from "@/components/ui/carousel";
-import { Skeleton } from "@/components/ui/skeleton";
 
 export function LatestBlogPostSkeleton() {
   return (

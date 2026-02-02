@@ -2,18 +2,18 @@ import { prisma } from "@/app/utils/db";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { BsGithub, BsArrowUpRightSquare } from "react-icons/bs";
+import { BiComment } from "react-icons/bi";
+import { ArrowLeft } from "lucide-react";
 import Comment from "@/components/general/Comment";
 import { buttonVariants } from "@/components/ui/button";
-import { BiComment } from "react-icons/bi";
-import { BsGithub, BsArrowUpRightSquare } from "react-icons/bs";
-import { ArrowLeft } from "lucide-react";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
   Card,
   CardContent,
   CardFooter,
   CardHeader,
 } from "@/components/ui/card";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 async function getData(id: string) {
   const data = await prisma.projects.findUnique({

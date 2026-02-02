@@ -1,8 +1,8 @@
 "use client";
 
-import { BlogCard, BlogCardData } from "@/components/cards/BlogCard";
-import { useFetch } from "@/hooks/useFetch";
 import { useSearchParams } from "next/navigation";
+import { useFetch } from "@/hooks/useFetch";
+import { BlogCard, BlogCardData } from "@/components/cards/BlogCard";
 
 export default function BlogCardCombo() {
   const searchParams = useSearchParams();

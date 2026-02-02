@@ -1,8 +1,12 @@
-import Image from "next/image";
-import Link from "next/link";
-import Comment from "@/components/general/Comment";
 import { prisma } from "@/app/utils/db";
 import { notFound } from "next/navigation";
+import Image from "next/image";
+import Link from "next/link";
+import { TOPICS, type TopicKey } from "@/constants/topics";
+import { BiComment, BiSolidPurchaseTag } from "react-icons/bi";
+import { ArrowLeft } from "lucide-react";
+import Comment from "@/components/general/Comment";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { buttonVariants } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import {
@@ -11,10 +15,6 @@ import {
   CardFooter,
   CardHeader,
 } from "@/components/ui/card";
-import { BiComment, BiSolidPurchaseTag } from "react-icons/bi";
-import { ArrowLeft } from "lucide-react";
-import { TOPICS, type TopicKey } from "@/constants/topics";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 async function getData(id: string) {
   const data = await prisma.blogs.findUnique({

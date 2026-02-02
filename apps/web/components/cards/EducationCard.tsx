@@ -1,11 +1,11 @@
 import Image from "next/image";
+import { formatYearOnly } from "@/app/utils/dateFormat";
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { formatYearOnly } from "@/app/utils/dateFormat";
 
 export type EducationCardData = {
   id: string;
