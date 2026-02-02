@@ -1,8 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import Typewriter from "typewriter-effect";
 import Link from "next/link";
+import Typewriter from "typewriter-effect";
 import { AiFillLinkedin, AiFillGithub, AiFillMail } from "react-icons/ai";
 import { buttonVariants } from "@/components/ui/button";
 

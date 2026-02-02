@@ -1,7 +1,7 @@
 "use client";
 
-import { ProjectCard, ProjectCardData } from "@/components/cards/ProjectCard";
 import { useFetch } from "@/hooks/useFetch";
+import { ProjectCard, ProjectCardData } from "@/components/cards/ProjectCard";
 
 export default function ProjectPage() {
   const { data: projects, loading } =

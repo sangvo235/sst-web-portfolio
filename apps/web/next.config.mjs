@@ -4,32 +4,40 @@ const nextConfig = {
   images: {
     remotePatterns: [
       {
+        protocol: "https",
         hostname: "avatars.githubusercontent.com",
-        protocol: "https",
-        port: "",
       },
       {
+        protocol: "https",
         hostname: "media.licdn.com",
-        protocol: "https",
-        port: "",
       },
       {
+        protocol: "https",
         hostname: "linkedin.com",
-        protocol: "https",
-        port: "",
       },
       {
+        protocol: "https",
         hostname: "github.com",
-        protocol: "https",
-        port: "",
       },
       {
+        protocol: "https",
         hostname:
           "sang-vo-sst-web-portfolio-app.s3.ap-southeast-2.amazonaws.com",
+      },
+      {
         protocol: "https",
-        port: "",
+        hostname: "**.googleusercontent.com",
       },
     ],
+  },
+
+  webpack: (config) => {
+    config.resolve.alias = {
+      ...(config.resolve.alias || {}),
+      "expo-secure-store": false,
+    };
+
+    return config;
   },
 };
 

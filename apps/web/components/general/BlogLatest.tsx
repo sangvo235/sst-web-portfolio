@@ -1,6 +1,9 @@
 import { prisma } from "@/app/utils/db";
 import Link from "next/link";
 import Image from "next/image";
+import { BiSolidPurchaseTag } from "react-icons/bi";
+import { Badge } from "@/components/ui/badge";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Card, CardContent, CardTitle } from "@/components/ui/card";
 import {
   Carousel,
@@ -9,8 +12,6 @@ import {
   CarouselPrevious,
   CarouselNext,
 } from "@/components/ui/carousel";
-import { Badge } from "@/components/ui/badge";
-import { BiSolidPurchaseTag } from "react-icons/bi";
 
 async function getData() {
   const data = await prisma.blogs.findMany({
@@ -87,14 +88,16 @@ export async function LatestBlogPosts() {
 
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-2">
-                        <div className="relative size-8 overflow-hidden rounded-full">
-                          <Image
+                        <Avatar>
+                          <AvatarImage
                             src={item.authorImage}
                             alt={`${item.authorFirstName} ${item.authorLastName}`}
-                            fill
-                            className="object-cover"
                           />
-                        </div>
+                          <AvatarFallback>
+                            {item.authorFirstName?.[0]}
+                            {item.authorLastName?.[0]}
+                          </AvatarFallback>
+                        </Avatar>
 
                         <p className="text-sm font-medium text-gray-700 dark:text-gray-200">
                           {item.authorFirstName} {item.authorLastName}

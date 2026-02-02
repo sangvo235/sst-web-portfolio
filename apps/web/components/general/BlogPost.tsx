@@ -1,8 +1,12 @@
-import Image from "next/image";
-import Link from "next/link";
-import Comment from "@/components/general/Comment";
 import { prisma } from "@/app/utils/db";
 import { notFound } from "next/navigation";
+import Image from "next/image";
+import Link from "next/link";
+import { TOPICS, type TopicKey } from "@/constants/topics";
+import { BiComment, BiSolidPurchaseTag } from "react-icons/bi";
+import { ArrowLeft } from "lucide-react";
+import Comment from "@/components/general/Comment";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { buttonVariants } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import {
@@ -11,9 +15,6 @@ import {
   CardFooter,
   CardHeader,
 } from "@/components/ui/card";
-import { BiComment, BiSolidPurchaseTag } from "react-icons/bi";
-import { ArrowLeft } from "lucide-react";
-import { TOPICS, type TopicKey } from "@/constants/topics";
 
 async function getData(id: string) {
   const data = await prisma.blogs.findUnique({
@@ -61,14 +62,16 @@ export async function BlogPost({
       </div>
       <div className="col-start-2 col-span-4 py-4 flex items-center justify-between">
         <div className="flex items-center gap-4">
-          <div className="relative size-8 overflow-hidden rounded-full">
-            <Image
+          <Avatar>
+            <AvatarImage
               src={data.authorImage}
               alt={`${data.authorFirstName} ${data.authorLastName}`}
-              fill
-              className="object-cover"
             />
-          </div>
+            <AvatarFallback>
+              {data.authorFirstName?.[0]}
+              {data.authorLastName?.[0]}
+            </AvatarFallback>
+          </Avatar>
 
           <div className="text-md font-medium text-gray-700 dark:text-gray-200">
             {data.authorFirstName} {data.authorLastName}
@@ -135,16 +138,21 @@ export async function BlogPost({
             <CardHeader className="p-2">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2">
-                  <div className="relative size-8 overflow-hidden rounded-full">
-                    <Image
-                      src={comment.authorImage}
-                      alt={`${comment.authorFirstName} ${comment.authorLastName}`}
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                  <div className="text-sm font-medium text-gray-700 dark:text-gray-200">
-                    {comment.authorFirstName} {comment.authorLastName}
+                  <div className="flex items-center gap-2">
+                    <Avatar>
+                      <AvatarImage
+                        src={comment.authorImage}
+                        alt={`${comment.authorFirstName} ${comment.authorLastName}`}
+                      />
+                      <AvatarFallback>
+                        {comment.authorFirstName?.[0]}
+                        {comment.authorLastName?.[0]}
+                      </AvatarFallback>
+                    </Avatar>
+
+                    <div className="text-sm font-medium text-gray-700 dark:text-gray-200">
+                      {comment.authorFirstName} {comment.authorLastName}
+                    </div>
                   </div>
                 </div>
 

@@ -1,4 +1,6 @@
 import Image from "next/image";
+import { formatElapsedTime } from "@/app/utils/dateCalculate";
+import { formatMonthYear } from "@/app/utils/dateFormat";
 import { Badge } from "@/components/ui/badge";
 import { Label } from "@/components/ui/label";
 import {
@@ -7,8 +9,6 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { formatElapsedTime } from "@/app/utils/dateCalculate";
-import { formatMonthYear } from "@/app/utils/dateFormat";
 
 export type ExperienceCardData = {
   id: string;
@@ -152,7 +152,7 @@ export function ExperienceCard({
                     {data?.content}
                   </p>
 
-                  <div className="flex flex-col items-center mb-4 text-gray-900 dark:text-white">
+                  <div className="flex flex-col items-center text-gray-900 dark:text-white">
                     <Label className="mb-2">Skills</Label>
 
                     {data?.skills && data?.skills.length > 0 ? (

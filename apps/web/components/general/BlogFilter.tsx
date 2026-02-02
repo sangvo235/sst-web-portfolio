@@ -1,5 +1,6 @@
 "use client";
 
+import { useQueryParam } from "@/hooks/useQueryParam";
 import {
   Select,
   SelectContent,
@@ -7,7 +8,6 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { useQueryParam } from "@/hooks/useQueryParam";
 
 type SortOption =
   | "createdAt-desc"
