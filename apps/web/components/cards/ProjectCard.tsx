@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Card, CardContent } from "@/components/ui/card";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 export type ProjectCardData = {
   id: string;
@@ -108,16 +109,20 @@ export function ProjectCard({ data, variant = "default" }: ProjectCardProps) {
                 </>
               ) : (
                 <>
-                  {data?.authorImage && (
-                    <div className="relative size-8 overflow-hidden rounded-full">
-                      <Image
+                  <Avatar>
+                    {data?.authorImage ? (
+                      <AvatarImage
                         src={data.authorImage}
                         alt={`${data.authorFirstName} ${data.authorLastName}`}
-                        fill
-                        className="object-cover"
                       />
-                    </div>
-                  )}
+                    ) : (
+                      <AvatarFallback>
+                        {data?.authorFirstName?.[0]}
+                        {data?.authorLastName?.[0]}
+                      </AvatarFallback>
+                    )}
+                  </Avatar>
+
                   <p className="text-sm font-medium text-gray-700 dark:text-gray-200">
                     {data?.authorFirstName} {data?.authorLastName}
                   </p>

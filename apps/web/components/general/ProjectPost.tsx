@@ -1,9 +1,7 @@
 import { prisma } from "@/app/utils/db";
-
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-
 import Comment from "@/components/general/Comment";
 import { buttonVariants } from "@/components/ui/button";
 import { BiComment } from "react-icons/bi";
@@ -15,6 +13,7 @@ import {
   CardFooter,
   CardHeader,
 } from "@/components/ui/card";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 async function getData(id: string) {
   const data = await prisma.projects.findUnique({
@@ -61,14 +60,16 @@ export async function ProjectPost({
 
       <div className="col-start-2 col-span-4 py-4 flex items-center justify-between">
         <div className="flex items-center gap-4">
-          <div className="relative size-8 overflow-hidden rounded-full">
-            <Image
+          <Avatar>
+            <AvatarImage
               src={data.authorImage}
               alt={`${data.authorFirstName} ${data.authorLastName}`}
-              fill
-              className="object-cover"
             />
-          </div>
+            <AvatarFallback>
+              {data.authorFirstName?.[0]}
+              {data.authorLastName?.[0]}
+            </AvatarFallback>
+          </Avatar>
 
           <div className="text-md font-medium text-gray-700 dark:text-gray-200">
             {data.authorFirstName} {data.authorLastName}
@@ -158,14 +159,17 @@ export async function ProjectPost({
             <CardHeader className="p-2">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2">
-                  <div className="relative size-8 overflow-hidden rounded-full">
-                    <Image
+                  <Avatar>
+                    <AvatarImage
                       src={comment.authorImage}
                       alt={`${comment.authorFirstName} ${comment.authorLastName}`}
-                      fill
-                      className="object-cover"
                     />
-                  </div>
+                    <AvatarFallback>
+                      {comment.authorFirstName?.[0]}
+                      {comment.authorLastName?.[0]}
+                    </AvatarFallback>
+                  </Avatar>
+
                   <p className="text-sm font-medium text-gray-700 dark:text-gray-200">
                     {comment.authorFirstName} {comment.authorLastName}
                   </p>

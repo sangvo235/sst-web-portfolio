@@ -9,7 +9,7 @@ import {
 } from "@kinde-oss/kinde-auth-nextjs/components";
 import { useState, useEffect } from "react";
 import { IoMdMenu, IoMdClose } from "react-icons/io";
-import Image from "next/image";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import ThemeToggle from "@/components/general/ThemeToggle";
 
 const NAV_ITEMS = [
@@ -79,20 +79,18 @@ export default function Navbar({ user }: NavbarProps) {
                   <>
                     <div className="flex items-center gap-2">
                       <p className="text-md font-semibold">{user.given_name}</p>
+                      <Avatar>
+                        <AvatarImage
+                          src={user.picture ?? ""}
+                          alt={user.given_name ?? "User"}
+                        />
+                        <AvatarFallback>
+                          {user.given_name?.[0] ?? "U"}
+                        </AvatarFallback>
+                      </Avatar>
 
-                      {user.picture && (
-                        <div className="relative size-8 overflow-hidden rounded-full">
-                          <Image
-                            src={user.picture}
-                            alt={user.given_name ?? "User"}
-                            fill
-                            className="object-cover"
-                          />
-                        </div>
-                      )}
+                      <ThemeToggle />
                     </div>
-
-                    <ThemeToggle />
 
                     <LogoutLink
                       className={buttonVariants({ variant: "secondary" })}
