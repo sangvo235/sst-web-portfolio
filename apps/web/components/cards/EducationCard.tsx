@@ -97,7 +97,7 @@ export function EducationCard({
                   <div className="h-4 w-2/3 bg-gray-300 animate-pulse rounded" />
                 </div>
               ) : (
-                <p className="mb-4 text-sm text-black dark:text-gray-100">
+                <p className="text-sm text-black dark:text-gray-100">
                   {data?.content}
                 </p>
               )}
