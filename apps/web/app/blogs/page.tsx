@@ -7,11 +7,7 @@ import BlogCardCombo from "@/components/cardsCombination/BlogCardCombo";
 import BlogCardComboSkeleton from "@/components/skeleton/BlogCardComboSkeleton";
 import BlogFilterSkeleton from "@/components/skeleton/BlogFilterSkeleton";
 
-export default async function BlogsPage({
-  searchParams,
-}: {
-  searchParams: any;
-}) {
+export default async function BlogsPage() {
   const { getPermission } = getKindeServerSession();
   const requiredPermission = await getPermission("add:blog");
 
@@ -19,7 +15,7 @@ export default async function BlogsPage({
     <>
       <div className="flex items-center justify-between mb-4">
         <h1 className="text-3xl font-bold tracking-tight my-4">
-          Sang's Blog Posts
+          {"Sang's Blog Posts"}
         </h1>
 
         {requiredPermission?.isGranted && (

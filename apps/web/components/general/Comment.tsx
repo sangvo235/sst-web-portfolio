@@ -14,10 +14,10 @@ export default function Comment({
   postId?: string;
   projectId?: string;
 }) {
-  if (!postId && !projectId) return null;
-
   const router = useRouter();
   const [content, setContent] = useState("");
+
+  if (!postId && !projectId) return null;
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
