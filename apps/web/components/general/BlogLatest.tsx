@@ -1,6 +1,7 @@
 import { prisma } from "@/app/utils/db";
 import Link from "next/link";
 import Image from "next/image";
+import { TOPICS, type TopicKey } from "@/constants/topics";
 import { BiSolidPurchaseTag } from "react-icons/bi";
 import { Badge } from "@/components/ui/badge";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
@@ -73,13 +74,15 @@ export async function LatestBlogPosts() {
 
                       <span className="mx-2">&bull;</span>
 
-                      <Badge
-                        variant="secondary"
-                        className="bg-blue-500 text-white dark:bg-blue-600"
-                      >
-                        <BiSolidPurchaseTag />
-                        {item.topic}
-                      </Badge>
+                      {item?.topic && (
+                        <Badge
+                          variant="secondary"
+                          className="bg-blue-500 text-white dark:bg-blue-600"
+                        >
+                          <BiSolidPurchaseTag />
+                          {TOPICS[item.topic as TopicKey]}
+                        </Badge>
+                      )}
                     </div>
 
                     <div className="mb-4 text-sm text-gray-600 dark:text-gray-300 line-clamp-2 h-[3rem] leading-[1.5rem]">
