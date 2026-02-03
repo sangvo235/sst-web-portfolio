@@ -4,6 +4,8 @@ import { buttonVariants } from "@/components/ui/button";
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 import { BlogFilter } from "@/components/general/BlogFilter";
 import BlogCardCombo from "@/components/cardsCombination/BlogCardCombo";
+import BlogCardComboSkeleton from "@/components/skeleton/BlogCardComboSkeleton";
+import BlogFilterSkeleton from "@/components/skeleton/BlogFilterSkeleton";
 
 export default async function BlogsPage({
   searchParams,
@@ -27,11 +29,11 @@ export default async function BlogsPage({
         )}
       </div>
 
-      <Suspense fallback={<div>Loading filter...</div>}>
+      <Suspense fallback={<BlogFilterSkeleton />}>
         <BlogFilter />
       </Suspense>
 
-      <Suspense fallback={<div>Loading blogs...</div>}>
+      <Suspense fallback={<BlogCardComboSkeleton />}>
         <BlogCardCombo />
       </Suspense>
     </>
