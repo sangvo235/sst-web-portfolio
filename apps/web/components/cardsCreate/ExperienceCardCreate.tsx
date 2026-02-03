@@ -28,7 +28,7 @@ import {
 export default function ExperienceCardCreate() {
   const { imageKey, isUploading, error, uploadFile } =
     useS3UploadHandler("experience");
-  const [imageFile, setImageFile] = useState<File | null>(null);
+  const [, setImageFile] = useState<File | null>(null);
 
   const router = useRouter();
 

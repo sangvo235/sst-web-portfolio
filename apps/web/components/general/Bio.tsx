@@ -19,7 +19,7 @@ export function Bio() {
       </div>
 
       <div className="mt-6 font-semibold text-2xl md:text-4xl md:mt-4 md:w-4/5 lg:text-5xl">
-        <h1 className="md:pr-32">Hello, I'm Sang!</h1>
+        <h1 className="md:pr-32">{"Hello, I'm Sang!"}</h1>
 
         <div className="inline-flex my-6 text-xl md:text-2xl lg:text-3xl">
           I&#39;m a&nbsp;

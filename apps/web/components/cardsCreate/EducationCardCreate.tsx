@@ -22,7 +22,7 @@ import { DatePicker } from "@/components/general/DatePicker";
 export default function EducationCardCreate() {
   const { imageKey, isUploading, error, uploadFile } =
     useS3UploadHandler("education");
-  const [imageFile, setImageFile] = useState<File | null>(null);
+  const [, setImageFile] = useState<File | null>(null);
 
   const router = useRouter();
 

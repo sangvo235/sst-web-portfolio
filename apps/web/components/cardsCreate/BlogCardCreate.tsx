@@ -28,7 +28,7 @@ import {
 export default function BlogCardCreate() {
   const { imageKey, isUploading, error, uploadFile } =
     useS3UploadHandler("blogs");
-  const [imageFile, setImageFile] = useState<File | null>(null);
+  const [, setImageFile] = useState<File | null>(null);
 
   const router = useRouter();
 

@@ -29,7 +29,7 @@ import {
 export default function ProjectCardCreate() {
   const { imageKey, isUploading, error, uploadFile } =
     useS3UploadHandler("projects");
-  const [imageFile, setImageFile] = useState<File | null>(null);
+  const [, setImageFile] = useState<File | null>(null);
 
   const {
     keys: keysTechIcon,

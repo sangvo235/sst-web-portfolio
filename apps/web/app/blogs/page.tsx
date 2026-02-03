@@ -4,12 +4,10 @@ import { buttonVariants } from "@/components/ui/button";
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 import { BlogFilter } from "@/components/general/BlogFilter";
 import BlogCardCombo from "@/components/cardsCombination/BlogCardCombo";
+import BlogCardComboSkeleton from "@/components/skeleton/BlogCardComboSkeleton";
+import BlogFilterSkeleton from "@/components/skeleton/BlogFilterSkeleton";
 
-export default async function BlogsPage({
-  searchParams,
-}: {
-  searchParams: any;
-}) {
+export default async function BlogsPage() {
   const { getPermission } = getKindeServerSession();
   const requiredPermission = await getPermission("add:blog");
 
@@ -17,7 +15,7 @@ export default async function BlogsPage({
     <>
       <div className="flex items-center justify-between mb-4">
         <h1 className="text-3xl font-bold tracking-tight my-4">
-          Sang's Blog Posts
+          {"Sang's Blog Posts"}
         </h1>
 
         {requiredPermission?.isGranted && (
@@ -27,11 +25,11 @@ export default async function BlogsPage({
         )}
       </div>
 
-      <Suspense fallback={<div>Loading filter...</div>}>
+      <Suspense fallback={<BlogFilterSkeleton />}>
         <BlogFilter />
       </Suspense>
 
-      <Suspense fallback={<div>Loading blogs...</div>}>
+      <Suspense fallback={<BlogCardComboSkeleton />}>
         <BlogCardCombo />
       </Suspense>
     </>
