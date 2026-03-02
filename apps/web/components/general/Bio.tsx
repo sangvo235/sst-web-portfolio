@@ -27,9 +27,9 @@ export function Bio() {
             <Typewriter
               options={{
                 strings: [
-                  "Grad Software Engineer",
+                  "Software Engineer",
                   "Master of IT Graduate",
-                  "Coffee Addict ☕",
+                  "Coffee Lover ☕",
                   "Sci-fi Book Reader",
                   "Traveller",
                   "Gelato Connoisseur",
