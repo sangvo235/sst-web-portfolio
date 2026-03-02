@@ -28,6 +28,10 @@ const nextConfig = {
         protocol: "https",
         hostname: "**.googleusercontent.com",
       },
+      {
+        protocol: "https",
+        hostname: "sst-web-portfolio-sang-vo.vercel.app",
+      },
     ],
   },
 
